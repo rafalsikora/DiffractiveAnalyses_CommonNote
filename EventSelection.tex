@@ -1,0 +1,513 @@
+%%===========================================================%%
+%%                                                           %%
+%%                   TPC TRACK SELECTION                     %%
+%%                                                           %%
+%%===========================================================%%
+
+
+\newcommand{\itemm}{\item\hspace*{-5pt}.\hspace*{-1pt}~}
+
+\chapter{TPC track selection}\label{chap:tpcTrackSelection}
+
+Complete list of analysis cuts used for signal extraction is presented in Sec.~\ref{sec:listOfCuts}. Detailed description of each cut can be found in Sec.~\ref{sec:descriptionOfCuts}.
+
+\section[List of cuts]{List of cuts\footnote{Some cuts (e.g.~\ref{enum:CutTpcTrks}) are decomposed to constituent sub-cuts. Cut is formed by the logical AND of all its sub-cuts.}}\label{sec:listOfCuts}
+\begin{enumerate}[label=\textbf{C\arabic*},ref=C\arabic*]
+ \itemm Exactly 1 primary vertex with TPC track(s) matched with hits in TOF.\label{enum:CutPrimVx}
+ \itemm TPC vertex from~\ref{enum:CutPrimVx} is placed within $|z_{\textrm{vx}}|<100$~cm.\label{enum:CutZVx}
+ \itemm Exactly 2 opposite-sign primary TPC tracks~(\ref{enum:TpcOppoSign}) of good quality~(\ref{enum:TpcQualityCuts}) matched with hits in TOF~(\ref{enum:TpcTofMatched}), reconstructed within kinematic region of high TPC acceptance~(\ref{enum:TpcKinematicCuts}) and with small distance of closest approach (DCA) to the vertex~(\ref{enum:TpcDcaCuts}).\label{enum:CutTpcTrks}
+    \begin{enumerate}[label=\textbf{\theenumi.\arabic*},ref=\theenumi.\arabic*]
+      \itemm Exactly 2 TOF-matched (match flag $>0$) primary tracks and no addional primary tracks matched with BEMC clusters,\label{enum:TpcTofMatched}
+      \itemm Tracks are of opposite signs,\label{enum:TpcOppoSign}
+      \itemm Both tracks are contained within the kinematic range:\label{enum:TpcKinematicCuts}\\[2pt]
+      $|\eta|<1$,~~~~$p_{T}>0.2~\textrm{GeV}/c$,
+      \itemm Both tracks satisfy quality criteria:\label{enum:TpcQualityCuts}\\[2pt]
+      $N_{\textrm{hits}}^{\textrm{fit}}\geq25$,~~~~$N_{\textrm{hits}}^{\textrm{dE/dx}}\geq15$,~~~~$N_{\textrm{hits}}^{\textrm{fit}}/N_{\textrm{hits}}^{\textrm{poss}}\geq0.52$,~~~~$|d_{0}|<2$~cm,~~~~$|z_{0}|<200$~cm,
+      \itemm Both tracks match well to the primary vertex:\label{enum:TpcDcaCuts}\\[2pt]
+      $\textrm{DCA}(R)<1.5$~cm,~~~~$\textrm{DCA}(z)<1$~cm.
+    \end{enumerate}
+ \itemm Exactly 1 RP track on each side of STAR central detector~(\ref{enum:RpOneTrkPerSide}) of good quality~(\ref{enum:RpQualityCuts}), with local angles consistent with the IP being the track origin~(\ref{enum:RpLocalAngles}), lying within fiducial region of high geometrical acceptance~(\ref{enum:RpFiducial}).\label{enum:CutRpTrks}
+      \begin{enumerate}[label=\textbf{\theenumi.\arabic*},ref=\theenumi.\arabic*]
+      \itemm RP tracks contain only track-points with at least 3 (out of 4) planes used in reconstrucion,\label{enum:RpQualityCuts}
+      \itemm Local angles $[\textrm{mrad}]$ lie within $-1.2<\theta_{x}^{\textrm{RP}}<5.0$ and $1.5<|\theta_{y}^{\textrm{RP}}|<4.5$,\label{enum:RpLocalAngles}
+      \itemm Exactly 1 track passing cuts \ref{enum:RpQualityCuts}-\ref{enum:RpLocalAngles} per side,\label{enum:RpOneTrkPerSide}
+      \itemm Tracks passing cut~\ref{enum:RpOneTrkPerSide} lie within the $(p_{x},p_{y})$ region defined as\label{enum:RpFiducial}:~~~~~~$|p_{y}|>0.2~\textrm{GeV}/c$,\\[4pt]
+      $(p_{x}/(\textrm{GeV}/c)+0.3)^{2}+(p_{y}/(\textrm{GeV}/c))^{2}<0.46^{2}$,~~~~~~~$(p_{x}/(\textrm{GeV}/c)-0.15)^{2}+(p_{y}/(\textrm{GeV}/c))^{2}<0.42^{2}$.
+    \end{enumerate}
+ \itemm Vertex $z$-positions measured in TPC and reconstructed from the difference of proton detection time in west and east RPs are consistent with each other within the resolution: $|z_{\textrm{vx}}^{\textrm{TPC}}-z_{\textrm{vx}}^{\textrm{RP}}|<36$~cm.\label{enum:CutDeltaZVx}
+ \itemm No signal in any tile of BBC-large (east or west) with $\textrm{ADC}>40$ and $100<\textrm{TDC}<2400$.\label{enum:CutBbcLarge}
+ \itemm Maximally 2 reconstructed TOF clusters $N^{\textrm{TOF}}_{\textrm{clstrs}}\leq 2$.\label{enum:CutTofClusters}
+ \itemm Missing (total) momentum of TPC tracks and RP tracks $p_{T}^{\textrm{miss}}<75~\textrm{MeV}/c$.\label{enum:CutMissingPt}
+ \itemm Particle (pair) identification:\label{enum:CutPid}\\
+ \textbf{~~if~~} $n\sigma_{\textrm{pion}}^{\textrm{pair}}>3$ \textbf{~~\&~~} $n\sigma_{\textrm{kaon}}^{\textrm{pair}}>3$ \textbf{~~\&~~} $n\sigma_{\textrm{proton}}^{\textrm{pair}}<3$ \textbf{~~\&~~} $m^{2}_{\textrm{TOF}}>0.6~\textrm{GeV}/c^{2}~~\rightarrow~~pp$\\%
+\textbf{elif~~} $n\sigma_{\textrm{pion}}^{\textrm{pair}}>3$ \textbf{~~\&~~} $n\sigma_{\textrm{kaon}}^{\textrm{pair}}<3$ \textbf{~~\&~~} $n\sigma_{\textrm{proton}}^{\textrm{pair}}>3$ \textbf{~~\&~~} $m^{2}_{\textrm{TOF}}>0.15~\textrm{GeV}/c^{2}~~\rightarrow~~KK$\\%
+\textbf{elif~~} $|n\sigma_{\textrm{pion}}^{\textrm{trk1}}|<3$ \textbf{~~\&~~} $|n\sigma_{\textrm{pion}}^{\textrm{trk2}}|<3~~\rightarrow~~\pi\pi$\\%
+\textbf{else~~} event rejected.
+\end{enumerate}
+
+\section{Description of cuts}\label{sec:descriptionOfCuts}
+\subsection{(\ref{enum:CutPrimVx},\ref{enum:CutZVx})~Primary vertex and its \texorpdfstring{$z$}{z}-position}
+As it was designed in the trigger logic, we aim to perform CEP analysis in a clean, pile-up-free environment, therefore we cut on primary vertex multiplicty~(Fig.~\ref{fig:NumberOfPrimaryVertices}) to reject events with more than one interaction per bunch crossing. We require exactly one primary vertex containing TPC tracks matched with hits in TOF (matching of the track with hit in TOF is identified with the TOF match flag being different from 0). Later in the text we refer to such events as a single ``TOF vertex`` events.
+
+%---------------------------
+\begin{figure}[ht!]%
+\centering%
+\begin{minipage}{.4725\textwidth}%
+  \centering%
+  \includegraphics[width=\linewidth]{graphics/eventSelection/NumberOfPrimaryVertices.pdf}%
+  \caption{Primary vertex multiplicty. Red arrow marks bin with events with exactly one primary vertex (with track(s) matched with hit in TOF), which are used in physics analysis.\newline}\label{fig:NumberOfPrimaryVertices}
+\end{minipage}%
+\quad\quad%
+\begin{minipage}{.4725\textwidth}%
+  \centering
+  \includegraphics[width=\linewidth]{graphics/eventSelection/zVertex_oneTof.pdf}\newline\newline\newline%
+  \caption{\texorpdfstring{$z$}{z}-position of the primary vertex in single TOF vertex events. Red dashed line indicate range of longitudinal vertex position accepted in analysis.}\label{fig:zVertexTpc}
+\end{minipage}%
+\end{figure}%
+%---------------------------
+
+
+The single TOF vertex is required to be placed within a range $(-100~\textrm{cm},~100~\textrm{cm})$ along the $z$-axis~(Fig.~\ref{fig:zVertexTpc}). Events with vertices away from the nominal IP have low acceptance both for the central tracks and the forward protons (comparing to events with vertices close to nominal IP), therefore we reject them as their inclusion to analysis would naturally introduce large systematic uncertainties.
+
+\subsection{(\ref{enum:CutTpcTrks})~TPC tracks}
+
+The TPC track selection starts from the selection of events with exactly two primary tracks matched with hit in TOF~(Fig.~\ref{fig:NumberOfTofTracksInSingleTofVertex}). Matching with TOF guarantee that analyzed tracks originate from the triggered bunch crossing (ensures that tracks are ''in-time``). It is in accordance with the trigger logic which required at least 2 L0 TOF hits, as well as it enables more accurate particle identification with merged time-of-flight and $dE/dx$ method, comparing to sole usage of $dE/dx$. Primary tracks not matched with hit in TOF, whose average multiplicty in single TOF vertex is $\sim$8, are hardly distinguished between real and fake (off-time) tracks, which is an additional reason for not analyzing events with only one TOF-matched primary TPC track (the other track might be unmatched due to TOF inefficiency).
+
+%---------------------------
+\begin{figure}[hb!]%
+\centering%
+\begin{minipage}{.4725\textwidth}%
+  \centering%
+  \includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/NumberOfTofTracksInSingleTofVertex.pdf}%
+  \caption[Multiplicty of primary TPC tracks matched with hit in TOF for single TOF vertex events]{Multiplicty of primary TPC tracks matched with hit in TOF for single TOF vertex events. Red arrow marks bin with events with exactly two primary tracks matched with hit in TOF, which are used in physics analysis.\newline}\label{fig:NumberOfTofTracksInSingleTofVertex}
+\end{minipage}%
+\quad\quad%
+\begin{minipage}{.4725\textwidth}%
+  \centering
+  \includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/Rmin.pdf}%
+  \caption[Distribution of a distance in $\eta-\phi$ space between the BEMC cluster closest to primary TPC track ($R_{\textrm{min}}$)]{Distribution of a distance in $\eta-\phi$ space between the BEMC cluster closest to primary TPC track matched (filled circle) or not matched (opened circle) with hit in TOF, for single TOF vertex events. Red dashed line indicate matching threshold $R^{\textrm{match}}_{\textrm{max}} = 0.05$.}\label{fig:Rmin} %which are expected to reack BEMC
+\end{minipage}%
+\end{figure}%
+%---------------------------
+
+Primary TPC tracks from the single TOF vertex which are matched with TOF are allowed to be also matched with BEMC clusters. Matching with BEMC cluster is claimed if the distance in $\eta-\phi$ space between the BEMC cluster position $(\eta_{\textrm{clus}},~\phi_{\textrm{clus}})$ and projected position of the track in BEMC $(\eta_{\textrm{proj}},~\phi_{\textrm{proj}})$, defined as
+\begin{equation}
+ R=\sqrt{(\eta_{\textrm{clus}}-\eta_{\textrm{proj}})^{2} + (\phi_{\textrm{clus}}-\phi_{\textrm{proj}})^{2}},
+\end{equation}
+is less than $R^{\textrm{match}}_{\textrm{max}} = 0.05$. Distribution of the distance between the primary TPC track and the closest BEMC cluster is shown in~Fig.~\ref{fig:Rmin}.
+
+However, if there are any primary TPC tracks matched with BEMC cluster and not matched with TOF in the single TOF vertex with two TOF-matched tracks, an event is rejected. Such configuration implies higher-than-2 multiplicty of the real tracks in the vertex, hence an event is unlikely a Central Exclusive Production of two particles.
+
+
+
+%---------------------------
+\begin{figure}[hb]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:NHitsFit}}{\includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/NHitsFit.pdf}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
+                \subcaptionbox{\label{fig:NHitsFit_to_NHitsPos}}{\includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/NHitsFit_to_NHitsPos.pdf}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}
+                \subcaptionbox{\label{fig:NHits_dEdx}}{\includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/NHits_dEdx.pdf}}
+  \end{subfigure}\\
+  \begin{minipage}[t][1.042\linewidth][t]{\linewidth}\vspace{10pt}
+    \caption[Comparison of distribution of $N_{\textrm{hits}}^{\textrm{fit}}$,~$N_{\textrm{hits}}^{\textrm{dE/dx}}$ and $N_{\textrm{hits}}^{\textrm{fit}}/N_{\textrm{hits}}^{\textrm{poss}}$ in the data and embedded MC]
+    {Comparison of distribution of the number of hits used in TPC track reconstrucion $N_{\textrm{hits}}^{\textrm{fit}}$ (\ref{fig:NHitsFit}), number of hits used in specific energy loss reconstrucion $N_{\textrm{hits}}^{\textrm{dE/dx}}$ (\ref{fig:NHits_dEdx}) and fraction of number of hits potentially generated by the track and finally used in the reconstrucion $N_{\textrm{hits}}^{\textrm{fit}}/N_{\textrm{hits}}^{\textrm{poss}}$ (\ref{fig:NHitsFit_to_NHitsPos}) in the data and embedded MC. Normalizations of the signal and backgrounds were established from the comparison of $p_{T}^{\textrm{miss}}$ and $\Delta\theta$ distributions after full selection (without cut on the presented quantity and without exclusivity cut), as described in Sec.~\ref{sec:bkgdSignalNorm}. Red dashed line and red arrow indicate the range of each quantity which is accepted in analysis.}\label{fig:NHits}
+  \end{minipage}
+}%
+
+\end{figure}
+%---------------------------
+
+
+
+
+
+
+
+%---------------------------
+\begin{figure}[ht!]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:d0}}{\includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/d0.pdf}}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{%
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:z0}}{\includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/z0.pdf}}}
+  \end{subfigure}
+}%
+\caption[Comparison of distribution of $d_{0}$ and $z_{0}$ in the data and embedded MC]
+{Comparison of distribution of the transverse impact parameter $d_{0}$ (\ref{fig:d0}) and the longitudinal impact parameter $z_{0}$ (\ref{fig:z0}) in the data and embedded MC. Normalizations of the signal and backgrounds were established from the comparison of $p_{T}^{\textrm{miss}}$ and $\Delta\theta$ distributions after full selection (without cut on the presented quantity and without exclusivity cut), as described in Sec.~\ref{sec:bkgdSignalNorm}. Red dashed lines and red arrows indicate the range of each quantity which is accepted in analysis.}\label{fig:d0z0}
+\end{figure}
+%---------------------------
+
+
+
+
+
+
+%---------------------------
+\begin{figure}[ht!]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:RadialDca}}{\includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/RadialDCA.pdf}}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{%
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:LongitudinalDca}}{\includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/LongitudinalDCA.pdf}}}
+  \end{subfigure}
+}%
+\caption[Comparison of distribution of $\textrm{DCA}(R)$ and $\textrm{DCA}(z)$ in the data and embedded MC]
+{Comparison of distribution of the distance of closest approach of the track to the vertex in the $xy$-plane $\textrm{DCA}(R)$ (\ref{fig:RadialDca}) and the the distance of closest approach of the track to the vertex along the $z$-axis $\textrm{DCA}(z)$ (\ref{fig:LongitudinalDca}) in the data and embedded MC. Normalizations of the signal and backgrounds were established from the comparison of $p_{T}^{\textrm{miss}}$ and $\Delta\theta$ distributions after full selection (without cut on the presented quantity and without exclusivity cut), as described in Sec.~\ref{sec:bkgdSignalNorm}. Red dashed lines and red arrows indicate the range of each quantity which is accepted in analysis.}\label{fig:DCA}
+\end{figure}
+%---------------------------
+
+
+
+%---------------------------
+\begin{figure}[ht!]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:TrackEta}}{\includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/TrackEta.pdf}}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{%
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:TrackPhi}}{\includegraphics[width=\linewidth]{graphics/eventSelection/TpcTracks/TrackPhi.pdf}}}
+  \end{subfigure}
+}%
+\caption[Comparison of distribution of track $\eta$ and $\phi$ in the data and embedded MC]
+{Comparison of the track pseudorapidity $\eta$ (\ref{fig:TrackEta}) and the track azimuthal angle $\phi$ (\ref{fig:TrackPhi}) in the data and embedded MC. Normalizations of the signal and backgrounds were established from the comparison of $p_{T}^{\textrm{miss}}$ and $\Delta\theta$ distributions after full selection (without cut on the presented quantity and without exclusivity cut), as described in Sec.~\ref{sec:bkgdSignalNorm}. Red dashed lines and red arrows indicate the range of each quantity which is accepted in analysis.}\label{fig:TrackEtaPhi}
+\end{figure}
+%---------------------------
+
+
+
+
+\subsection{(\ref{enum:CutRpTrks})~RP tracks}
+
+%---------------------------
+\begin{figure}[ht!]
+\centering
+\parbox{0.315\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:LocalAngles_2D}}{\includegraphics[width=\linewidth,page=1]{graphics/eventSelection/LocalAngles.pdf}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.315\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:LocalAngles_1D_x}}{\includegraphics[width=\linewidth,page=2]{graphics/eventSelection/LocalAngles.pdf}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.315\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:LocalAngles_1D_y}}{\includegraphics[width=\linewidth,page=3]{graphics/eventSelection/LocalAngles.pdf}}}
+  \end{subfigure}
+}%
+\caption{Local angles of global tracks in Roman Pots.}
+\end{figure}
+%---------------------------
+
+
+
+\subsection{(\ref{enum:CutDeltaZVx})~TPC-RP \texorpdfstring{$z$}{z}-vertex matching}
+
+
+%---------------------------
+\begin{figure}[ht!]
+\centering
+\parbox{0.4\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:zVertexRpVsTpc}}{\includegraphics[width=\linewidth]{graphics/eventSelection/zVertexRpVsTpc.pdf}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.545\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:zVertexRpMinusZVertexTpc}}{\includegraphics[width=\linewidth]{graphics/eventSelection/zVertexRpMinusZVertexTpc.pdf}}}
+  \end{subfigure}
+}%
+\caption[Correlation and difference of $z$-vertex position measured in Roman Pots and TPC.]{Correlation (Fig.~\ref{fig:zVertexRpVsTpc}) and difference (Fig.~\ref{fig:zVertexRpMinusZVertexTpc}) of $z$-vertex position measured in Roman Pots and TPC.}
+\end{figure}
+%---------------------------
+
+
+%---------------------------
+\begin{figure}[ht!]
+% \begin{wrapfigure}{l}{0.475\textwidth}%[ht!]
+\centering%
+\includegraphics[width=0.475\linewidth,page=1]{graphics/eventSelection/DeltaZVx.pdf}%
+% % \includegraphics[width=\linewidth,page=1]{graphics/eventSelection/DeltaZVx.pdf}%
+\caption{Delta z-vx.}\label{fig:DeltaZVx}%
+\end{figure}
+% \end{wrapfigure}
+%---------------------------
+
+\subsection{(\ref{enum:CutBbcLarge})~BBC-large signal veto}
+
+%---------------------------
+\begin{figure}[ht!]
+% \begin{wrapfigure}{l}{0.475\textwidth}%[ht!]
+\centering%
+\includegraphics[width=0.475\linewidth,page=1]{graphics/eventSelection/MaxAdcBbcLarge.pdf}%
+% % \includegraphics[width=\linewidth,page=1]{graphics/eventSelection/MaxAdcBbcLarge.pdf}%
+\caption{MaxAdcBbcLarge.}\label{fig:MaxAdcBbcLarge}%
+\end{figure}
+% \end{wrapfigure}
+%---------------------------
+
+
+\subsection{(\ref{enum:CutTofClusters})~TOF clusters limit}
+
+%---------------------------
+\begin{figure}[ht!]
+% \begin{wrapfigure}{l}{0.475\textwidth}%[ht!]
+\centering%
+\includegraphics[width=0.475\linewidth,page=1]{graphics/eventSelection/NTofClusters.pdf}%
+% % \includegraphics[width=\linewidth,page=1]{graphics/eventSelection/NTofClusters.pdf}%
+\caption{NTofClusters.}\label{fig:NTofClusters}%
+\end{figure}
+% \end{wrapfigure}
+%---------------------------
+
+\subsection{(\ref{enum:CutMissingPt})~Exclusivity cut (missing \texorpdfstring{$p_{T}$}{pT} cut)}
+
+
+%---------------------------
+\begin{figure}[ht!]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:PxCentralTrksVsProtons_pion}}{\includegraphics[width=\linewidth]{graphics/eventSelection/PxCentralTrksVsProtons_pion.pdf}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:PyCentralTrksVsProtons_pion}}{\includegraphics[width=\linewidth]{graphics/eventSelection/PyCentralTrksVsProtons_pion.pdf}}}
+  \end{subfigure}
+}%
+\caption{Correlation between sum of corresponding momentum components ($x$ in Fig.~\ref{fig:PxCentralTrksVsProtons_pion} and $y$ in Fig.~\ref{fig:PyCentralTrksVsProtons_pion}) of Roman Pot proton tracks and TPC tracks.}
+\end{figure}
+Tutaj dodac rysunki z suma 1D tych wielkosci i uzasadnic stosowanie ciecia na missing pT takimi samymi rozdzielczosciami w x i y
+%---------------------------
+
+
+%---------------------------
+\begin{figure}[ht!]
+% \begin{wrapfigure}{l}{0.475\textwidth}%[ht!]
+\centering%
+\includegraphics[width=0.633\linewidth,page=1]{graphics/eventSelection/MissingPt.pdf}%
+% % \includegraphics[width=\linewidth,page=1]{graphics/eventSelection/MissingPt.pdf}%
+\caption{MissingPt.}\label{fig:MissingPt}%
+\end{figure}
+% \end{wrapfigure}
+%---------------------------
+
+
+\subsection{(\ref{enum:CutPid})~Particle identification}
+
+In addition to information from the TPC we use time of hit detection in the barrel TOF subsystem. From the simple algebra describing relation between track lengths, momenta and times of hit detection one can derive formula for the squared mass of two particles, assuming that their masses are equal (particles are of the same type):
+
+%---------------------------
+\begin{figure}[ht!]
+\centering%
+\parbox{0.29\textwidth}{%
+  \centering%
+  \includegraphics[width=\linewidth]{graphics/eventSelection/TofScheme.pdf}\label{fig:tofScheme}
+}%
+\quad\quad%
+\parbox{0.655\textwidth}{%
+    \caption[Scheme of two central tracks with common vertex, hitting cells in TOF detector.]{Scheme of two central tracks of lengths $L_{1}$ and $L_{2}$, produced in common vertex in moment $t_{0}$, hitting cells in TOF detector in moments $t_{1}$ and $t_{2}$.}
+}%
+
+\end{figure}
+%---------------------------
+
+\begin{equation}
+ \left\{\begin{array}{l}%
+ t_{1}-t_{0} = L_{1}\sqrt{1+\frac{m_{1}^{2}}{p_{1}^{2}}}, \\[3pt]
+ t_{2}-t_{0} = L_{2}\sqrt{1+\frac{m_{2}^{2}}{p_{2}^{2}}},
+\end{array}\right.%
+\end{equation}
+
+\begin{equation}
+ \Delta t = t_{1}-t_{2} = L_{1}\sqrt{1+\frac{m_{1}^{2}}{p_{1}^{2}}} - L_{2}\sqrt{1+\frac{m_{2}^{2}}{p_{2}^{2}}}.
+\end{equation}
+
+\[\textrm{Assuming}~m_{1}=m_{2}=m~~\rightarrow~~m^{2}~\textrm{from quadratic eq.}\]
+Parameters of the quadratic equation whose solution is suqared mass and the final formula for $m^{2}_{\text{TOF}}$ are given below:
+\begin{equation}
+\mathcal{A}= -2\frac{L^2_1L^2_2}{p^2_1p^2_2}+\frac{L^4_1}{p^4_1}+\frac{L^4_2}{p^4_2},
+\end{equation}
+\begin{equation}
+\mathcal{B}=-2L^2_1L^2_2\left({\frac{1}{p^2_1}} + {\frac{1}{p^2_2}}\right)+\frac{2L^4_1}{p_1^2}+\frac{2L^4_2}{p_2^2}-2\left(\Delta t\right)^2\left(\frac{L^2_1}{p_1^2}+\frac{L^2_2}{p_2^2}\right),
+\end{equation}
+\begin{equation}
+\mathcal{C}=\left(\Delta t\right)^4-2\left(\Delta t\right)^2\left(L^2_1+L^2_2\right)+L^4_1+L^4_2-2L^2_1L^2_2,
+\end{equation}
+\begin{equation}
+ \label{eq:mSquared}
+m^{2}_{\textrm{\tiny TOF}} = \frac{-\mathcal{B}+\sqrt{\mathcal{B}^2-4\mathcal{A}\mathcal{C}}}{2\mathcal{A}}.
+\end{equation}
+
+
+
+
+
+
+%---------------------------
+\begin{figure}[ht!]
+\centering
+\parbox{0.315\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:SqRootNSigmaPionVsKaon}}{\includegraphics[width=\linewidth]{graphics/eventSelection/SqRootNSigmaPionVsKaon.pdf}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.315\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:SqRootNSigmaPionVsProton}}{\includegraphics[width=\linewidth]{graphics/eventSelection/SqRootNSigmaPionVsProton.pdf}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.315\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:SqRootNSigmaKaonVsProton}}{\includegraphics[width=\linewidth]{graphics/eventSelection/SqRootNSigmaKaonVsProton.pdf}}}
+  \end{subfigure}
+}%
+\caption{Correlation between $n\sigma^{\textrm{pair}}$ from TPC for $\pi^{+}\pi^{-}$, $K^{+}K^{-}$ and $p\bar{p}$.}
+\end{figure}
+%---------------------------
+
+
+%---------------------------
+\begin{figure}[ht!]
+\centering
+\parbox{0.315\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:SqMassTofVsSqRootNSigma_pion}}{\includegraphics[width=\linewidth]{graphics/eventSelection/SqMassTofVsSqRootNSigma_pion.pdf}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.315\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:SqMassTofVsSqRootNSigma_kaon}}{\includegraphics[width=\linewidth]{graphics/eventSelection/SqMassTofVsSqRootNSigma_kaon.pdf}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.315\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:SqMassTofVsSqRootNSigma_proton}}{\includegraphics[width=\linewidth]{graphics/eventSelection/SqMassTofVsSqRootNSigma_proton.pdf}}}
+  \end{subfigure}
+}%
+\caption{Correlation between $m^{2}$ from TOF and $n\sigma^{\textrm{pair}}$ from TPC for $\pi^{+}\pi^{-}$, $K^{+}K^{-}$ and $p\bar{p}$.}
+\end{figure}
+%---------------------------
+
+
+
+
+
+
+
+%---------------------------
+\begin{figure}[ht!]
+\centering%
+\includegraphics[width=0.65\linewidth,page=1]{graphics/eventSelection/sqMassFromTof.pdf}%
+\caption{Squared particle mass from TOF for candidates of given PID selected based on $dE/dx$ in TPC.}\label{fig:sqMassFromTof}%
+\end{figure}
+%---------------------------
+
+
+
+\section{Working point for cuts~\ref{enum:CutBbcLarge}, \ref{enum:CutTofClusters} and \ref{enum:CutMissingPt}}
+
+\begin{tabulary}{\textwidth}{LLL}
+\begin{equation}\label{eq:significance}\hspace*{-10pt}
+	\textrm{Significance} = \frac{N_{\textrm{signal}}^{\textrm{cut}}}{\sqrt{N_{\textrm{signal}}^{\textrm{cut}} + N_{\textrm{bkgd}}^{\textrm{cut}}}},
+\end{equation}~~~~~~~~~~~~~~~~~&
+\begin{equation}\label{eq:efficiency}\hspace*{-10pt}
+	\textrm{Efficiency} = \frac{N_{\textrm{signal}}^{\textrm{cut}}}{N_{\textrm{signal}}^{\textrm{no~cut}}},
+\end{equation}~~~~~~~~~~~~~~&
+\begin{equation}\label{eq:purity}\hspace*{-9pt}
+	\textrm{Purity} = \frac{N_{\textrm{signal}}^{\textrm{cut}}}{N_{\textrm{signal}}^{\textrm{cut}}+N_{\textrm{bkgd}}^{\textrm{cut}}},
+\end{equation}~~~~~~~~~~~~~~~
+\end{tabulary}
+
+
+%---------------------------
+\begin{figure}[hb]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:SignificanceVsEff}}{\includegraphics[width=\linewidth]{graphics/eventSelection/SignificanceVsEfficiency_pTmiss.pdf}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
+                \subcaptionbox{\label{fig:EffVsBkgdFrac}}{\includegraphics[width=\linewidth]{graphics/eventSelection/ROC_pTmiss.pdf}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}
+                \subcaptionbox{\label{fig:SignificanceVsBkgdFrac}}{\includegraphics[width=\linewidth]{graphics/eventSelection/BkgdFractionVsEfficiency_pTmiss.pdf}}
+  \end{subfigure}\\
+  \begin{minipage}[t][1.042\linewidth][t]{\linewidth}\vspace{10pt}
+    \caption[Relation between $\pi^{+}\pi^{-}$ significance, efficiency and purity vs. thresholds in cuts~\ref{enum:CutBbcLarge}, \ref{enum:CutTofClusters} and \ref{enum:CutMissingPt}]{Relation between $\pi^{+}\pi^{-}$ signal significance and efficiency (\ref{fig:SignificanceVsEff}), significance and purity (\ref{fig:SignificanceVsBkgdFrac}), and efficiency and purity (\ref{fig:EffVsBkgdFrac}) as a function of cut thresholds in BBC-large veto (\ref{enum:CutBbcLarge}), TOF cluster limit (\ref{enum:CutTofClusters}) and exclusivity cut (\ref{enum:CutMissingPt}). Lines show forementioned relations with changing $p_{T}^\textrm{miss}$ cut whose some specific values are indicated with different markers. Color denotes ADC threshold in BBC-large veto (black, red or green). Style of line (solid or dashed) denotes $N^{\textrm{TOF}}_{\textrm{clstrs}}$ limit. Working point considered optimal is marked with opened blue circle.}\label{fig:workingPoint}
+  \end{minipage}
+}%
+
+\end{figure}
+%---------------------------
+
+
+\section{Signal per integrated luminosity}
+
+\section{Cut flow}\label{sec:cutFlow}
+
+%---------------------------
+\begin{figure}[ht!]
+\centering%
+\includegraphics[width=0.85\linewidth,page=1]{graphics/eventSelection/CutFlow.pdf}%
+\caption{Cut flow.}\label{fig:CutFlow}%
+\end{figure}
+%---------------------------

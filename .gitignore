@@ -1,0 +1,10 @@
+*~
+AutoDict*
+*.backup
+*.aux
+*.blg
+*.lof
+*.log
+*.lot
+*.out
+*.toc

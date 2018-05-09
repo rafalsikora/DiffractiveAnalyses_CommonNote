@@ -1,0 +1,14 @@
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{1}
+
+\bibitem{AnalysisNoteRafal}
+\url{https://github.com/rafalsikora/CEP-STAR-AnalysisNote/blob/master/CEP_AnalysisNote.pdf}.
+
+\bibitem{AnalysisNoteLukasz}
+\url{http://home.agh.edu.pl/~fulek/PID_AnalysisNote.pdf}.
+
+\bibitem{AlternativeToCrystallBall}
+S.~Das, ``{A simple alternative to the Crystal Ball function},''
+\href{http://arxiv.org/abs/1603.08591}{{\ttfamily arXiv:1603.08591 [hep-ex]}}.
+%%CITATION = ARXIV:1603.08591;%%.
+
+\end{thebibliography}\endgroup

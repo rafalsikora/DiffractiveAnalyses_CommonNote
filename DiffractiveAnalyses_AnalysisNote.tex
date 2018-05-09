@@ -1,0 +1,186 @@
+\documentclass[a4paper,10pt,notitlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{authblk}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tabulary}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{color}
+\usepackage{caption}
+\usepackage{subcaption}
+% \usepackage[pdfborder={0 0 0.6}]{hyperref}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{bm}
+\usepackage{wrapfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% making figures in the subsection where placed (according to https://tex.stackexchange.com/questions/279/how-do-i-ensure-that-figures-appear-in-the-section-theyre-associated-with/235312#235312 )
+\usepackage{placeins}
+
+\let\Oldsection\section
+\renewcommand{\section}{\FloatBarrier\Oldsection}
+
+\let\Oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\Oldsubsection}
+
+\let\Oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\pdfinfo{%
+  /Title    ()
+  /Author   (Leszek Adamczyk, Łukasz Fulek, Rafał Sikora)
+}
+
+
+%colors
+\definecolor{gray}{rgb}{0.5, 0.5, 0.5}
+
+%additional symbols
+\newcommand{\Pom}{\texorpdfstring{I$\!$P}{P}}             % gives pomeron symbol
+\newcommand{\Reg}{\texorpdfstring{I$\!$R}{R}}               % gives pomeron symbol
+\newcommand{\DPE}{D\Pom E}
+\newcommand{\Pomeron}{\Pom omeron}
+\newcommand{\Reggeon}{\Reg eggeon}
+
+% ---- ---- additional commands ---- ----
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\makeatletter
+\def\tagform@#1{\maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}}
+\renewcommand{\eqref}[1]{\textup{{\normalfont(\ref{#1}}\normalfont)}}
+\makeatother
+  
+\makeatletter
+\newcommand{\Spvek}[2][l]{%
+  \gdef\@VORNE{1}
+  \left[\hskip-\arraycolsep%
+    \begin{array}{#1}\vekSp@lten{#2}\end{array}%
+  \hskip-\arraycolsep\right]}
+\def\vekSp@lten#1{\xvekSp@lten#1;vekL@stLine;}
+\def\vekL@stLine{vekL@stLine}
+\def\xvekSp@lten#1;{\def\temp{#1}%
+  \ifx\temp\vekL@stLine
+  \else
+    \ifnum\@VORNE=1\gdef\@VORNE{0}
+    \else\@arraycr\fi%
+    #1%
+    \expandafter\xvekSp@lten
+  \fi}
+\makeatother
+% ---- ---- ---- ---- ---- ---- ---- ----
+
+%chapter heading
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+ \vspace*{-18\p@}%
+  {\parindent \z@ \raggedright
+%     \LARGE \bfseries \thechapter. #1\par\nobreak
+%     \vskip 40\p@
+      \Huge \bfseries \thechapter. #1\par\nobreak
+      \vskip 20\p@
+  }}
+\makeatother
+
+
+% Title Page
+\title{\textbf{Supplementary note on diffractive analyses\\of 2015 proton-proton data:\\[20pt]\large{\cite{AnalysisNoteRafal}~Measurement of Central Exclusive Production of $\bm{h\bar{h}}$ pairs ($\bm{h=\pi,K,p}$) with Roman Pot detectors in diffractive\\proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\[10pt]\cite{AnalysisNoteLukasz}~Measurement of particle production with Roman Pot detectors\\in diffractive proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\}}\vspace*{10pt}}
+\author[1]{\href{mailto:leszek.adamczyk@agh.edu.pl}{Leszek Adamczyk}}
+\author[1]{\href{mailto:lukasz.fulek@fis.agh.edu.pl}{Łukasz Fulek}}
+\author[1]{\href{mailto:rafal.sikora@fis.agh.edu.pl}{Rafał Sikora}}
+\affil[1]{AGH University of Science and Technology, FPACS, Kraków, Poland}
+
+
+\setcounter{Maxaffil}{0}
+\renewcommand\Affilfont{\itshape\small}
+\renewcommand{\bibname}{References}
+
+\begin{document}
+
+\begin{center}
+\begin{minipage}[c]{0.12\linewidth}%
+\vspace{5.5pt}\textbf{\LARGE{of the}}
+\end{minipage}
+\begin{minipage}[c]{0.15\linewidth}%
+\hspace*{-8pt}\includegraphics[width=\linewidth]{graphics/STAR_logo.pdf}
+\end{minipage}~
+\begin{minipage}[c]{0.24\linewidth}%
+\vspace{9pt}\hspace*{-8pt}\textbf{\LARGE{Experiment}}
+\end{minipage}\\[-50pt]
+\textbf{\LARGE{Analysis Note}}
+
+\vspace*{125pt}
+\begin{minipage}{\linewidth}
+\maketitle
+\begin{abstract}
+In this note we present supplementary material related to analyses of diffractive processes based on 2015 data from proton-proton collisions at $\sqrt{s}=200$~GeV. This dataset was collected with newly installed Roman Pot detectors in Phase II* configuration which ensured efficient triggering and measuring diffractively scattered protons.\\\indent We focus on calculation of efficiencies, corrections to Monte Carlo simulations and derivation of systematic uncertainties of our measurements.
+\end{abstract}
+\thispagestyle{empty}
+\end{minipage}
+
+% \vspace{50pt}
+
+%  \Huge{\textbf{\textit{DRAFT}}}
+\end{center}
+
+
+\clearpage
+\thispagestyle{empty}
+\newgeometry{hmargin={2cm, 2cm}, height=10.0in}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{4}
+\tableofcontents
+
+% %% =====  INTRODUCTION ====
+% \input{Introduction.tex}
+% 
+% %% =====  DATASET ====
+% \input{Dataset.tex}
+% 
+% %% =====  EVENT SELECTION ====
+% \input{EventSelection.tex}
+% 
+%% =====  EFFICIENCIES ====
+\input{Efficiencies.tex}
+
+%% =====  ROMAN POT SIMULATION ====
+\input{RomanPotSimulation.tex}
+
+%% =====  DE/DX CORRECTION ====
+\input{dEdxCorrection.tex}
+% 
+% %% =====  BACKGROUNDS ====
+\input{DeadMaterial.tex}
+% 
+% %% =====  SYSTEMATIC ERRORS ====
+\input{SystematicErrors.tex}
+
+
+
+
+
+% %% ===== DODATKI ===== ------------
+% \begin{appendices}
+% \input{Appendix_RunList.tex}
+% \end{appendices}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\begingroup
+\let\clearpage\relax
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+\endgroup
+
+\bibliography{references.bib}{}
+\bibliographystyle{utphys}
+\addcontentsline{toc}{chapter}{References}
+
+\end{document}          
