@@ -19,6 +19,7 @@
 \usepackage{makecell}
 \usepackage{bm}
 \usepackage{wrapfig}
+\usepackage[titletoc]{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% making figures in the subsection where placed (according to https://tex.stackexchange.com/questions/279/how-do-i-ensure-that-figures-appear-in-the-section-theyre-associated-with/235312#235312 )
 \usepackage{placeins}
@@ -164,9 +165,24 @@ In this note we present supplementary material related to analyses of diffractiv
 
 
 % %% ===== DODATKI ===== ------------
-% \begin{appendices}
-% \input{Appendix_RunList.tex}
-% \end{appendices}
+\begin{appendices}
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+ \vspace*{-18\p@}%
+  {\parindent \z@ \raggedright
+%     \LARGE \bfseries \thechapter. #1\par\nobreak
+%     \vskip 40\p@
+      \Huge \bfseries Appendix \thechapter\newline #1\par\nobreak
+      \vskip 20\p@
+  }}
+\makeatother
+
+% %% =====  ENERGY LOSS CORRECTION ====
+\input{EnergyLossCorrectionAppendix.tex}
+% %% =====  DEAD MATERIAL CORRECTION ====
+\input{DeadMaterialCorrectionAppendix.tex}
+%\input{Appendix_RunList.tex}
+\end{appendices}
 
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
