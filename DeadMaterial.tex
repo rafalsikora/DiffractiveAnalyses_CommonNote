@@ -1,6 +1,6 @@
 %%===========================================================%%
 %%                                                           %%
-%%              DEAD MATERIAL IN FORNT OF TPC                %%
+%%              DEAD MATERIAL IN FRONT OF TPC                %%
 %%                                                           %%
 %%===========================================================%%
 
@@ -8,3 +8,94 @@
 \newcommand{\itemm}{\item\hspace*{-5pt}.\hspace*{-1pt}~}
 
 \chapter{Dead material in front of TPC}\label{chap:deadMaterial}
+
+
+%---------------------------
+\begin{figure}[hb]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:SignificanceVsEff}}{\includegraphics[width=\linewidth]{graphics/deadMaterial/NTracksPrimary_SelectedEvents_EtaPtCut_DataVsMC.pdf}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
+                \subcaptionbox{\label{fig:EffVsBkgdFrac}}{\includegraphics[width=\linewidth]{graphics/deadMaterial/TrackEtaPrimary_SelectedEvents_DataVsMC.pdf}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}
+                \subcaptionbox{\label{fig:SignificanceVsBkgdFrac}}{\includegraphics[width=\linewidth]{graphics/deadMaterial/TrackPtPrimary_SelectedEvents_DataVsMC.pdf}}
+  \end{subfigure}\\
+  \begin{minipage}[t][1.042\linewidth][t]{\linewidth}\vspace{10pt}
+    \caption[...]{...}\label{fig:deadMatDataVsMC}
+  \end{minipage}
+}%
+
+\end{figure}
+%---------------------------
+
+
+
+
+
+
+
+
+
+
+%---------------------------
+\begin{figure}[hb]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:SignificanceVsEff2}}{\includegraphics[width=\linewidth,page=1]{graphics/deadMaterial/D0yVsD0xGlobalTofTrks_DataVsMC.pdf}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
+                \subcaptionbox{\label{fig:EffVsBkgdFrac2}}{\includegraphics[width=\linewidth]{graphics/deadMaterial/D0GlobalTofTrks_DataVsMC.pdf}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}
+                \subcaptionbox{\label{fig:SignificanceVsBkgdFrac2}}{\includegraphics[width=\linewidth,page=2]{graphics/deadMaterial/D0yVsD0xGlobalTofTrks_DataVsMC.pdf}}
+  \end{subfigure}\\
+  \begin{minipage}[t][1.042\linewidth][t]{\linewidth}\vspace{10pt}
+    \caption[...]{...}\label{fig:deadMatDataVsMC2}
+  \end{minipage}
+}%
+
+\end{figure}
+%---------------------------
+
+
+
+
+
+
+
+
+
+
+
+%---------------------------
+\begin{figure}[t!]%
+\centering%
+\begin{minipage}{.4725\textwidth}%
+  \centering%
+  \includegraphics[width=\linewidth]{graphics/deadMaterial/NTracksInVertex_DataVsMC.pdf}%
+  \caption[...]{...}\label{fig:nTrksInSecVx}
+\end{minipage}%
+\quad\quad%
+\begin{minipage}{.4725\textwidth}%
+  \centering
+  \includegraphics[width=\linewidth,page=2]{graphics/deadMaterial/VertexTrueOrNot_MC.pdf}%
+  \caption[...]{...}\label{fig:trueOrNotSecVx}
+\end{minipage}%
+\end{figure}%
+%---------------------------
+% dcaTwoGlobTrks
+% DcaOfTwoGlobalTofTrksWithLargeD0_DataVsMC
