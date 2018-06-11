@@ -7,9 +7,15 @@
 
 \chapter{\texorpdfstring{d$\bm{E}$/d$\bm{x}$}{dE/dx} correction}\label{chap:dEdxCorrection}
 
+Particle identification in our analyses is done using merged information from the TPC (specific energy loss of tracks $dE/dx$) and from the TOF (time of hit macthed to TPC track). As can be seen in Fig.~\ref{fig:dEdxDataVsMC}, $dE/dx$ information from the MC events simulated in STARsim (in red) poorely matches the data points (black). This results e.g. in large systematic error of estimate of particle identification efficiency.
+
+This problem was discussed under ticket \#3272~(Ref.~\cite{dedxTicket}). There were trials to improve the TPC calibration in simulation, but the problem remained. It was finally concluded that the origin of the problem lies in the model of energy loss used in the STARsim, therefore any further action was postponed. 
+
+In order to tune simulated reposponse of the TPC in terms of $dE/dx$, hence also reduce the systematic uncertainty related to particle identification, a correction method was developed based on proper transformation (recalculation) of simulated $dE/dx$ to obtain new $dE/dx$ whose distribution matches the data.
+
 It is possible to transform dE/dx in MC to make it follow the shape of dE/dx in the data. 
-We know that nSigmaX (where X=Pion, Kaon, Proton, ...) variable follows a gaussian distribution (for particle X)
- \[nSigmaX = \Big( \ln{\frac{dE/dx}{\langle dE/dx\rangle_{X}}} \Big) / \sigma_{dE/dx},~~~~~f(nSigmaX) = \mathcal{N}(nSigmaX; \mu=0,\sigma=1)\]
+We know that $n^{\sigma}_{X}$ (where $X=\pi, K, p$, ...) variable follows a gaussian distribution (for particle X)
+ \[n^{\sigma}_{X} = \Big( \ln{\frac{dE/dx}{\langle dE/dx\rangle_{X}}} \Big) / \sigma_{dE/dx},~~~~~f(n^{\sigma}_{X}) = \mathcal{N}(n^{\sigma}_{X}; \mu=0,\sigma=1)\]
 therefore $dE/dx$ itself follows log-normal distribution:
 \[f(dE/dx) = \mathcal{L}og\mathcal{N}(dE/dx; \mu=\langle dE/dx\rangle,\sigma=\sigma_{dE/dx}) = \frac{1}{\sqrt{2\pi}\cdot \sigma\cdot dE/dx}e^{-\frac{\ln^{2}{\frac{dE/dx}{\langle dE/dx\rangle}}}{2\sigma^{2}}}\]
 The transformation we want to apply should preserve the shape of $dE/dx$ (so that it is still described by $\mathcal{L}og\mathcal{N}$), however it should change $\mu$ and $\sigma$ so that these values are euqal to those seen in the data. The transformation that satisfies above postulate is
