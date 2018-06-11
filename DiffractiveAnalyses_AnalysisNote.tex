@@ -20,7 +20,8 @@
 \usepackage{bm}
 \usepackage{wrapfig}
 \usepackage{empheq}
-
+\usepackage[titletoc]{appendix}
+\usepackage{cleveref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% making figures in the subsection where placed (according to https://tex.stackexchange.com/questions/279/how-do-i-ensure-that-figures-appear-in-the-section-theyre-associated-with/235312#235312 )
 \usepackage{placeins}
 
@@ -90,6 +91,7 @@
   }}
 \makeatother
 
+\Crefname{figure}{Fig.}{Figs.}
 
 % Title Page
 \title{\textbf{Supplementary note on diffractive analyses\\of 2015 proton-proton data:\\[20pt]\large{\cite{AnalysisNoteRafal}~Measurement of Central Exclusive Production of $\bm{h\bar{h}}$ pairs ($\bm{h=\pi,K,p}$) with Roman Pot detectors in diffractive\\proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\[10pt]\cite{AnalysisNoteLukasz}~Measurement of particle production with Roman Pot detectors\\in diffractive proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\}}\vspace*{10pt}}
@@ -145,6 +147,9 @@ In this note we present supplementary material related to analyses of diffractiv
 %% =====  EFFICIENCIES ====
 \input{Efficiencies.tex}
 
+%% =====  EFFICIENCIES ====
+\input{EnergyLossCorrection.tex}
+
 %% =====  ROMAN POT SIMULATION ====
 \input{RomanPotSimulation.tex}
 
@@ -165,9 +170,24 @@ In this note we present supplementary material related to analyses of diffractiv
 
 
 % %% ===== DODATKI ===== ------------
-% \begin{appendices}
-% \input{Appendix_RunList.tex}
-% \end{appendices}
+\begin{appendices}
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+ \vspace*{-18\p@}%
+  {\parindent \z@ \raggedright
+%     \LARGE \bfseries \thechapter. #1\par\nobreak
+%     \vskip 40\p@
+      \Huge \bfseries Appendix \thechapter\newline #1\par\nobreak
+      \vskip 20\p@
+  }}
+\makeatother
+
+% %% =====  ENERGY LOSS CORRECTION ====
+\input{EnergyLossCorrectionAppendix.tex}
+% %% =====  DEAD MATERIAL CORRECTION ====
+\input{DeadMaterialCorrectionAppendix.tex}
+%\input{Appendix_RunList.tex}
+\end{appendices}
 
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
