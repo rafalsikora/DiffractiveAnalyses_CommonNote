@@ -107,12 +107,8 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 	}%
 \end{figure}
 \section{Dead material correction to TPC track reconstruction efficiency}\label{sec:deadMaterialSystematics}
-The amount of dead material in front of TPC is underestimated of about $40\%$ in the simulation. First, the~amount of lost particles, $\delta\epsilon_{ TPC}$, due to the interaction with dead material in front of TPC was estimated using  no-pile-up  MC samples. The results for $\pi^-$ in CD are shown in Fig. \ref{fig:dead_materialCD3D}. The correction to the TPC track reconstruction efficiency with the systematic uncertainty was introduced:
-\begin{enumerate}
-	\item The correction due to the underestimation of the dead material was assumed to be $-0.2\cdot\delta\epsilon_{ TPC}$.
-	\item The systematic uncertainty was symmetrized and equal to $\pm 0.2 \cdot\delta\epsilon_{ TPC}$.
-\end{enumerate}
-In Fig. \ref{fig:dead_materialCD1D} the correction $|0.2\cdot\delta\epsilon_{ TPC}|$ with the corresponding systematic uncertainty is shown for each particle species in CD as a function of $p_T$ $\left(|\eta|<0.7, |V_{z}|<80 \text{ cm}\right)$. 
+The amount of dead material in front of TPC differs up to $20\%$ between data and simulation. First, the~amount of lost particles, $\delta\epsilon_{ TPC}$, due to the interaction with dead material in front of TPC was estimated using  no-pile-up  MC samples. The results for $\pi^-$ in CD are shown in Fig. \ref{fig:dead_materialCD3D}. Then the symmetric systematic uncertainty to the TPC track reconstruction efficiency due to dead material was introduced as $\pm 0.2 \cdot\delta\epsilon_{ TPC}$.
+In Fig. \ref{fig:dead_materialCD1D}  the systematic uncertainty is shown for each particle species in CD as a function of $p_T$ $\left(|\eta|<0.7, |V_{z}|<80 \text{ cm}\right)$. 
 The results for other particles and SD are shown in Figs. in Appendix \ref{appendix:deadMaterial}.
 \begin{figure}[hb]
 \caption[The amount of lost $\pi^-$ due to the interaction with dead material in front of TPC as a function of $p_T$, $\eta$ and $z$-vertex in CD]{The amount of lost $\pi^-$ due to the interaction with dead material in front of TPC. Each plot represents the fraction of lost $\pi^-$, $\delta\epsilon_{ TPC}$ ($z$-axis), as a function of true particle pseudorapidity $\eta$ ($y$-axis) and transverse momentum $p_{T}$ ($x$-axis) in single $z$-vertex bin.}\label{fig:dead_materialCD3D}
@@ -151,7 +147,7 @@ The results for other particles and SD are shown in Figs. in Appendix \ref{appen
 }%
 \end{figure}
 \begin{figure}[hb]
-\caption[The correction to the TPC track reconstruction efficiency $|0.2\cdot\delta\epsilon_{ TPC}|$ due to underestimated amount of dead material in front of TPC using MC samples for CD]{The correction to the TPC track reconstruction efficiency $|0.2\cdot\delta\epsilon_{ TPC}|$ due to underestimated amount of dead material in front of TPC using MC samples for CD. Each plot represents the correction as a function of true particle $p_T$ $\left(|\eta|<0.7, |V_{z}|<80 \text{ cm}\right)$ for given particle species: $\pi^-$,$\pi^+$, $K^-$, $K^+$, $\bar{p}$ and $p$. It was also calculated for negative and positive particles without identification. The corresponding systematic uncertainties are show with blue dotted lines. }\label{fig:dead_materialCD1D}
+\caption[The systematic uncertainty to the TPC track reconstruction efficiency due to  amount of dead material in front of TPC using MC samples for CD]{The systematic uncertainty to the TPC track reconstruction efficiency due to  amount of dead material in front of TPC using MC samples for CD. Each plot represents the systematic uncertainty as a~function of true particle $p_T$ $\left(|\eta|<0.7, |V_{z}|<80 \text{ cm}\right)$ for given particle species: $\pi^-$,$\pi^+$, $K^-$, $K^+$, $\bar{p}$ and $p$. It was also calculated for negative and positive particles without identification. }\label{fig:dead_materialCD1D}
 \centering
 \parbox{0.495\textwidth}{
   \centering
