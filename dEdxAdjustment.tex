@@ -13,15 +13,15 @@ This problem was discussed under ticket \#3272~(Ref.~\cite{dedxTicket}). There w
 
 In order to tune simulated reposponse of the TPC in terms of $dE/dx$, hence also reduce the systematic uncertainty related to particle identification, a correction method was developed based on proper transformation (recalculation) of simulated $dE/dx$ to obtain new $dE/dx$ whose distribution matches the data.
 % It is possible to transform dE/dx in MC to make it follow the shape of dE/dx in the data. 
-We know that $n^{\sigma}_{X}$ (where $X=\pi, K, p$, ...) variable for particle $X$ follows a gaussian distribution
-\begin{equation}n^{\sigma}_{X} = \Big( \ln{\frac{dE/dx}{\langle dE/dx\rangle_{X}}} \Big) / \sigma_{dE/dx},~~~~~f(n^{\sigma}_{X}) = \mathcal{N}(n^{\sigma}_{X}; \mu=0,\sigma=1),\end{equation}
-therefore $dE/dx$ itself by definition follows log-normal distribution:
-\begin{equation}f(dE/dx) = \mathcal{L}og\mathcal{N}(dE/dx; \mu=\langle dE/dx\rangle,\sigma=\sigma_{dE/dx}) = \frac{1}{\sqrt{2\pi}\cdot \sigma\cdot dE/dx}e^{-\frac{\ln^{2}{\frac{dE/dx}{\langle dE/dx\rangle}}}{2\sigma^{2}}}.\end{equation}
-The desired transformation should preserve the shape of $dE/dx$ distribution so that it is still described by $\mathcal{L}og\mathcal{N}$, however it should change $\mu$ and $\sigma$ so that these values are euqal to ones in the data. The transformation that satisfies above postulate is
-\begin{equation}dE/dx' = c\cdot (dE/dx)^{a}.\label{eq:dedxTranformation}\end{equation}
-Parameters of the distribution $\mathcal{L}og\mathcal{N}(dE/dx')$ are then
-\begin{equation}\mu' = c\cdot\mu^{a},~~~~\sigma' = a\cdot\sigma.\end{equation}
-From above we get formulae for parameters of the transformation:
+We know that $n^{\sigma}_{X}$ (where $X=\pi, K, p$, ...) variable for particle $X$ follows a gaussian distribution\vspace{-2pt}%
+\begin{equation}n^{\sigma}_{X} = \Big( \ln{\frac{dE/dx}{\langle dE/dx\rangle_{X}}} \Big) / \sigma_{dE/dx},~~~~~f(n^{\sigma}_{X}) = \mathcal{N}(n^{\sigma}_{X}; \mu=0,\sigma=1),\end{equation}\vspace{-2pt}
+therefore $dE/dx$ itself by definition follows log-normal distribution:\vspace{-2pt}%
+\begin{equation}f(dE/dx) = \mathcal{L}og\mathcal{N}(dE/dx; \mu=\langle dE/dx\rangle,\sigma=\sigma_{dE/dx}) = \frac{1}{\sqrt{2\pi}\cdot \sigma\cdot dE/dx}e^{-\frac{\ln^{2}{\frac{dE/dx}{\langle dE/dx\rangle}}}{2\sigma^{2}}}.\end{equation}\vspace{-2pt}%
+The desired transformation should preserve the shape of $dE/dx$ distribution so that it is still described by $\mathcal{L}og\mathcal{N}$, however it should change $\mu$ and $\sigma$ so that these values are euqal to ones in the data. The transformation that satisfies above postulate is\vspace{-2pt}%
+\begin{equation}dE/dx' = c\cdot (dE/dx)^{a}.\label{eq:dedxTranformation}\end{equation}\vspace{-2pt}%
+Parameters of the distribution $\mathcal{L}og\mathcal{N}(dE/dx')$ are then\vspace{-2pt}%
+\begin{equation}\mu' = c\cdot\mu^{a},~~~~\sigma' = a\cdot\sigma.\end{equation}\vspace{-2pt}%
+From above we get formulae for parameters of the transformation:\vspace{-2pt}%
 \begin{equation}a=\sigma'/\sigma,~~~~c = \frac{\mu'}{\mu^{a}}.\label{eq:dedxPatameters}\end{equation}%
 %
 To sum up, one has to find the MPV and width parameter of the $dE/dx$ spectrum of each particle in the data and MC, and use relations \eqref{eq:dedxPatameters} in order to find parameters of the transformation introduced in Eq.~\eqref{eq:dedxTranformation}.
@@ -39,7 +39,7 @@ It was found during the fitting that log-normal distribution is not a perfect mo
               \right.
 \end{equation}%
 %
-Such form was motivated by the function presented in Ref.~\cite{AlternativeToCrystallBall}, here adopted for the log-normal instead of normal distribution. Because the modification of the log-normal distribution is introduced only at high-end tail, the validity of the transformation discussed above still holds. To reduce fit complexity the $k$ parameter was set the same for all particle species and fixed  to value equal $2.2$, which worked well for both data and embedded MC. Particles and their anti-particles were assumed to have the same $dE/dx$ distributions for a given momentum and were analyzed together. The sample fit in a single momentum bin can be found in Fig.~\ref{fig:dEdxFit}. Fits in all momentum bins can be found in Appendix~\ref{appendix:dEdxAdjustment}.
+Such form was motivated by the function presented in Ref.~\cite{AlternativeToCrystallBall}, here adopted for the log-normal instead of normal distribution. Because the modification of the log-normal distribution is introduced only at high-end tail, the validity of the transformation discussed above still holds. To reduce fit complexity the $k$ parameter was set the same for all particle species and fixed  to value equal $2.2$, which worked well for both data and embedded MC. Particles and their anti-particles were assumed to have the same $dE/dx$ distributions for a given momentum and were analyzed together. The same track selection was used both for data and MC, with the quality criteria described in Sec.~\ref{chap:TpcTrackQualityCuts}. The sample fit in a single momentum bin can be found in Fig.~\ref{fig:dEdxFit}. Fits in all momentum bins can be found in Appendix~\ref{appendix:dEdxAdjustment}.
 %
 %
 %---------------------------
@@ -117,8 +117,40 @@ $\bm{d,\bar{d}}$ &\scriptsize -1.305e-6 &\scriptsize -5.268e-6 &\scriptsize 3.48
 \begin{figure}[hb!]\vspace{-5pt}%
 \centering%
 \includegraphics[width=\linewidth,page=13]{graphics/dedx/dEdx_DataVsMC.pdf}\vspace{-5pt}%
-\caption[Sample comparison of dE/dx spectrum between data and embedded MC in single momentum bin.]{Sample comparison of dE/dx spectrum between data and embedded MC (before and after $dE/dx$ adjustment) in a single momentum bin. Lower pad shows the ratio between embedded MC and data before and after $dE/dx$ adjustment. In both upper and lower padt the same color code is used. Only statistical errors are shown.}\label{fig:dEdxDataVsMCSingleBin}
+\caption[Sample comparison of dE/dx spectrum between data and embedded MC in single momentum bin.]{Sample comparison of dE/dx spectrum between data and embedded MC (before and after $dE/dx$ adjustment) in a single momentum bin. Lower pad shows the ratio between embedded MC and data before and after $dE/dx$ adjustment. In both upper and lower pads the same color code is used. Only statistical errors are shown. Due to limited statistics of embedded MC some data points do not have corresponding entries in MC.}\label{fig:dEdxDataVsMCSingleBin}% (mainly in the tails)
 \end{figure}
 %---------------------------
 %
-The correctness of the entire procedure described in this section was verified by comparing the reconstructed track $dE/dx$ between the data and embedded MC without and with the $dE/dx$ transformed using Eq.~\eqref{eq:dedxTranformation} and parameters from Tab.~\ref{tab:dEdxParameters}. Some difficulty arised in this comparison due to inconsistent relative content of different particle species in the data and embedded MC sample. Problem was ressolved by separating $dE/dx$ histograms of different particle species (in the same way as it was done for extraction of $dE/dx$ MPV and $\sigma$ for each particle ID) and fitting the sum of histograms from different particle types to the data histogram (in momentum bins). The only free parameters in the fit were relative contents of histogram from singe particle type to the data histogram. A sample comparison between the $dE/dx$ in data and embedded MC is presented in Fig.~\ref{fig:dEdxDataVsMCSingleBin}. Comparison in all other momentum bins is contained in Appendix~\ref{appendix:dEdxAdjustment} (Fig.~\ref{fig:dEdxDataVsMC}). Fits were done for adjusted $dE/dx$ (filled green). Histograms for unadjusted $dE/dx$ (hashed red) were composed using the same relative content of particles as obtained from the fit of adjusted $dE/dx$. The ratio of the MC to the data shown in the lower pad of Fig.~\ref{fig:dEdxDataVsMCSingleBin} and Fig.~\ref{fig:dEdxDataVsMC} clearly demonstrates better agreement of the MC and the data after the adjustent in terms of position and width of peaks in $dE/dx$ spectrum.
+The correctness of the entire procedure described in this section was verified by comparing the reconstructed track $dE/dx$ between the data and embedded MC without and with the $dE/dx$ transformed using Eq.~\eqref{eq:dedxTranformation} and parameters from Tab.~\ref{tab:dEdxParameters}. Some difficulty arised in this comparison due to inconsistent relative content of different particle species in the data and embedded MC sample. Problem was ressolved by separating $dE/dx$ histograms of different particle species in MC (in the same way as it was done for extraction of $dE/dx$ MPV and $\sigma$ for each particle ID) and fitting the sum of histograms from different particle types to the data histogram (in momentum bins). The only free parameters in the fit were relative contents of histogram from singe particle type in the data histogram. A sample comparison between the $dE/dx$ in data and embedded MC is presented in Fig.~\ref{fig:dEdxDataVsMCSingleBin}. Comparison in all other momentum bins is contained in Appendix~\ref{appendix:dEdxAdjustment} (Fig.~\ref{fig:dEdxDataVsMC}). Fits were done for adjusted $dE/dx$ (filled green). Histograms for unadjusted $dE/dx$ (hashed red) were composed using the same relative content of particles as obtained from the fit of adjusted $dE/dx$. The ratio of the MC to the data shown in the lower pad of Fig.~\ref{fig:dEdxDataVsMCSingleBin} and Fig.~\ref{fig:dEdxDataVsMC} clearly demonstrates better agreement of the MC and the data in terms of position and width of peaks in $dE/dx$ spectrum after the adjustment.
+
+Exactly the same cross-check was done for $n^{\sigma}_{X}$ variables, which are directly used to identify particles in our analyses. They carry information about the distance (in width units) of reconstructed $dE/dx$ from the MPV of $dE/dx$ according to Bichsel parametrization - they are kind of a pull variables. For every track $n^{\sigma}_{X}$ was recalculated using its definition as shown in Eq.~\eqref{eq:nSigma}:
+\begin{equation}\label{eq:nSigma}%
+ n^{\sigma}_{X} = \left. \ln{\left(\frac{dE/dx'}{\langle dE/dx\rangle_{\textrm{Bichsel}}^{X}}\right)} \middle/ \delta(dE/dx) \right.,
+\end{equation}
+where instead of original $dE/dx$ the adjusted one ($dE/dx'$) was used. Uncertainty of reconstructed $dE/dx$, $\delta(dE/dx)$, was left unchanged. The sample comparison of $n^{\sigma}_{\text{pion}}$, $n^{\sigma}_{\text{kaon}}$ and $n^{\sigma}_{\text{proton}}$ variables can be found in Fig.~\ref{fig:nSigma_DataVsMC}. Comparison in full set of momentum bins is placed in Appendix~\ref{appendix:dEdxAdjustment}. As in case of $dE/dx$ comparison, in the lower pads of Fig.~\ref{fig:nSigma_DataVsMC} the ratio of the MC to the data also demonstrates better agreement of the MC and the data, which was the goal of the adjustment.
+
+%---------------------------
+\begin{figure}[b!]%\vspace{-10pt}
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:nSigmaPion_DataVsMC}}{\includegraphics[width=1.03\linewidth,page=13]{graphics/dedx/nSigmaPion_DataVsMC.pdf}\vspace*{-8pt}}
+  \end{subfigure}\\[5pt]
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
+                \subcaptionbox{\label{fig:nSigmaProton_DataVsMC}}{\includegraphics[width=1.03\linewidth,page=13]{graphics/dedx/nSigmaProton_DataVsMC.pdf}\vspace*{-8pt}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}
+                \subcaptionbox{\label{fig:nSigmaKaon_DataVsMC}}{\includegraphics[width=1.03\linewidth,page=13]{graphics/dedx/nSigmaKaon_DataVsMC.pdf}\vspace*{-8pt}}
+  \end{subfigure}\\[5pt]
+  \begin{minipage}[t][0.78\linewidth][t]{\linewidth}\vspace{10pt}
+    \caption[Sample comparison of $n^{\sigma}_{\text{pion}}$, $n^{\sigma}_{\text{kaon}}$ and $n^{\sigma}_{\text{proton}}$ distribution between data and embedded MC in single momentum bin.]%
+    {Sample comparison of $n^{\sigma}_{\text{pion}}$ (\ref{fig:nSigmaPion_DataVsMC}), $n^{\sigma}_{\text{kaon}}$ (\ref{fig:nSigmaKaon_DataVsMC}) and $n^{\sigma}_{\text{proton}}$ (\ref{fig:nSigmaProton_DataVsMC}) distribution between data and embedded MC in single momentum bin. Lower pads show the ratio between embedded MC and data before and after $dE/dx$ adjustment. In both upper and lower pads the same color code is used. Only statistical errors are shown.}\label{fig:nSigma_DataVsMC}
+  \end{minipage}
+}
+\end{figure}
+%---------------------------
