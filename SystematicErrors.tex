@@ -175,7 +175,7 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 
 \subsection{Simulation accuracy (absolute error on TOF efficiency)}
 
-The TOF hit reconstruction and matching efficiency with the TPC tracks that are used in our analyses is taken directly from the STAR simulation. This makes the inaccuracies in the description of real detector geometry and its response propagating to physics results and introducing a bias. We decided to estimate the systematic uncertainty connected with the accuracy of the TOF system in (data-embedded) STAR simulation by extracting the TOF efficiency in the very same way from the data and embedded MC and comparing the results.
+The efficiency of TOF hit reconstruction and matching with the TPC tracks that was used in our analyses was taken directly from the STAR simulation. This makes the inaccuracies in the description of real detector geometry and its response propagating to physics results and introducing a bias. We decided to estimate the systematic uncertainty connected with the accuracy of description of the TOF system in (data-embedded) STAR simulation by extracting the TOF efficiency in the very same way from the data and embedded MC and comparing the results.
 
 Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would imply lack of off-time pile-up tracks in TPC and thus would allow calculating the TOF efficiency in straightforward way, namely by dividing number of selected TPC tracks that were matched with TOF hits by number of all selected TPC tracks (matched or unmatched). For this reason a variation of the ``tag and probe'' method was developed and used.
 
@@ -199,10 +199,11 @@ Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would 
 \end{figure}%
 %---------------------------
 
-The mentioned tag\&probe method makes use of the CEP of $\pi^{+}\pi^{-}$ events. In short, events with forward proton track on each side of STAR and with a TOF-matched primary TPC track (tag) are selected. Among the remaining primary TPC tracks in the same vertex the opposite-sign TPC track (probe) is chosen as the one which provides the minimum total transverse momentum of all four tracks. The probe is checked whether it has been matched with the TOF hit or not. The ratio of the matched TPC tracks to all (matched or unmatched) TPC tracks defines the TOF efficiency. The method is illustrated in the sketch in Fig.~\ref{fig:tagAndProbeSketch}. The detailed procedure of the TOF efficiency extraction is listed below:
+The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. In short, events with forward proton track on each side of STAR and with a TOF-matched primary TPC track (tag) were selected. Among the remaining primary TPC tracks in the same vertex the opposite-sign TPC track (probe) was chosen as the one which provides the minimum total transverse momentum of all four tracks. The probe was checked whether it has been matched with the TOF hit or not. The ratio of the matched TPC tracks to all (matched or unmatched) TPC tracks defined the TOF efficiency. The method is illustrated in the sketch in Fig.~\ref{fig:tagAndProbeSketch}. The detailed procedure of the TOF efficiency extraction is listed below:
 
 \begin{enumerate}
- \item 
+ \item RP\_CPT2 triggers were used. Events were selected with the following set of cuts from nominal CEP analysis (Ref.~\cite{AnalysisNoteRafal}): \textbf{C1}, \textbf{C2} (TPC vertex), \textbf{C4} (RP tracks), \textbf{C5} (TPC-RP vertex matching), \textbf{C6} (veto signal in large BBC).
+ \item
 \end{enumerate}
 
 
