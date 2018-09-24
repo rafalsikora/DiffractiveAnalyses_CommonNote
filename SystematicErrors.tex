@@ -202,8 +202,9 @@ Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would 
 The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. In short, events with forward proton track on each side of STAR and with a TOF-matched primary TPC track (tag) were selected. Among the remaining primary TPC tracks in the same vertex the opposite-sign TPC track (probe) was chosen as the one which provides the minimum total transverse momentum of all four tracks. The probe was checked whether it has been matched with the TOF hit or not. The ratio of the matched TPC tracks to all (matched or unmatched) TPC tracks defined the TOF efficiency. The method is illustrated in the sketch in Fig.~\ref{fig:tagAndProbeSketch}. The detailed procedure of the TOF efficiency extraction is listed below:
 
 \begin{enumerate}
- \item RP\_CPT2 triggers were used. Events were selected with the following set of cuts from nominal CEP analysis (Ref.~\cite{AnalysisNoteRafal}): \textbf{C1}, \textbf{C2} (TPC vertex), \textbf{C4} (RP tracks), \textbf{C5} (TPC-RP vertex matching), \textbf{C6} (veto signal in large BBC).
- \item
+ \item Data from RP\_CPT2 triggers were used. Embedded $\pi^{+}\pi^{-}$ GenEx MC sample was subjected to the same trigger conditions. Since there is no simulation of the TOF trigger we used in MC analysis L0 TOF multiplicity reconstructed from the offline hits according to TOF trigger system description (see Ref.~\cite{tofL0MultExplanation}). In Fig.~\ref{fig:tofOnlineMultRecoVsL0} we show performance of implemented method of L0 TOF multiplicity reconstruction. One can find satisfactory correlation of the true multiplicity and the reconstructed one.
+ \item Events were selected with the following set of cuts from nominal CEP analysis (Ref.~\cite{AnalysisNoteRafal}): \textbf{C1}, \textbf{C2} (TPC vertex), \textbf{C4} (RP tracks), \textbf{C5} (TPC-RP vertex matching), \textbf{C6} (veto signal in large BBC), providing significant reduction of background events.
+ \item 
 \end{enumerate}
 
 
@@ -225,8 +226,8 @@ The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. 
                 \subcaptionbox{\label{fig:tofEffSystVsEta}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/TofEffVsEta.pdf}}\vspace{-5pt}
   \end{subfigure}
 }%
-\caption[ .]%
-    { .}\label{fig:tofEffSyst}%
+\caption[Tag\&Probe TOF efficiency from CEP data compared with the result from embedded CEP MC.]%
+    {Tag\&Probe TOF efficiency from CEP data (black points) compared with the result from embedded CEP MC (red points) as a function of TPC track $p_{T}$ (\ref{fig:tofEffSystVsPt}) and $\eta$ (\ref{fig:tofEffSystVsEta}). Green points represent the TOF efficiency calculated in the standard way from embedded CEP MC sample. Blue lines denote the TOF efficiency calculated in the standard way solely from the selected probe tracks that were matched to primary pions at the true level. Difference between red points and blue lines show the potential bias of tag and probe method.}\label{fig:tofEffSyst}%
 \end{figure}
 %---------------------------
 
