@@ -5,15 +5,27 @@
 %%===========================================================%%
 
 
-\chapter{TPC track quality cuts}\label{chap:TpcTrackQualityCuts}
+\chapter{TPC track cuts}\label{chap:TpcTrackQualityCuts}
 
-Charged particle tracks reconstructed in the TPC are selected in our analyses with the set of cuts listed below. The goal of these criteria is to 
+Charged particle tracks reconstructed in the TPC are selected in our analyses with the set of cuts listed below. The goal of these criteria is to reject off-time pile-up tracks and ensure satisfactory resolution of the track momentum and specific energy loss. In all sub-analyses described in this note and notes dedicated to our physics analyses (\cite{AnalysisNoteRafal,AnalysisNoteLukasz}) the above cuts were used, unless stated differently.
+
+\section{Quality cuts}\label{enum:TpcQualityCuts}
+TPC tracks must satisfy quality criteria:
 \begin{enumerate}
-\item Both tracks are contained within the kinematic range:\label{enum:TpcKinematicCuts}\\[2pt]
-$|\eta|<1$,~~~~$p_{T}>0.2~\textrm{GeV}/c$,
-\item Both tracks satisfy quality criteria:\label{enum:TpcQualityCuts}\\[2pt]
-$N_{\textrm{hits}}^{\textrm{fit}}\geq25$,~~~~$N_{\textrm{hits}}^{\textrm{dE/dx}}\geq15$,~~~~$N_{\textrm{hits}}^{\textrm{fit}}/N_{\textrm{hits}}^{\textrm{poss}}\geq0.52$,~~~~$|d_{0}|<2$~cm
-\item Both tracks match well to the primary vertex:\label{enum:TpcDcaCuts}\\[2pt]
-$\textrm{DCA}(R)<1.5$~cm,~~~~$\textrm{DCA}(z)<1$~cm.
+\item $N_{\textrm{hits}}^{\textrm{fit}}\geq25$ - at least 25 hits used in the helix fit,
+\item $N_{\textrm{hits}}^{\textrm{dE/dx}}\geq15$ - at least 15 hits used in $dE/dx$ calculation,
+\item $N_{\textrm{hits}}^{\textrm{fit}}/N_{\textrm{hits}}^{\textrm{poss}}\geq0.52$ - number of hits used in the fit not lest than 52\% of the number of hits potentially left by the particle,
+\item $|d_{0}|<1.5$~cm - transverse impact parameter w.r.t. the beamline (see Fig.~\ref{fig:d0sketch}) not larger then 1.5~cm.
 \end{enumerate}
-%---------------------------
+\section{Vertex matching}\label{enum:TpcDcaCuts}
+TPC tracks must match well to the primary vertex (by definition applies only to primary tracks):
+\begin{enumerate}
+ \item $\textrm{DCA}(R)<1.5$~cm,
+ \item $\textrm{DCA}(z)<1$~cm.
+ \end{enumerate}
+\section{Kinematic range}\label{enum:TpcKinematicCuts}
+TPC tracks must be contained within the kinematic range:
+\begin{enumerate}
+\item $|\eta|<0.7$,
+\item $p_{T}>0.2~\textrm{GeV}/c$.
+\end{enumerate}
