@@ -7,4 +7,13 @@
 
 \chapter{TPC track quality cuts}\label{chap:TpcTrackQualityCuts}
 
+Charged particle tracks reconstructed in the TPC are selected in our analyses with the set of cuts listed below. The goal of these criteria is to 
+\begin{enumerate}
+\item Both tracks are contained within the kinematic range:\label{enum:TpcKinematicCuts}\\[2pt]
+$|\eta|<1$,~~~~$p_{T}>0.2~\textrm{GeV}/c$,
+\item Both tracks satisfy quality criteria:\label{enum:TpcQualityCuts}\\[2pt]
+$N_{\textrm{hits}}^{\textrm{fit}}\geq25$,~~~~$N_{\textrm{hits}}^{\textrm{dE/dx}}\geq15$,~~~~$N_{\textrm{hits}}^{\textrm{fit}}/N_{\textrm{hits}}^{\textrm{poss}}\geq0.52$,~~~~$|d_{0}|<2$~cm
+\item Both tracks match well to the primary vertex:\label{enum:TpcDcaCuts}\\[2pt]
+$\textrm{DCA}(R)<1.5$~cm,~~~~$\textrm{DCA}(z)<1$~cm.
+\end{enumerate}
 %---------------------------
