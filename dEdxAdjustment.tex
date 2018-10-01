@@ -74,18 +74,18 @@ Such form was motivated by the function presented in Ref.~\cite{AlternativeToCry
                 \subcaptionbox{\label{fig:dEdxWidthData}}{\includegraphics[width=\linewidth]{graphics/dedx/dEdxWidth_allPIDs_data.pdf}\vspace*{-10pt}}}
   \end{subfigure}
 }\vspace{-5pt}%
-\caption[Parameters of reconstructed track dE/dx as a function of reconstructed momentum for a few particle species.]{Difference between MPV of dE/dx predicted by Bichsel parametrization and obtained from the fit of Eq.~\eqref{eq:expTail} to dE/dx distribution in the data (\ref{fig:dEdxMeanOffsetData}) and MC sample (\ref{fig:dEdxMeanOffsetMC}) and dE/dx width parameter in data (\ref{fig:dEdxWidthData}) and MC (\ref{fig:dEdxWidthMC}) as a function of reconstructed particle momentum for a few particle species. Solid lines represent fits to points of corresponding color. Only statistical errors are shown.}\label{fig:dEdxParametersMC}
+\caption[Parameters of reconstructed track dE/dx as a function of reconstructed momentum for a few particle species.]{Difference between MPV of dE/dx predicted by Bichsel parametrization and obtained from the fit of Eq.~\eqref{eq:expTail} to dE/dx distribution in the data (\ref{fig:dEdxMeanOffsetData}) and MC sample (\ref{fig:dEdxMeanOffsetMC}) and dE/dx width parameter in data (\ref{fig:dEdxWidthData}) and MC (\ref{fig:dEdxWidthMC}) as a function of reconstructed particle momentum for a few particle species. Solid lines represent fits to points of corresponding color. Only statistical errors are shown.}\label{fig:dEdxParameters}
 \end{figure}
 %---------------------------
 
 
-Results of the fits for all considered particle species (pions, kaons, protons, electrons and deuterons) are commonly presented in Fig.~\ref{fig:dEdxParametersMC} with color markers. Figures \ref{fig:dEdxMeanOffsetData} and~\ref{fig:dEdxMeanOffsetMC} show the offset of the MPV of reconstructed $dE/dx$ relative to the Bichsel parametrization in the data and embedded MC, respectively, and Fig.~\ref{fig:dEdxWidthData} and~\ref{fig:dEdxWidthMC} show the width of reconstructed $dE/dx$ (in the same order). Function able to qualitatively describe dependence of the parameters as a function of track momentum was empirically found to be given by Eq.~\eqref{eq:dEdxParametrization}:
+Results of the fits for all considered particle species (pions, kaons, protons, electrons and deuterons) are commonly presented in Fig.~\ref{fig:dEdxParameters} with color markers. Figures \ref{fig:dEdxMeanOffsetData} and~\ref{fig:dEdxMeanOffsetMC} show the offset of the MPV of reconstructed $dE/dx$ relative to the Bichsel parametrization in the data and embedded MC, respectively, and Fig.~\ref{fig:dEdxWidthData} and~\ref{fig:dEdxWidthMC} show the width of reconstructed $dE/dx$ (in the same order). Function able to qualitatively describe dependence of the parameters as a function of track momentum was empirically found to be given by Eq.~\eqref{eq:dEdxParametrization}:
 %
 \begin{equation}\label{eq:dEdxParametrization}
 	g(p) = P_{1} + P_{2}\cdot \exp{\left(-P_{3}\cdot p\right)} + P_{4}\cdot \arctan{\big(P_{5}\cdot(p-P_{6})\big)}
 \end{equation}
 %
-This function was fitted to points corresponding to each particle type and fit result is shown in Fig.~\ref{fig:dEdxParametersMC} with lines colored in accordance to markers. Values of parameters of above function are tabulated in Tab.~\ref{tab:dEdxParametersMC}.
+This function was fitted to points corresponding to each particle type and fit result is shown in Fig.~\ref{fig:dEdxParameters} with lines colored in accordance to markers. Values of parameters of above function are tabulated in Tab.~\ref{tab:dEdxParameters}.
 
 \begin{table}[hb!]\vspace{5pt}\centering%
 \subcaptionbox{\label{tab:dEdxParametersMC}}{\centering%
@@ -109,7 +109,7 @@ $\bm{d,\bar{d}}$ &\scriptsize -1.305e-6 &\scriptsize -5.268e-6 &\scriptsize 3.48
  $\bm{e^{\pm}}$ & \scriptsize   9.005e-8 &  \scriptsize 2.494e-7 & \scriptsize 8.834 & \scriptsize&              \scriptsize&              \scriptsize&          \scriptsize 0.0680 & \scriptsize 8.8e-4 & \scriptsize 1.549 & \scriptsize& \scriptsize& \scriptsize\\ \hline
  $\bm{d,\bar{d}}$ & \scriptsize -1.910e-7 & \scriptsize 5.637e-3 &  \scriptsize 14.48 & \scriptsize&               \scriptsize&              \scriptsize&          \scriptsize 0.1161 & \scriptsize -0.147 & \scriptsize 2.890 & \scriptsize& \scriptsize& \scriptsize%\\ \hline
 \end{tabular}%
-}\vspace{-7pt}\caption[Parameters of functions from Fig.~\ref{fig:dEdxParametersMC} describing reconstructed track dE/dx as a function of reconstructed momentum for a few particle species (STARsim MC).]{Parameters of functions from Fig.~\ref{fig:dEdxParametersMC} describing reconstructed track dE/dx as a function of reconstructed momentum for a few particle species. Blank cells denote parameters equal 0. Units of parameters $P_{i}$ are such that if one provides momentum in Eq.~\eqref{eq:dEdxParametrization} in GeV/$c$ the resultant offset of dE/dx MPV with respect to Bichsel parametrization is in GeV/cm, and the resultant $\sigma$ parameter is unitless.}\label{tab:dEdxParameters}
+}\vspace{-7pt}\caption[Parameters of functions from Fig.~\ref{fig:dEdxParameters} describing reconstructed track dE/dx as a function of reconstructed momentum for a few particle species.]{Parameters of functions from Fig.~\ref{fig:dEdxParameters} describing reconstructed track dE/dx as a function of reconstructed momentum for a few particle species in the data (\ref{tab:dEdxParametersData}) and embedded MC (\ref{tab:dEdxParametersMC}). Blank cells denote parameters equal 0. Units of parameters $P_{i}$ are such that if one provides momentum in Eq.~\eqref{eq:dEdxParametrization} in GeV/$c$ the resultant offset of dE/dx MPV with respect to Bichsel parametrization is in GeV/cm, and the resultant $\sigma$ parameter is unitless.}\label{tab:dEdxParameters}
 \end{table}%
 %
 %

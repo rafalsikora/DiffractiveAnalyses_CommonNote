@@ -5,6 +5,42 @@
 %%===========================================================%%
 
 
-\chapter{TPC track quality cuts}\label{chap:TpcTrackQualityCuts}
+\chapter{TPC vertex and track selection}\label{chap:TpcTrackQualityCuts}
 
-%---------------------------
+Charged particle tracks and primary vertices reconstructed with the TPC were selected in our analyses with the set of cuts listed below. The goal of these criteria was to reject overlapping pile-up events, off-time pile-up tracks and ensure satisfactory resolution of the track momentum and specific energy loss. In all sub-analyses described in this note and our physics analyses described in Ref.~\cite{AnalysisNoteRafal} and ~\cite{AnalysisNoteLukasz} the above cuts were used (unless stated differently).
+
+Limit values of quantities in all selection cuts were chosen to balance the selection efficiency, background rejection power and related systematic uncertainties. Cuts in Sec.~\ref{sec:TpcQualityCuts} and~\ref{sec:TpcDcaCuts} were established based on histograms like the ones presented in Fig.~\ref{fig:pointingResComp}. Cuts on $z_{\text{vtx}}$ and track $p_{T}$ and $\eta$ were set based on the $z_{\text{vtx}}$ distribution ($\sigma(z_{\text{vtx}})~\approx$~50~cm) and joint acceptance and efficiency of the TPC and TOF (see Appendix~\ref{appendix:tpcEff} and~\ref{appendix:tofEff}).
+
+\section{TPC vertex}
+\begin{itemize}
+\item \textbf{Single primary vertex} (exactly one that contains at least one track matched with hit in TOF),
+\item \textbf{$\bm{|z_{\text{vtx}}|<80~\text{cm}}$}.
+\end{itemize}
+
+\section{TPC tracks}
+\subsection{Quality cuts}\label{sec:TpcQualityCuts}
+All TPC tracks had to satisfy quality criteria:
+\begin{itemize}
+\item \textbf{$\bm{N_{\textrm{hits}}^{\textrm{fit}}\geq25}$} - at least 25 hits used in the helix fit (for good momentum resolution),
+\item \textbf{$\bm{N_{\textrm{hits}}^{\textrm{dE/dx}}\geq15}$} - at least 15 hits used in $dE/dx$ calculation (for good $dE/dx$ resolution),
+\item \textbf{$\bm{N_{\textrm{hits}}^{\textrm{fit}}/N_{\textrm{hits}}^{\textrm{poss}}\geq0.52}$} - number of hits used in the fit not less than 52\% of the number of hits potentially left by the particle,
+\item \textbf{$\bm{|d_{0}|<1.5~\text{cm}}$} - transverse impact parameter w.r.t. the beamline (see Fig.~\ref{fig:d0sketch}) not larger than 1.5~cm (for selection of tracks of real primary particles which by definition have origin in the interaction point which lies on the beamline).
+\end{itemize}
+\subsection{Vertex matching quality}\label{sec:TpcDcaCuts}
+Primary TPC tracks had to match well to the primary vertex:
+\begin{itemize}
+ \item \textbf{$\bm{\textrm{DCA}(R)<1.5~\text{cm}}$} - radial component of the DCA vector between the global helix and the vertex not larger than 1.5~cm (value consistent with $|d_{0}|$ limit),
+ \item \textbf{$\bm{\textrm{DCA}(z)<1~\text{cm}}$} - longitudinal component of the DCA vector between the global helix and the vertex not larger than 1~cm.
+ \end{itemize}
+\subsection{TOF hit matching}\label{sec:TpcTofMatchingRequirement}
+TPC tracks had to be matched with hits reconstructed in TOF:
+\begin{itemize}
+ \item \textbf{$\bm{\text{TOF match flag}~\neq~0}$}.
+\end{itemize}
+
+\subsection{Kinematic range}\label{sec:TpcKinematicCuts}
+TPC tracks had to be contained within the kinematic range:
+\begin{itemize}
+\item \textbf{$\bm{|\eta|<0.7}$},
+\item pions:~~~~~\textbf{$\bm{p_{T}>0.2~\textrm{GeV}}$},\\kaons:~~~~\hspace{1.6pt}\textbf{$\bm{p_{T}>0.3~\textrm{GeV}}$},\\protons:~~\textbf{$\bm{p_{T}>0.4~\textrm{GeV}}$}.
+\end{itemize}
