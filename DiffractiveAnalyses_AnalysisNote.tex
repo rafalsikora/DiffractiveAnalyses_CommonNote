@@ -12,7 +12,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 % \usepackage[pdfborder={0 0 0.6}]{hyperref}
-\usepackage{hyperref}
+\usepackage[linktocpage=true]{hyperref}
 \usepackage{enumitem}
 \usepackage{multirow}
 \usepackage{multicol}
@@ -93,13 +93,19 @@
 
 \Crefname{figure}{Fig.}{Figs.}
 
+% % Title Page
+% \title{\textbf{Supplementary note on diffractive analyses\\of 2015 proton-proton data:\\[20pt]\large{\cite{AnalysisNoteRafal}~Measurement of Central Exclusive Production of $\bm{h\bar{h}}$ pairs ($\bm{h=\pi,K,p}$) with Roman Pot detectors in diffractive\\proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\[10pt]\cite{AnalysisNoteLukasz}~Measurement of particle production with Roman Pot detectors\\in diffractive proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\}}\vspace*{10pt}}
+% \author[1]{\href{mailto:leszek.adamczyk@agh.edu.pl}{Leszek Adamczyk}}
+% \author[1]{\href{mailto:lukasz.fulek@fis.agh.edu.pl}{Łukasz Fulek}}
+% \author[1]{\href{mailto:rafal.sikora@fis.agh.edu.pl}{Rafał Sikora}}
+% \affil[1]{AGH University of Science and Technology, FPACS, Kraków, Poland}
+
 % Title Page
 \title{\textbf{Supplementary note on diffractive analyses\\of 2015 proton-proton data:\\[20pt]\large{\cite{AnalysisNoteRafal}~Measurement of Central Exclusive Production of $\bm{h\bar{h}}$ pairs ($\bm{h=\pi,K,p}$) with Roman Pot detectors in diffractive\\proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\[10pt]\cite{AnalysisNoteLukasz}~Measurement of particle production with Roman Pot detectors\\in diffractive proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\}}\vspace*{10pt}}
-\author[1]{\href{mailto:leszek.adamczyk@agh.edu.pl}{Leszek Adamczyk}}
-\author[1]{\href{mailto:lukasz.fulek@fis.agh.edu.pl}{Łukasz Fulek}}
-\author[1]{\href{mailto:rafal.sikora@fis.agh.edu.pl}{Rafał Sikora}}
-\affil[1]{AGH University of Science and Technology, FPACS, Kraków, Poland}
-
+\author[ ]{\href{mailto:leszek.adamczyk@agh.edu.pl}{Leszek Adamczyk}}
+\author[ ]{\href{mailto:lukasz.fulek@fis.agh.edu.pl}{Łukasz Fulek}}
+\author[ ]{\href{mailto:rafal.sikora@fis.agh.edu.pl}{Rafał Sikora}}
+\affil[ ]{AGH University of Science and Technology, FPACS, Kraków, Poland}
 
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
@@ -136,12 +142,16 @@ In this note we present supplementary material related to analyses of diffractiv
 
 \clearpage
 \thispagestyle{empty}
-\newgeometry{hmargin={2cm, 2cm}, height=10.0in}
+\newgeometry{hmargin={2cm, 2cm}, vmargin={-0.68cm, 2cm} }
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{4}
+\addtocontents{toc}{\protect\enlargethispage{\baselineskip}}
 \tableofcontents
 
+\clearpage
+\thispagestyle{empty}
+\newgeometry{hmargin={2cm, 2cm}, height=10.0in}
 
 %% =====  BAD RUNS ====
 \input{BadRunList.tex}
@@ -156,7 +166,7 @@ In this note we present supplementary material related to analyses of diffractiv
 \input{EnergyLossCorrection.tex}
 
 %% =====  ROMAN POT SIMULATION ====
-\input{RomanPotSimulation.tex}
+\input{ForwardProtons.tex}
 
 %% ===== DE/DX ADJUSTMENT ====
 \input{dEdxAdjustment.tex}
