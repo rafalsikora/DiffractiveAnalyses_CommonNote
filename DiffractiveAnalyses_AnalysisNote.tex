@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{tabulary}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage{cite}
@@ -13,6 +14,7 @@
 \usepackage{subcaption}
 % \usepackage[pdfborder={0 0 0.6}]{hyperref}
 \usepackage[linktocpage=true]{hyperref}
+\usepackage{listliketab}
 \usepackage{enumitem}
 \usepackage{multirow}
 \usepackage{multicol}
@@ -50,6 +52,7 @@
 \newcommand{\DPE}{D\Pom E}
 \newcommand{\Pomeron}{\Pom omeron}
 \newcommand{\Reggeon}{\Reg eggeon}
+\newcommand{\bis}{\prime\prime}
 
 % ---- ---- additional commands ---- ----
 \newcommand{\specialcell}[2][c]{%
@@ -142,12 +145,13 @@ In this note we present supplementary material related to analyses of diffractiv
 
 \clearpage
 \thispagestyle{empty}
-\newgeometry{hmargin={2cm, 2cm}, vmargin={-0.68cm, 2cm} }
+\newgeometry{hmargin={2cm, 2cm}, vmargin={-0.68cm, 2.6cm} }
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{4}
 \addtocontents{toc}{\protect\enlargethispage{\baselineskip}}
 \tableofcontents
+\addtocontents{toc}{\vspace{-20pt}}
 
 \clearpage
 \thispagestyle{empty}
@@ -203,6 +207,8 @@ In this note we present supplementary material related to analyses of diffractiv
 \input{TofEfficiencyAppendix.tex}
 % %% =====  ENERGY LOSS CORRECTION ====
 \input{EnergyLossCorrectionAppendix.tex}
+% %% =====  G4 APERTURES ====
+\input{RpAlignmentAppendix.tex}
 % %% =====  DEAD MATERIAL CORRECTION ====
 \input{DeadMaterialCorrectionAppendix.tex}
 %% ===== DE/DX ADJUSTMENT ====
