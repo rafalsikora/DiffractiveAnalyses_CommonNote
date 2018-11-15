@@ -67,54 +67,89 @@ Due to time dependence of the beam conditions, automatic beam orbit corrections 
 
 \section{Roman Pot simulation}
 
-Simulation of the STAR detector (STARsim) implemented in Geant3 does not contain a model of the Roman Pot detectors. Because of this, a dedicated simulation program was prepared to enable precise measurements with the Roman Pot data. The development started in 2012 as two independent projects for ``Geant4 simulation toolkit'' subject at AGH UST.
-\cite{Geant4Presentation}
+\subsection{General description}
+Simulation of the STAR detector (STARsim) implemented in Geant3 does not contain a model of the Roman Pot detectors. Because of this, a dedicated simulation program "pp2pp" was prepared to enable precise measurements with the Roman Pot data. The development of this software started in 2012 as two independent projects for ``Geant4 simulation tool kit'' subject at AGH UST. One project was devoted to modeling of the Roman Pot and Silicon Strip Detector package~\cite{BScThesisRafal}, the other was aimed to implement simulation of the collider elements with full magnet lattice (including $B$ field)~\cite{BScThesisLukasz} between the IP and Roman Pot location in Phase I configuration (at $z=\pm55$~m) based on the MAD-X twiss files. At that stage the two programs were used in analyses of 2009 $p+p$ data \cite{MScLukasz,Sikora:2014hca} taken with Roman Pots during special high-$\beta^{*}$ runs. Both projects were merged in 2013 and sice then are continuously developed by the Krakow group.
+
+At this moment the simulation programme is a standalone Geant4 application that allows to simulate any type of particle, track it from the IP to the Roman Pots location (either in Phase I/run 2009 or Phase II*/run 2015\&17 configuration) and obtain the true level and reconstructed information in the standard STAR data format - MuDST classes stored the ROOT tree. It has multiple generation options: the input can be directly from STARsim, Pythia, HepMC format or a simple text file. There are also built-in modes, such as elastic scattering event generation. One can customize the beam conditions, magnet settings (beam energy), Roman Pot positions, and many others. The application is installed at RCF and free to use by any STAR collaborator. Implementation of extensions desired by analyzers is possible after contact with authors. Some more information about the Roman Pot simulation (geometry, usage) can be found in the presentation from the LFS-UPC PWG weekly meeting (Ref.~\cite{Geant4Presentation}).
 
 \subsection{Detector model}
-%---------------------------
-\begin{figure}[ht]
-\centering
-\parbox{0.2\textwidth}{
-  \centering
-  \includegraphics[height=145pt]{graphics/rpSim/romanpot.jpg}
-  \caption[Roman Pot vessel (photo).]{Roman Pot vessel (photo).\newline}
-  \label{fig:RPphoto}
-}%
-\quad%
-\parbox{0.40\textwidth}{
-  \centering
-  \includegraphics[height=145pt]{graphics/rpSim/SSD.jpg}
-  \caption[Silicon Strip Detector packages stored in the protective atmosphere (photo).]{Silicon Strip Detector packages stored in the protective atmosphere (photo).\newline}
-  \label{fig:SSDphoto}
-}%
-\quad%
-\parbox{0.33\textwidth}{
-  \centering
-  \includegraphics[height=145pt]{graphics/rpSim/g4Rp.png}
-  \caption{Geant4 implementations of the Roman Pot vessel and SSD package with trigger counter.}
-   \label{fig:g4Rp}
-}
-\end{figure}
 
-\begin{figure}%
-\centering\includegraphics[width=\linewidth]{graphics/rpSim/geant4plot.png}%
-\caption{View of the Geant4 implementation od the Roman Pot Phase II* detector setup.}\label{fig:geant4plot}%
+The geometry of the collider elements (beampipe, magnets) and Roman Pot detectors (vessel, SSD packages) is  implemented in Geant4 according to best available sources of information. The dimensions, positioning and material of the beam pipe and magnets were taken from the technical drawings available at RHIC C-AD and were discussed with the designers of these elements. In case of Roman Pot vessels and detector packages not only technical drawings were used to find the appropriate dimensions, but also dedicated survey was made in which some elements were measured with caliper.
+
+\begin{figure}[h]%
+	\vspace{-5pt}\centering\includegraphics[width=\linewidth]{graphics/rpSim/geant4plot.png}%
+	\caption{View of the Geant4 implementation od the Roman Pot Phase II* detector setup.}\label{fig:geant4plot}%
+\end{figure}%
+
+In Fig.~\ref{fig:geant4plot} we show the general view of the "world" volume in Geant4 pp2pp simulation with labeled the most significant elements of the geometry. In Fig.~\ref{fig:g4Rp} we show a few shots of the Roman Pot housing and the SSD package implemented in Geant4, together with the real photographs of the Roman Pot and SSD package in Figs.~\ref{fig:RPphaseII} and~\ref{fig:SSDphoto}.
+
+%---------------------------
+\begin{figure}[h]
+	\centering
+	\parbox{0.2\textwidth}{
+		\centering
+		\includegraphics[height=145pt]{graphics/rpSim/romanpot.jpg}
+		\caption[Roman Pot vessel (photo).]{Roman Pot vessel (photo).\newline}
+		\label{fig:RPphoto}
+	}%
+	\quad%
+	\parbox{0.40\textwidth}{
+		\centering
+		\includegraphics[height=145pt]{graphics/rpSim/SSD.jpg}
+		\caption[Silicon Strip Detector packages stored in the protective atmosphere (photo).]{Silicon Strip Detector packages stored in the protective atmosphere (photo).\newline}
+		\label{fig:SSDphoto}
+	}%
+	\quad%
+	\parbox{0.33\textwidth}{
+		\centering
+		\includegraphics[height=145pt]{graphics/rpSim/g4Rp.png}
+		\caption{Geant4 implementations of the Roman Pot vessel and SSD package with trigger counter.}
+		\label{fig:g4Rp}
+	}
 \end{figure}
 %---------------------------
 
 \subsection{Aperture tuning}
 
-\begin{figure}[hb]%
-\caption[Apertures.]{Apertures.}\label{fig:aperturesWithFit_Sample}%
-\centering
-\parbox{0.495\textwidth}{
-  \centering
-  \includegraphics[width=\linewidth,page=1]{graphics/rpSim/Apertures_swapedAxes_withFit_beforeDxShift.pdf}
-}~
-\parbox{0.495\textwidth}{
-  \centering
-  \includegraphics[width=\linewidth,page=1]{graphics/rpSim/Apertures_swapedAxes_withFit.pdf}
-}%
+It turned out during initial validations of the Geant4 simulation for run 15 with elastic proton-proton scattering events that the distribution of the $(x,y)$ position of the proton in Roman Pots does not match at the satisfactory level between the data and MC. 
+
+\begin{figure}[hb!]%\vspace{-45pt}
+	\centering
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}{
+				\subcaptionbox{\label{fig:AperturesOnTopOfHitMap_Data}}{\includegraphics[width=\linewidth]{graphics/rpSim/AperturesOnTopOfHitMap_Data.pdf}\vspace*{-10pt}}}
+		\end{subfigure}\\%\\[-3pt]
+		\begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+				\subcaptionbox{\label{fig:Apertures_swapedAxes_withFit_beforeDxShift}}{\includegraphics[width=\linewidth]{graphics/rpSim/Apertures_swapedAxes_withFit_beforeDxShift.pdf}\vspace*{-10pt}}}
+		\end{subfigure}
+	}
+	\quad
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}{
+				\subcaptionbox{\label{fig:AperturesOnTopOfHitMap_MC}}{\includegraphics[width=\linewidth]{graphics/rpSim/AperturesOnTopOfHitMap_MC.pdf}\vspace*{-10pt}}}
+		\end{subfigure}\\%\\[-3pt]
+		\begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+				\subcaptionbox{\label{fig:Apertures_swapedAxes_withFit}}{\includegraphics[width=\linewidth]{graphics/rpSim/Apertures_swapedAxes_withFit.pdf}\vspace*{-10pt}}}
+		\end{subfigure}
+	}%\vspace{-5pt}%
+\caption{Sample hit map of track points of proton tracks in events selected as elastic scattering in the data (\ref{fig:AperturesOnTopOfHitMap_Data}) and MC (\ref{fig:AperturesOnTopOfHitMap_MC}) with the DX aperture "shadow" marked with black points. The DX aperture envelopes were fitted with with circles (\ref{fig:Apertures_swapedAxes_withFit_beforeDxShift}) which helped to establish the offsets of DX magnet positions in $x$ and $y$ with respect to the ideal (nominal) geometry, leading to nearly perfect agreement between the data and MC after introducing the offsets in Geant4 geometry (\ref{fig:Apertures_swapedAxes_withFit}).}\label{fig:aperturesWithFit_Sample}%
 \end{figure}
+
+%\begin{figure}[hb]%
+%\caption[Apertures.]{Apertures.}\label{fig:aperturesWithFit_Sample}%
+%\centering
+%\parbox{0.495\textwidth}{
+%  \centering
+%  \includegraphics[width=\linewidth,page=1]{graphics/rpSim/AperturesOnTopOfHitMap_Data.pdf}\\
+%  \includegraphics[width=\linewidth,page=1]{graphics/rpSim/Apertures_swapedAxes_withFit_beforeDxShift.pdf}
+%}~
+%\parbox{0.495\textwidth}{
+%  \centering
+%  \includegraphics[width=\linewidth,page=1]{graphics/rpSim/AperturesOnTopOfHitMap_MC.pdf}\\
+%  \includegraphics[width=\linewidth,page=1]{graphics/rpSim/Apertures_swapedAxes_withFit.pdf}
+%}%
+%\end{figure}
 
 \subsection{Embedding technique}
