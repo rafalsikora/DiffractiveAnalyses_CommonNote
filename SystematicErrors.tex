@@ -173,7 +173,7 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 
 
 
-\subsection{Simulation accuracy (absolute error on TOF efficiency)}
+\subsection{Simulation accuracy (absolute error on TOF efficiency)}\label{subsec:tofAbsEffSystAndCorr}
 
 The efficiency of TOF hit reconstruction and matching with the TPC tracks that was used in our analyses was taken directly from the STAR simulation. This makes the inaccuracies in the description of real detector geometry and its response propagating to physics results and introducing a bias. We decided to estimate the systematic uncertainty connected with the accuracy of description of the TOF system in (data-embedded) STAR simulation by extracting the TOF efficiency in the very same way from the data and embedded MC and comparing the results.
 
@@ -186,14 +186,14 @@ Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would 
   \centering%\vspace{11pt}
   \includegraphics[width=0.98\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/sketch.pdf}%\vspace{-5pt}%
   \caption[Sketch of the tag\&probe method.]%
-  {Sketch of the cross section of the central detector and CEP event with off-time pile-up tracks with drafted tag\&probe method used to determine the TOF hit reconstruction and matching efficiency.\newline }\label{fig:tagAndProbeSketch}
+  {Sketch of the cross section of the central detector and CEP event with off-time pile-up tracks with drafted tag\&probe method used to determine the TOF hit reconstruction and matching efficiency. }\label{fig:tagAndProbeSketch}
 \end{minipage}%
 \quad\quad%
 \begin{minipage}{.4725\textwidth}%
   \centering%
   \includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/TofMultOfflineVsOnline.pdf}%\vspace*{-5pt}
   \caption[Comparison of original and reconstructed TOF multiplicity at the trigger level.]
-   {Comparison of original online TOF multiplicity at L0 (horizontal axis) and TOF multiplicity reconstructed from the offline hits (vertical axis) for preselected RP\_CPT triggers (at least 1 primary vertex with TOF-matched TPC tracks).}
+   {Comparison of original online TOF multiplicity at L0 (horizontal axis) and TOF multiplicity reconstructed from the offline hits (vertical axis) for RP\_CPT triggers.} % (at least 1 primary vertex with TOF-matched TPC tracks)
    \label{fig:tofOnlineMultRecoVsL0}%\vspace*{-29pt}
 \end{minipage}%
 \end{figure}%
@@ -208,9 +208,45 @@ The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. 
 \end{enumerate}
 
 \begin{equation}\label{eq:tofEffFunc}
- \varepsilon^{TOF}(p_{T}) = A\cdot \exp\Big\{-\left(B/p_{T}\right)^{C}\Big\}
+ \varepsilon^{\text{TOF}}(p_{T}) = A\cdot \exp\Big\{-\left(B/p_{T}\right)^{C}\Big\}
 \end{equation}
 
+\begin{equation}\label{eq:nProbeTof}
+ n_{\text{probe}}^{\text{TOF}}~=~\underbrace{N\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\bis}\times\varepsilon^{\text{TOF}}}_{\pi^{+}~\text{is tag},~\pi^{-}~\text{is probe}}~+~\underbrace{N\times\varepsilon^{\text{TOF}}\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\bis}}_{\pi^{+}~\text{is probe},~\pi^{-}~\text{is tag}}~=~ 2N\left(\varepsilon^{\text{TOF}}\right)^{2}\varepsilon_{\text{vtx}}^{\bis}
+\end{equation}
+
+
+\begin{equation}\label{eq:nProbeNoTof}
+ n_{\text{probe}}^{!\text{TOF}}~=~\underbrace{N\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}\times\left(1-\varepsilon^{\text{TOF}}\right)}_{\pi^{+}~\text{is tag},~\pi^{-}~\text{is probe}}~+~\underbrace{N\times\left(1-\varepsilon^{\text{TOF}}\right)\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}}_{\pi^{+}~\text{is probe},~\pi^{-}~\text{is tag}}~=~ 2N\left(1-\varepsilon^{\text{TOF}}\right)\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}
+\end{equation}
+
+
+\begin{multicols}{3}%~\\[-30pt]
+\begin{equation}\label{eq:nProbeTofTilde}
+ \tilde{n}_{\text{probe}}^{\text{TOF}}~=~\frac{n_{\text{probe}}^{\text{TOF}}}{\varepsilon_{\text{vtx}}^{\bis}}
+\end{equation}
+   \break\\[-20pt]
+    \begin{equation}\label{eq:nProbeNoTofTilde}
+ \tilde{n}_{\text{probe}}^{!\text{TOF}}~=~\frac{n_{\text{probe}}^{!\text{TOF}}}{\varepsilon_{\text{vtx}}^{\prime}}
+\end{equation}
+\break\\[-20pt]
+\begin{equation}\label{eq:tofEffTagAndProbe}
+ \varepsilon^{\text{TOF}} = \frac{\tilde{n}_{\text{probe}}^{\text{TOF}}}{\tilde{n}_{\text{probe}}^{\text{TOF}}~+~\tilde{n}_{\text{probe}}^{!\text{TOF}}}
+\end{equation}
+    \end{multicols}
+    
+% \begin{equation}\label{eq:nProbeTofTilde}
+%  \tilde{n}_{\text{probe}}^{\text{TOF}}~=~\frac{n_{\text{probe}}^{\text{TOF}}}{\varepsilon_{\text{vtx}}^{\bis}}
+% \end{equation}
+% 
+% 
+% \begin{equation}\label{eq:nProbeNoTofTilde}
+%  \tilde{n}_{\text{probe}}^{!\text{TOF}}~=~\frac{n_{\text{probe}}^{!\text{TOF}}}{\varepsilon_{\text{vtx}}^{\prime}}
+% \end{equation}
+% 
+% \begin{equation}\label{eq:tofEffTagAndProbe}
+%  \varepsilon^{\text{TOF}} = \frac{\tilde{n}_{\text{probe}}^{\text{TOF}}}{\tilde{n}_{\text{probe}}^{\text{TOF}}~+~\tilde{n}_{\text{probe}}^{!\text{TOF}}}
+% \end{equation}
 
 
 

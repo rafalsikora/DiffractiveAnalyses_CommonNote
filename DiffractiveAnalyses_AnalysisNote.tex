@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{tabulary}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{float}
 \usepackage{cite}
@@ -12,7 +13,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 % \usepackage[pdfborder={0 0 0.6}]{hyperref}
-\usepackage{hyperref}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage{listliketab}
 \usepackage{enumitem}
 \usepackage{multirow}
 \usepackage{multicol}
@@ -50,6 +52,7 @@
 \newcommand{\DPE}{D\Pom E}
 \newcommand{\Pomeron}{\Pom omeron}
 \newcommand{\Reggeon}{\Reg eggeon}
+\newcommand{\bis}{\prime\prime}
 
 % ---- ---- additional commands ---- ----
 \newcommand{\specialcell}[2][c]{%
@@ -93,13 +96,19 @@
 
 \Crefname{figure}{Fig.}{Figs.}
 
+% % Title Page
+% \title{\textbf{Supplementary note on diffractive analyses\\of 2015 proton-proton data:\\[20pt]\large{\cite{AnalysisNoteRafal}~Measurement of Central Exclusive Production of $\bm{h\bar{h}}$ pairs ($\bm{h=\pi,K,p}$) with Roman Pot detectors in diffractive\\proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\[10pt]\cite{AnalysisNoteLukasz}~Measurement of particle production with Roman Pot detectors\\in diffractive proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\}}\vspace*{10pt}}
+% \author[1]{\href{mailto:leszek.adamczyk@agh.edu.pl}{Leszek Adamczyk}}
+% \author[1]{\href{mailto:lukasz.fulek@fis.agh.edu.pl}{Łukasz Fulek}}
+% \author[1]{\href{mailto:rafal.sikora@fis.agh.edu.pl}{Rafał Sikora}}
+% \affil[1]{AGH University of Science and Technology, FPACS, Kraków, Poland}
+
 % Title Page
 \title{\textbf{Supplementary note on diffractive analyses\\of 2015 proton-proton data:\\[20pt]\large{\cite{AnalysisNoteRafal}~Measurement of Central Exclusive Production of $\bm{h\bar{h}}$ pairs ($\bm{h=\pi,K,p}$) with Roman Pot detectors in diffractive\\proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\[10pt]\cite{AnalysisNoteLukasz}~Measurement of particle production with Roman Pot detectors\\in diffractive proton-proton interactions at~$\bm{\sqrt{s}=}$~200~GeV\\}}\vspace*{10pt}}
-\author[1]{\href{mailto:leszek.adamczyk@agh.edu.pl}{Leszek Adamczyk}}
-\author[1]{\href{mailto:lukasz.fulek@fis.agh.edu.pl}{Łukasz Fulek}}
-\author[1]{\href{mailto:rafal.sikora@fis.agh.edu.pl}{Rafał Sikora}}
-\affil[1]{AGH University of Science and Technology, FPACS, Kraków, Poland}
-
+\author[ ]{\href{mailto:leszek.adamczyk@agh.edu.pl}{Leszek Adamczyk}}
+\author[ ]{\href{mailto:lukasz.fulek@fis.agh.edu.pl}{Łukasz Fulek}}
+\author[ ]{\href{mailto:rafal.sikora@fis.agh.edu.pl}{Rafał Sikora}}
+\affil[ ]{AGH University of Science and Technology, FPACS, Kraków, Poland}
 
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
@@ -123,7 +132,7 @@
 \begin{minipage}{\linewidth}
 \maketitle
 \begin{abstract}
-In this note we present supplementary material related to analyses of diffractive processes based on 2015 data from proton-proton collisions at $\sqrt{s}=200$~GeV. This dataset was collected with newly installed Roman Pot detectors in Phase II* configuration which ensured efficient triggering and measuring diffractively scattered protons.\\\indent We focus on calculation of efficiencies, corrections to Monte Carlo simulations and derivation of systematic uncertainties of our measurements.
+In this note we present supplementary material related to analyses of diffractive processes based on 2015 data from proton-proton collisions at $\sqrt{s}=200$~GeV. This dataset was collected with newly installed Roman Pot detectors in Phase II* configuration which ensured efficient triggering and measuring diffractively scattered protons.\\\indent We focus on issues which are common in aforementioned analyses: calculation of efficiencies, corrections to Monte Carlo simulations and derivation of systematic uncertainties of our measurements.
 \end{abstract}
 \thispagestyle{empty}
 \end{minipage}
@@ -136,13 +145,20 @@ In this note we present supplementary material related to analyses of diffractiv
 
 \clearpage
 \thispagestyle{empty}
-\newgeometry{hmargin={2cm, 2cm}, height=10.0in}
+\newgeometry{hmargin={2cm, 2cm}, vmargin={-0.68cm, 2.6cm} }
 
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{4}
+\addtocontents{toc}{\protect\enlargethispage{\baselineskip}}
 \tableofcontents
+\addtocontents{toc}{\vspace{-20pt}}
 
+\clearpage
+\thispagestyle{empty}
+\newgeometry{hmargin={2cm, 2cm}, height=10.0in}
 
+%% =====  BAD RUNS ====
+\input{BadRunList.tex}
  
 %% =====  TPC TRACK QUALITY CUTS ====
 \input{TpcTrackQualityCuts.tex}
@@ -154,7 +170,7 @@ In this note we present supplementary material related to analyses of diffractiv
 \input{EnergyLossCorrection.tex}
 
 %% =====  ROMAN POT SIMULATION ====
-\input{RomanPotSimulation.tex}
+\input{ForwardProtons.tex}
 
 %% ===== DE/DX ADJUSTMENT ====
 \input{dEdxAdjustment.tex}
@@ -191,6 +207,8 @@ In this note we present supplementary material related to analyses of diffractiv
 \input{TofEfficiencyAppendix.tex}
 % %% =====  ENERGY LOSS CORRECTION ====
 \input{EnergyLossCorrectionAppendix.tex}
+% %% =====  G4 APERTURES ====
+\input{RpAlignmentAppendix.tex}
 % %% =====  DEAD MATERIAL CORRECTION ====
 \input{DeadMaterialCorrectionAppendix.tex}
 %% ===== DE/DX ADJUSTMENT ====
