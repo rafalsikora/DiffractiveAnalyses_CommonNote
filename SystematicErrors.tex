@@ -191,10 +191,10 @@ Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would 
 \quad\quad%
 \begin{minipage}{.4725\textwidth}%
   \centering%
-  \includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/TofMultOfflineVsOnline.pdf}%\vspace*{-5pt}
-  \caption[Comparison of original and reconstructed TOF multiplicity at the trigger level.]
-   {Comparison of original online TOF multiplicity at L0 (horizontal axis) and TOF multiplicity reconstructed from the offline hits (vertical axis) for RP\_CPT triggers.} % (at least 1 primary vertex with TOF-matched TPC tracks)
-   \label{fig:tofOnlineMultRecoVsL0}%\vspace*{-29pt}
+  \includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/TofL0Eff_1TofVtx_1TofTrack.pdf}%\vspace*{-5pt}
+  \caption[Probability of the non-zero TOF L0 multiplicity if 1 primary TOF-matched TPC track vs. track $\eta$.]
+   {Probability of the non-zero trigger-level TOF multiplicity in events with only 1 primary TPC track matched with offline TOF hit, as a function of track pseudorapidity.}
+   \label{fig:tofTrigEffTagAndProbe}%\vspace*{-29pt}
 \end{minipage}%
 \end{figure}%
 %---------------------------
@@ -202,10 +202,33 @@ Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would 
 The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. In short, events with forward proton track on each side of STAR and with a TOF-matched primary TPC track (tag) were selected. Among the remaining primary TPC tracks in the same vertex the opposite-sign TPC track (probe) was chosen as the one which provides the minimum total transverse momentum of all four tracks. The probe was checked whether it has been matched with the TOF hit or not. The ratio of the matched TPC tracks to all (matched or unmatched) TPC tracks defined the TOF efficiency. The method is illustrated in the sketch in Fig.~\ref{fig:tagAndProbeSketch}. The detailed description of the procedure of the TOF efficiency extraction is provided below:
 
 \begin{enumerate}
- \item Data from two triggers were used (independently): RP\_CPT and RP\_CPT2 (trigger details in Tab.~2.1 of Ref.~\cite{AnalysisNoteRafal}). Embedded $\pi^{+}\pi^{-}$ GenEx MC sample was subjected to the same trigger conditions (depending on the data to be compared with). Since there is no simulation of the TOF trigger we used in MC analysis L0 TOF multiplicity reconstructed from the offline hits according to TOF trigger system description (see Ref.~\cite{tofL0MultExplanation}). In Fig.~\ref{fig:tofOnlineMultRecoVsL0} we show performance of implemented method of L0 TOF multiplicity reconstruction. One can find satisfactory correlation of the true multiplicity and the reconstructed one.
+ \item Data from RP\_CPT trigger was used. This trigger required at least a single level-0 TOF hit (trigger details can be found in Tab.~2.1 of Ref.~\cite{AnalysisNoteRafal}). Embedded $\pi^{+}\pi^{-}$ GenEx MC sample was subjected to the same trigger conditions. Since there is no simulation of the TOF trigger we assumed in MC analysis that any reconstructed offline TOF hit guarantees the L0 TOF multiplicity $\geq0$. In Fig.~\ref{fig:tofTrigEffTagAndProbe} we show that this assumption is close to the truth. Appropriate correction is applied in step X.
  \item Events were selected with the following set of cuts from nominal CEP analysis (Ref.~\cite{AnalysisNoteRafal}): \textbf{C1}, \textbf{C2} (TPC vertex), \textbf{C4} (RP tracks), \textbf{C5} (TPC-RP vertex matching), \textbf{C6} (veto signal in large BBC), providing significant reduction of background events.
  \item 
 \end{enumerate}
+
+
+
+%---------------------------
+\begin{figure}%[hb]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:vertexingEffVsD0}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/VertexingEffVsD0.pdf}}\vspace{-5pt}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:vertexingEff2D}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/VertexingEffVsDCA_2D.pdf}}\vspace{-5pt}
+  \end{subfigure}
+}%
+\caption[Comparison of background-subtracted $R_{\text{vtx}}^{\text{secondary}}$ and $z_{\text{vtx}}^{\text{secondary}}$ distribution in the data and embedded MC.]%
+    {Probability of reconstruction of the primary vertex for a single  (\ref{fig:vertexingEffVsD0}) and $z_{\text{vtx}}^{\text{secondary}}$ (\ref{fig:vertexingEff2D}) distribution in the data (opened black circles) and embedded MC (filled red circles). Only vertices recognized as products of hadronic interactions are shown in the figure.}\label{fig:vertexingEffTagAndProbe}%
+\end{figure}
+%---------------------------
 
 \begin{equation}\label{eq:tofEffFunc}
  \varepsilon^{\text{TOF}}(p_{T}) = A\cdot \exp\Big\{-\left(B/p_{T}\right)^{C}\Big\}
@@ -251,31 +274,70 @@ The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. 
 
 
 %---------------------------
+\begin{figure}[b!]%\vspace{-2pt}%
+\centering%
+\begin{minipage}{.4725\textwidth}%
+  \centering%\vspace{11pt}
+  \includegraphics[width=0.98\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/effSketch.pdf}%\vspace{-5pt}%
+  \caption[Sketch of the track with points in HFT.]%
+  {Sketch of the cross section of the central detector and the track reconstructed with points in HFT. Presence of HFT points in a reconstructed track can be used as a tagger of the in-time tracks.}
+  \label{fig:hftEffSketch}
+\end{minipage}%
+\quad\quad%
+\begin{minipage}{.4725\textwidth}%
+  \centering%
+  \includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/zVtxHFT.pdf}%\vspace*{-5pt}
+  \caption[Distribution of $z$-position of vertices with TPC tracks containing hits in HFT.]
+   {Distribution of $z$-position of vertices with TPC tracks with hits in HFT (st\_ssd stream). Open circles represent vertices with tracks with hits either in IST or SST, full circles - IST and SST.}
+   \label{fig:zVtxHFT}%\vspace*{-29pt}
+\end{minipage}%
+\end{figure}%
+%---------------------------
+
+
+%---------------------------
 \begin{figure}[h!]
 \centering
 \parbox{0.4725\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}{
                 \subcaptionbox{\label{fig:tofEffSystVsPt_CPT}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/CPT/TofEffVsPt.pdf}\vspace{-5pt}}}
-  \end{subfigure}\\[3pt]
-  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
-                \subcaptionbox{\label{fig:tofEffSystVsEta_CPT}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/CPT/TofEffVsEta.pdf}\vspace{-5pt}}}
   \end{subfigure}
 }
 \quad
 \parbox{0.4725\textwidth}{
   \centering
-  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}{
-                \subcaptionbox{\label{fig:tofEffSystVsPt_CPT2}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/CPT2/TofEffVsPt.pdf}\vspace{-5pt}}}
-  \end{subfigure}\\[3pt]
-  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
-                \subcaptionbox{\label{fig:tofEffSystVsEta_CPT2}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/CPT2/TofEffVsEta.pdf}\vspace{-5pt}}}
+    \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:tofEffSystVsEta_CPT}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/CPT/TofEffVsEta.pdf}\vspace{-5pt}}}
   \end{subfigure}
 }%\vspace{-5pt}%
 \caption[Tag\&Probe TOF efficiency from CEP data compared with the result from embedded CEP MC.]%
     {Tag\&Probe TOF efficiency from CEP data (black points) compared with the result from embedded CEP MC (red points) as a function of TPC track $p_{T}$ (top row) and $\eta$ (bottom row). The left and right hand side column represents results obtained from RP\_CPT and RP\_CPT2 triggers, respectively. Green points represent the TOF efficiency calculated in the standard way from embedded CEP MC sample. Blue lines denote the TOF efficiency calculated in the standard way solely from the selected probe tracks that were matched to primary pions at the true level. Difference between red points and blue lines show the potential bias of tag and probe method. Dashed lines are fits of function given by Eq.~\eqref{eq:tofEffFunc} to points of corresponding color. Dashed vertical lines with arrows indicate region of $p_{T}$ and $\eta$ accepted in analyses.}\label{fig:tofEffSyst}%
 \end{figure}
 %---------------------------
+
+
+%---------------------------
+\begin{figure}[h!]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_DATA}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_data.pdf}\vspace{-5pt}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.4725\textwidth}{
+  \centering
+    \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_MC}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_mc.pdf}\vspace{-5pt}}}
+  \end{subfigure}
+}%\vspace{-5pt}%
+\caption[ttt.]%
+    {ttt}\label{fig:sampleMissingPtTagAndProbe}%
+\end{figure}
+%---------------------------
+
 
 % %---------------------------
 % \begin{figure}[h!]
