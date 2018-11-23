@@ -175,7 +175,7 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 
 \subsection{Simulation accuracy (absolute error on TOF efficiency)}\label{subsec:tofAbsEffSystAndCorr}
 
-The efficiency of TOF hit reconstruction and matching with the TPC tracks that was used in our analyses was taken directly from the STAR simulation. This makes the inaccuracies in the description of real detector geometry and its response propagating to physics results and introducing a bias. We decided to estimate the systematic uncertainty connected with the accuracy of description of the TOF system in (data-embedded) STAR simulation by extracting the TOF efficiency in the very same way from the data and embedded MC and comparing the results.
+The efficiency of TOF hit reconstruction and matching with the TPC tracks that was used in our analyses was (at the very beginning) taken directly from the STAR simulation. This made the inaccuracies in the description of real detector geometry and its response propagating to physics results and introducing a bias. We decided to estimate the systematic uncertainty connected with the accuracy of description of the TOF system in (data-embedded) STAR simulation by extracting the TOF efficiency in the very same way from the data and embedded MC and comparing the results. In this section we show the TOF efficiency analysis that led to derivation of the correction to the TOF efficiency and the systematic error of the latter.
 
 Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would imply lack of off-time pile-up tracks in TPC and thus would allow calculating the TOF efficiency in straightforward way, namely by dividing number of selected TPC tracks that were matched with TOF hits by number of all selected TPC tracks (matched or unmatched). For this reason a variation of the ``tag and probe'' method was developed and used.
 
@@ -193,7 +193,7 @@ Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would 
   \centering%
   \includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/TofL0Eff_1TofVtx_1TofTrack.pdf}%\vspace*{-5pt}
   \caption[Probability of the non-zero TOF L0 multiplicity if 1 primary TOF-matched TPC track vs. track $\eta$.]
-   {Probability of the non-zero trigger-level TOF multiplicity in events with only 1 primary TPC track matched with offline TOF hit, as a function of track pseudorapidity.}
+   {Probability of the non-zero trigger-level TOF multiplicity in events with exactly 1 primary TPC track matched with offline TOF hit, as a function of track pseudorapidity. VPD signal required.}
    \label{fig:tofTrigEffTagAndProbe}%\vspace*{-29pt}
 \end{minipage}%
 \end{figure}%
@@ -274,25 +274,27 @@ The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. 
 
 
 %---------------------------
-\begin{figure}[b!]%\vspace{-2pt}%
-\centering%
-\begin{minipage}{.4725\textwidth}%
-  \centering%\vspace{11pt}
-  \includegraphics[width=0.98\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/effSketch.pdf}%\vspace{-5pt}%
-  \caption[Sketch of the track with points in HFT.]%
-  {Sketch of the cross section of the central detector and the track reconstructed with points in HFT. Presence of HFT points in a reconstructed track can be used as a tagger of the in-time tracks.}
-  \label{fig:hftEffSketch}
-\end{minipage}%
-\quad\quad%
-\begin{minipage}{.4725\textwidth}%
-  \centering%
-  \includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/zVtxHFT.pdf}%\vspace*{-5pt}
-  \caption[Distribution of $z$-position of vertices with TPC tracks containing hits in HFT.]
-   {Distribution of $z$-position of vertices with TPC tracks with hits in HFT (st\_ssd stream). Open circles represent vertices with tracks with hits either in IST or SST, full circles - IST and SST.}
-   \label{fig:zVtxHFT}%\vspace*{-29pt}
-\end{minipage}%
-\end{figure}%
+\begin{figure}[h!]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_DATA}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_data.pdf}\vspace{-5pt}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.4725\textwidth}{
+  \centering
+    \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_MC}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_mc.pdf}\vspace{-5pt}}}
+  \end{subfigure}
+}%\vspace{-5pt}%
+\caption[ttt.]%
+    {Sample distributions of total transverse momentum of the $p$+Tag+Probe+$p$ system in the data (\ref{fig:sampleMissingPtTagAndProbe_DATA}) and signal+background embedded MC (\ref{fig:sampleMissingPtTagAndProbe_MC}). TOF-matched and all (matched or unmatched) probes are represented by histograms in green and black color, respectively. The red dashed line shows the exclusivity cut value ($75~\text{MeV}/c$). Signal yield is determined via the integral of the histogram with subtracted integral of the solid line representing non-exclusive background in the $p_{T}^{\text{miss}}$ range to the left from the vertical line. Background (solid line) is fitted with 2$^{\text{nd}}$ order polynomial in the signal-free region (the details can be found in Ref.~\cite{AnalysisNoteRafal} in Sec.~5.2. Full sets of histograms of this kind in different ranges of probe $p_{T}$ and $\eta$ are included in Appendix~\ref{appendix:tagAndProbeTofEff}.}\label{fig:sampleMissingPtTagAndProbe}%
+\end{figure}
 %---------------------------
+
+
 
 
 %---------------------------
@@ -318,25 +320,31 @@ The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. 
 
 
 %---------------------------
-\begin{figure}[h!]
-\centering
-\parbox{0.4725\textwidth}{
-  \centering
-  \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_DATA}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_data.pdf}\vspace{-5pt}}}
-  \end{subfigure}
-}
-\quad
-\parbox{0.4725\textwidth}{
-  \centering
-    \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_MC}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_mc.pdf}\vspace{-5pt}}}
-  \end{subfigure}
-}%\vspace{-5pt}%
-\caption[ttt.]%
-    {ttt}\label{fig:sampleMissingPtTagAndProbe}%
-\end{figure}
+\begin{figure}%[b!]%\vspace{-2pt}%
+\centering%
+\begin{minipage}{.4725\textwidth}%
+  \centering%\vspace{11pt}
+  \includegraphics[width=0.965\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/effSketch.pdf}%\vspace{-5pt}%
+  \caption[Sketch of the track with points in HFT.]%
+  {Sketch of the cross section of the central detector and the track reconstructed with points in HFT. Presence of HFT points in a reconstructed track can be used as a tagger of the in-time tracks.}
+  \label{fig:hftEffSketch}
+\end{minipage}%
+\quad\quad%
+\begin{minipage}{.4725\textwidth}%
+  \centering%
+  \includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/zVtxHFT.pdf}%\vspace*{-5pt}
+  \caption[Distribution of $z$-position of vertices with TPC tracks containing hits in HFT.]
+   {Distribution of $z$-position of vertices containing TPC tracks with HFT hits (st\_ssd stream). Open circles represent vertices with tracks with hits in IST or SST, full circles - IST and SST.}
+   \label{fig:zVtxHFT}%\vspace*{-29pt}
+\end{minipage}%
+\end{figure}%
 %---------------------------
+
+
+
+
+
+
 
 
 % %---------------------------
