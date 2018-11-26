@@ -177,7 +177,8 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 
 The efficiency of TOF hit reconstruction and matching with the TPC tracks that was used in our analyses was (at the very beginning) taken directly from the STAR simulation. This made the inaccuracies in the description of real detector geometry and its response propagating to physics results and introducing a bias. We decided to estimate the systematic uncertainty connected with the accuracy of description of the TOF system in (data-embedded) STAR simulation by extracting the TOF efficiency in the very same way from the data and embedded MC and comparing the results. In this section we show the TOF efficiency analysis that led to derivation of the correction to the TOF efficiency and the systematic error of the latter.
 
-Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would imply lack of off-time pile-up tracks in TPC and thus would allow calculating the TOF efficiency in straightforward way, namely by dividing number of selected TPC tracks that were matched with TOF hits by number of all selected TPC tracks (matched or unmatched). For this reason a variation of the ``tag and probe'' method was developed and used.
+Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would imply lack of off-time pile-up tracks in TPC and thus would allow calculating the TOF efficiency in straightforward way, namely by dividing number of selected TPC tracks that were matched with TOF hits by number of all selected TPC tracks (matched or unmatched). For this reason a variation of the ``tag and probe'' method was developed and used. This method utilizes some specific feature of the distribution of quantity describing two objects (whose trigger/reconstriction/identification/etc. efficiency is studied) which allows to quantify amount of these objects with satisfied/unsatisfied efficiency condition. This could be e.g. $J/\psi$ peak in the invariant mass spectrum of the muon tracks, like in the study of muon identification efficiency in MTD~\cite{Huang:2016dbm}. %
+%An example could be e.g. extraction of the muon identification efficiency in MTD. The quantity providing characteristic feature would be invariant mass of two opposite-sign tracks, which should contain a $J/\psi$ peak in the invariant mass spectrum for real muon tracks. One could tightly select one track likely being a muon (it would be a tag), and fill the histograms of $m(\mu^{+}\mu^{-})$ for all pairs tag+probe, where probes would be all tracks which 
 
 %---------------------------
 \begin{figure}[b!]%\vspace{-2pt}%
@@ -199,18 +200,65 @@ Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would 
 \end{figure}%
 %---------------------------
 
-The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. In short, events with forward proton track on each side of STAR and with a TOF-matched primary TPC track (tag) were selected. Among the remaining primary TPC tracks in the same vertex the opposite-sign TPC track (probe) was chosen as the one which provides the minimum total transverse momentum of all four tracks. The probe was checked whether it has been matched with the TOF hit or not. The ratio of the matched TPC tracks to all (matched or unmatched) TPC tracks defined the TOF efficiency. The method is illustrated in the sketch in Fig.~\ref{fig:tagAndProbeSketch}. The detailed description of the procedure of the TOF efficiency extraction is provided below:
+In our varation of mentioned tag\&probe method the CEP of $\pi^{+}\pi^{-}$ events were used, with the missing transverse momentum $p_{T}^{\text{miss}}$ used to determine signal event yield ($p_{T}^{\text{miss}}=(\vec{p}_{W}+\vec{\pi}^{+}+\vec{\pi}^{-}+\vec{p}_{E})_{T}$). In short, events with forward proton track on each side of STAR and with a TOF-matched primary TPC track (tag) were selected. Among the remaining primary TPC tracks in the same vertex the opposite-sign TPC track (probe) was chosen as the one which provides the minimum total transverse momentum of all four tracks. The probe was checked whether it has been matched with the TOF hit or not. The ratio of the matched TPC tracks to all (matched or unmatched) TPC tracks defined the TOF efficiency, as given in Eq.~\eqref{eq:tagAndProbeEffDef}:%
+\begin{equation}\label{eq:tagAndProbeEffDef}%
+\varepsilon^{\text{TOF}}=\frac{N^{\text{probes}}_{\text{satisified}}}{N^{\text{probes}}_{\text{produced}}} = \frac{\textcolor{dgreen}{N^{\text{probes}}_{\text{satisified}}}}{\textcolor{dgreen}{N^{\text{probes}}_{\text{satisified}}}+\textcolor{red}{N^{\text{probes}}_{\text{failed}}}} = \frac{\textcolor{dgreen}{2 N^{\text{events}}_{TT}} + \textcolor{dgreen}{N^{\text{events}}_{TP_{s}}}}{\textcolor{dgreen}{2 N^{\text{events}}_{TT}} + \textcolor{dgreen}{N^{\text{events}}_{TP_{s}}} + \textcolor{red}{N^{\text{events}}_{TP_{f}}}}
+\end{equation}%
+Subscripts $TT$, $TP_{s}$ and $TP_{f}$ denote possible combinations of tags and probes:\\[-17pt]
+\begin{itemize}%\scriptsize
+ \item $TT$ (both objects satisfy tag criteria, and by definition the efficiency condition); such events provide two probes which satisfy efficiency condition which is the reason for the factor '2' in front of $N^{\text{events}}_{TT}$ in Eq.~\eqref{eq:tagAndProbeEffDef},\\[-17pt]
+ \item $TP_{s}$ (one is tag, the other is a probe and probe satisifes the efficiency condition),\\[-17pt]
+ \item $TP_{f}$ (one is tag, the other is a probe and probe fails to satisify the eff. condition).%\\[-7pt]
+\end{itemize}%
+The method is illustrated in the sketch in Fig.~\ref{fig:tagAndProbeSketch}. The detailed description of the procedure of the TOF efficiency extraction is provided in the next page.\newpage
 
+% \[\varepsilon^{\text{TOF}}=\frac{ \textcolor{dgreen}{N^{\text{matched}}_\text{weighted}} }{ N^{\text{all}}_\text{weighted}} = \frac{ \textcolor{dgreen}{N^{\text{matched}}_\text{weighted}} }{ \textcolor{dgreen}{N^{\text{matched}}_\text{weighted}} + \textcolor{red}{N^{\text{not matched}}_\text{weighted}} }\]
+
+The algorithm of tag\&probe method:
 \begin{enumerate}
- \item Data from RP\_CPT trigger was used. This trigger required at least a single level-0 TOF hit (trigger details can be found in Tab.~2.1 of Ref.~\cite{AnalysisNoteRafal}). Embedded $\pi^{+}\pi^{-}$ GenEx MC sample was subjected to the same trigger conditions. Since there is no simulation of the TOF trigger we assumed in MC analysis that any reconstructed offline TOF hit guarantees the L0 TOF multiplicity $\geq0$. In Fig.~\ref{fig:tofTrigEffTagAndProbe} we show that this assumption is close to the truth. Appropriate correction is applied in step X.
- \item Events were selected with the following set of cuts from nominal CEP analysis (Ref.~\cite{AnalysisNoteRafal}): \textbf{C1}, \textbf{C2} (TPC vertex), \textbf{C4} (RP tracks), \textbf{C5} (TPC-RP vertex matching), \textbf{C6} (veto signal in large BBC), providing significant reduction of background events.
- \item 
+ \item Data from RP\_CPT trigger was used. This trigger required at least a single level-0 TOF hit (trigger details can be found in Tab.~2.1 of Ref.~\cite{AnalysisNoteRafal}). Embedded $\pi^{+}\pi^{-}$ GenEx MC sample was subjected to the same trigger conditions. Since there is no simulation of the TOF trigger we assumed in MC analysis that any reconstructed offline TOF hit guarantees the L0 TOF multiplicity $\geq0$. In Fig.~\ref{fig:tofTrigEffTagAndProbe} we show that this assumption is safe. Appropriate correction is applied in the event weighting procedure, as explained later.\\[-18pt]% in the text.
+ \item Events were selected with the following set of cuts from nominal CEP analysis (Ref.~\cite{AnalysisNoteRafal}): \textbf{C1}, \textbf{C2} (TPC vertex), \textbf{C4} (RP tracks), \textbf{C5} (TPC-RP vertex matching), \textbf{C6} (veto signal in large BBC), providing significant reduction of background events.\\[-18pt]
+ \item For each event passing above selection primary TOF-matched TPC tracks of good quality (satisfying cuts~\ref{sec:TpcQualityCuts},\ref{sec:TpcDcaCuts}) and compatible with pion hypothesis based on $dE/dx$ ($|n^{\sigma}_{\text{pion}}|<3$) were selected. If any TOF-matched track incompatible with pion hypothesis was found, event was dropped from further analysis. Also, an event was not analyzed if more than 2 TOF-matched tracks were reconstructed (not CEP event).\\[-18pt]
+ \item Among primary TOF-matched TPC tracks preselected in \#3, one was set as a tag. In case only one track passed preselection, steps \#5-\#6 were executed only with this single track being a tag. Otherwise steps \#5-\#6 were repeated for every preselected track set as a tag.\\[-18pt]
+ \item From the remaining TPC tracks in the same vertex of the sign opposite to tag and of good quality (cuts~\ref{sec:TpcQualityCuts},\ref{sec:TpcDcaCuts}), the one which provided the best transverse momentum balance together with 2 protons and a tag was selected as probe (signature of exclusive $\pi^{+}\pi^{-}$:  $p_{T}^{\text{miss}}\sim0$). If no primary TPC tracks passing this selection were found, an event was dropped.\\[-18pt]
+ \item 2-dimensional histograms of quantities of interest (probe $\eta$, probe $p_{T}$) vs. $p_{T}^{\text{miss}}$ were filled, separately for all probes and only for probes matched with TOF. Each probe was associated with the weight $w$ taking into account the trigger efficiency and vertexing efficiency, as given in Eq.~\eqref{eq:tagAndProbeWeigth} and explained later in the text.\\[-18pt]
+ \item In each bin of quantity of interest $q$ (as a function of which the efficiency was to be determined) the distribution of $p_{T}^{\text{miss}}$ was fitted  in the signal-free with the function describing background shape. The background was extrapolated to $p_{T}^{\text{miss}}=0$. The signal yield in given bin of $q$ was calculated as the integral of the histogram with subtracted integral of the background function, both in the range $p_{T}^{\text{miss}}<75$~MeV. The final efficiency in given bin of $q$ was calculated according to Eq.~\eqref{eq:tagAndProbeEffDef2}:
+ \begin{equation}\label{eq:tagAndProbeEffDef2}
+  \varepsilon^{\text{TOF}}(q) = \frac{N_\text{weighted}^{\text{matched},~p_{T}^{\text{miss}}<75~\text{MeV}} - N_\text{bkgd,weighted}^{\text{matched},~p_{T}^{\text{miss}}<75~\text{MeV}} }{ N_\text{weighted}^{\text{all},~p_{T}^{\text{miss}}<75~\text{MeV}} - N_\text{bkgd,weighted}^{\text{all},~p_{T}^{\text{miss}}<75~\text{MeV}} }\vspace*{-25pt}
+ \end{equation}
+
 \end{enumerate}
 
-
-
 %---------------------------
-\begin{figure}%[hb]
+\begin{figure}[b!]\vspace*{-25pt}
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_DATA}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_data.pdf}\vspace{-10pt}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.4725\textwidth}{
+  \centering
+    \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_MC}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_mc.pdf}\vspace{-10pt}}}
+  \end{subfigure}
+}%\vspace{-5pt}%
+\caption[Sample distributions of $p_{T}^{\text{miss}}$ of the $p$+Tag+Probe+$p$ system in the data and embedded MC.]%
+    {Sample distributions of total transverse momentum $p_{T}^{\text{miss}}$ of the $p$+Tag+Probe+$p$ system in the data (\ref{fig:sampleMissingPtTagAndProbe_DATA}) and signal+background embedded MC (\ref{fig:sampleMissingPtTagAndProbe_MC}). TOF-matched and all (matched or unmatched) probes are represented by histograms in green and black color, respectively. The red dashed line shows the exclusivity cut value ($75~\text{MeV}/c$). Signal yield is determined via the integral of the histogram with subtracted integral of the solid line representing non-exclusive background in the $p_{T}^{\text{miss}}$ range to the left from the vertical line. Background (solid line) is fitted with 2$^{\text{nd}}$ order polynomial in the signal-free region (the details can be found in Ref.~\cite{AnalysisNoteRafal} in Sec.~5.2). Full sets of histograms in different ranges of probe $p_{T}$ and $\eta$ are included in Appendix~\ref{appendix:tagAndProbeTofEff}.}\label{fig:sampleMissingPtTagAndProbe}%
+\end{figure}
+%---------------------------
+
+
+\newpage
+\begin{equation}\label{eq:tagAndProbeWeigth}
+w=\underbrace{\left(\varepsilon_{vtx}^{\text{nTOF=2}}(\Delta z_{0})\right)^{-1}}_{\text{2 TOF-matched prim. trks}}~~\text{or}~~~\underbrace{\left(\varepsilon_{vtx}^{\text{nTOF=1}}(d_{0})\times (\varepsilon_{vtx}^{\text{no-TOF}}(\vec{\text{DCA}})\right)^{-1}}_{\text{1 TOF-matched prim. trk}}
+\end{equation}
+ 
+ 
+%---------------------------
+\begin{figure}%[h]
 \centering
 \parbox{0.4725\textwidth}{
   \centering
@@ -225,38 +273,38 @@ The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. 
                 \subcaptionbox{\label{fig:vertexingEff2D}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TOF_tagAndProbe/VertexingEffVsDCA_2D.pdf}}\vspace{-5pt}
   \end{subfigure}
 }%
-\caption[Comparison of background-subtracted $R_{\text{vtx}}^{\text{secondary}}$ and $z_{\text{vtx}}^{\text{secondary}}$ distribution in the data and embedded MC.]%
-    {Probability of reconstruction of the primary vertex for a single  (\ref{fig:vertexingEffVsD0}) and $z_{\text{vtx}}^{\text{secondary}}$ (\ref{fig:vertexingEff2D}) distribution in the data (opened black circles) and embedded MC (filled red circles). Only vertices recognized as products of hadronic interactions are shown in the figure.}\label{fig:vertexingEffTagAndProbe}%
+\caption[Efficiencies for reconstruction of the vertex with single TOF-matched TPC track and association with this vertex of TOF-unmatched track.]%
+    {Efficiency $\varepsilon_{vtx}^{\text{nTOF=1}}$ of reconstruction of the primary vertex from a single TOF-matched TPC track as a function of the transverse impact parameter $d_{0}$ (\ref{fig:vertexingEffVsD0}) and efficiency $\varepsilon_{vtx}^{\text{no-TOF}}$ of association with the vertex formed from single TOF-matched track of a TPC track not matched with TOF, as a function of radial and longitudinal DCA to the vertex (\ref{fig:vertexingEff2D}). The tracks were required to be matched with true-level primary particles (pions) as well as the quality and kinematic cuts were implied (\ref{sec:TpcQualityCuts}, \ref{sec:TpcDcaCuts}, \ref{sec:TpcKinematicCuts}).}\label{fig:vertexingEffTagAndProbe}%
 \end{figure}
 %---------------------------
 
-\begin{equation}\label{eq:tofEffFunc}
- \varepsilon^{\text{TOF}}(p_{T}) = A\cdot \exp\Big\{-\left(B/p_{T}\right)^{C}\Big\}
-\end{equation}
+% \begin{equation}\label{eq:tofEffFunc}
+%  \varepsilon^{\text{TOF}}(p_{T}) = A\cdot \exp\Big\{-\left(B/p_{T}\right)^{C}\Big\}
+% \end{equation}
 
-\begin{equation}\label{eq:nProbeTof}
- n_{\text{probe}}^{\text{TOF}}~=~\underbrace{N\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\bis}\times\varepsilon^{\text{TOF}}}_{\pi^{+}~\text{is tag},~\pi^{-}~\text{is probe}}~+~\underbrace{N\times\varepsilon^{\text{TOF}}\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\bis}}_{\pi^{+}~\text{is probe},~\pi^{-}~\text{is tag}}~=~ 2N\left(\varepsilon^{\text{TOF}}\right)^{2}\varepsilon_{\text{vtx}}^{\bis}
-\end{equation}
-
-
-\begin{equation}\label{eq:nProbeNoTof}
- n_{\text{probe}}^{!\text{TOF}}~=~\underbrace{N\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}\times\left(1-\varepsilon^{\text{TOF}}\right)}_{\pi^{+}~\text{is tag},~\pi^{-}~\text{is probe}}~+~\underbrace{N\times\left(1-\varepsilon^{\text{TOF}}\right)\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}}_{\pi^{+}~\text{is probe},~\pi^{-}~\text{is tag}}~=~ 2N\left(1-\varepsilon^{\text{TOF}}\right)\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}
-\end{equation}
+% \begin{equation}\label{eq:nProbeTof}
+%  n_{\text{probe}}^{\text{TOF}}~=~\underbrace{N\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\bis}\times\varepsilon^{\text{TOF}}}_{\pi^{+}~\text{is tag},~\pi^{-}~\text{is probe}}~+~\underbrace{N\times\varepsilon^{\text{TOF}}\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\bis}}_{\pi^{+}~\text{is probe},~\pi^{-}~\text{is tag}}~=~ 2N\left(\varepsilon^{\text{TOF}}\right)^{2}\varepsilon_{\text{vtx}}^{\bis}
+% \end{equation}
 
 
-\begin{multicols}{3}%~\\[-30pt]
-\begin{equation}\label{eq:nProbeTofTilde}
- \tilde{n}_{\text{probe}}^{\text{TOF}}~=~\frac{n_{\text{probe}}^{\text{TOF}}}{\varepsilon_{\text{vtx}}^{\bis}}
-\end{equation}
-   \break\\[-20pt]
-    \begin{equation}\label{eq:nProbeNoTofTilde}
- \tilde{n}_{\text{probe}}^{!\text{TOF}}~=~\frac{n_{\text{probe}}^{!\text{TOF}}}{\varepsilon_{\text{vtx}}^{\prime}}
-\end{equation}
-\break\\[-20pt]
-\begin{equation}\label{eq:tofEffTagAndProbe}
- \varepsilon^{\text{TOF}} = \frac{\tilde{n}_{\text{probe}}^{\text{TOF}}}{\tilde{n}_{\text{probe}}^{\text{TOF}}~+~\tilde{n}_{\text{probe}}^{!\text{TOF}}}
-\end{equation}
-    \end{multicols}
+% \begin{equation}\label{eq:nProbeNoTof}
+%  n_{\text{probe}}^{!\text{TOF}}~=~\underbrace{N\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}\times\left(1-\varepsilon^{\text{TOF}}\right)}_{\pi^{+}~\text{is tag},~\pi^{-}~\text{is probe}}~+~\underbrace{N\times\left(1-\varepsilon^{\text{TOF}}\right)\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}}_{\pi^{+}~\text{is probe},~\pi^{-}~\text{is tag}}~=~ 2N\left(1-\varepsilon^{\text{TOF}}\right)\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}
+% \end{equation}
+
+
+% \begin{multicols}{3}%~\\[-30pt]
+% \begin{equation}\label{eq:nProbeTofTilde}
+%  \tilde{n}_{\text{probe}}^{\text{TOF}}~=~\frac{n_{\text{probe}}^{\text{TOF}}}{\varepsilon_{\text{vtx}}^{\bis}}
+% \end{equation}
+%    \break\\[-20pt]
+%     \begin{equation}\label{eq:nProbeNoTofTilde}
+%  \tilde{n}_{\text{probe}}^{!\text{TOF}}~=~\frac{n_{\text{probe}}^{!\text{TOF}}}{\varepsilon_{\text{vtx}}^{\prime}}
+% \end{equation}
+% \break\\[-20pt]
+% \begin{equation}\label{eq:tofEffTagAndProbe}
+%  \varepsilon^{\text{TOF}} = \frac{\tilde{n}_{\text{probe}}^{\text{TOF}}}{\tilde{n}_{\text{probe}}^{\text{TOF}}~+~\tilde{n}_{\text{probe}}^{!\text{TOF}}}
+% \end{equation}
+%     \end{multicols}
     
 % \begin{equation}\label{eq:nProbeTofTilde}
 %  \tilde{n}_{\text{probe}}^{\text{TOF}}~=~\frac{n_{\text{probe}}^{\text{TOF}}}{\varepsilon_{\text{vtx}}^{\bis}}
@@ -273,26 +321,7 @@ The mentioned tag\&probe method made use of the CEP of $\pi^{+}\pi^{-}$ events. 
 
 
 
-%---------------------------
-\begin{figure}[h!]
-\centering
-\parbox{0.4725\textwidth}{
-  \centering
-  \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_DATA}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_data.pdf}\vspace{-5pt}}}
-  \end{subfigure}
-}
-\quad
-\parbox{0.4725\textwidth}{
-  \centering
-    \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:sampleMissingPtTagAndProbe_MC}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TOF_tagAndProbe/Fitting_effVsPt_mc.pdf}\vspace{-5pt}}}
-  \end{subfigure}
-}%\vspace{-5pt}%
-\caption[ttt.]%
-    {Sample distributions of total transverse momentum of the $p$+Tag+Probe+$p$ system in the data (\ref{fig:sampleMissingPtTagAndProbe_DATA}) and signal+background embedded MC (\ref{fig:sampleMissingPtTagAndProbe_MC}). TOF-matched and all (matched or unmatched) probes are represented by histograms in green and black color, respectively. The red dashed line shows the exclusivity cut value ($75~\text{MeV}/c$). Signal yield is determined via the integral of the histogram with subtracted integral of the solid line representing non-exclusive background in the $p_{T}^{\text{miss}}$ range to the left from the vertical line. Background (solid line) is fitted with 2$^{\text{nd}}$ order polynomial in the signal-free region (the details can be found in Ref.~\cite{AnalysisNoteRafal} in Sec.~5.2. Full sets of histograms of this kind in different ranges of probe $p_{T}$ and $\eta$ are included in Appendix~\ref{appendix:tagAndProbeTofEff}.}\label{fig:sampleMissingPtTagAndProbe}%
-\end{figure}
-%---------------------------
+
 
 
 
