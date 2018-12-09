@@ -5,21 +5,22 @@
 %%===========================================================%%
 
 
-\chapter{TPC vertex and track selection}\label{chap:TpcTrackQualityCuts}
+\chapter{TPC/TOF track and event selection}\label{chap:TpcTrackQualityCuts}
 
 Charged particle tracks and primary vertices reconstructed with the TPC were selected in our analyses with the set of cuts listed below. These cuts were used in all sub-analyses described in this note and our physics analyses described in Ref.~\cite{AnalysisNoteRafal} and ~\cite{AnalysisNoteLukasz}, unless stated differently. The goal of these criteria was to reject overlapping pile-up events, off-time pile-up tracks and ensure satisfactory resolution of the track momentum and specific energy loss.
 
-Limit values of quantities in all selection cuts were chosen to balance the selection efficiency, background rejection power and related systematic uncertainties. Cuts in Sec.~\ref{sec:TpcQualityCuts} and~\ref{sec:TpcDcaCuts} were established based on histograms like the ones presented in Fig.~\ref{fig:pointingResComp}. Cuts on $z_{\text{vtx}}$ and track $p_{T}$ and $\eta$ were set based on the $z_{\text{vtx}}$ distribution ($\sigma(z_{\text{vtx}})~\approx$~50~cm) and joint acceptance and efficiency of the TPC and TOF (see Appendix~\ref{appendix:tpcEff} and~\ref{appendix:tofEff}).
+Limit values of quantities in all selection cuts were chosen to balance the selection efficiency, background rejection power and related systematic uncertainties. Cuts in Sec.~\ref{sec:TpcQualityCuts} and~\ref{sec:TpcDcaCuts} were established based on histograms like the ones presented in Fig.~\ref{fig:pointingResComp}. Cuts on $z_{\text{vtx}}$ and track $p_{T}$ and $\eta$ were set based on the $z_{\text{vtx}}$ distribution ($\sigma(z_{\text{vtx}})~\approx$~50~cm) and joint acceptance and efficiency of the TPC and TOF (see e.g. Sec.~\ref{subsec:sampleTpcEffPlots}). More detailed description of event and track selections are contained in physics analyses notes\cite{AnalysisNoteRafal,AnalysisNoteLukasz}.
 
-\section{TPC vertex}
+\section{TPC vertex selection (event selection)}
+An event was selected for analysis if the following criteria were satisfied:
 \begin{itemize}
-\item \textbf{Single primary vertex} (exactly one that contains at least one track matched with hit in TOF),
-\item \textbf{$\bm{|z_{\text{vtx}}|<80~\text{cm}}$}.
+	\item \textbf{Single primary vertex} (exactly one that contains at least one track matched with hit in TOF),
+	\item \textbf{$\bm{|z_{\text{vtx}}|<80~\text{cm}}$}.
 \end{itemize}
 
-\section{TPC tracks}
+\section{TPC track selection}
 \subsection{Quality cuts}\label{sec:TpcQualityCuts}
-All TPC tracks had to satisfy quality criteria:
+All TPC tracks used in analyses had to satisfy quality criteria:
 
 \storestyleof{itemize}
 \begin{listliketab}
@@ -31,6 +32,12 @@ All TPC tracks had to satisfy quality criteria:
     \end{tabular}
 \end{listliketab}\vspace{-15pt}
 
+\subsection{TOF hit matching}\label{sec:TpcTofMatchingRequirement}
+TPC tracks had to be matched with hits reconstructed in TOF:
+\begin{itemize}
+	\item \textbf{$\bm{\text{TOF match flag}~\neq~0}$}.
+\end{itemize}
+
 \subsection{Vertex matching quality}\label{sec:TpcDcaCuts}
 Primary TPC tracks had to match well to the primary vertex:\\
 \storestyleof{itemize}
@@ -41,15 +48,10 @@ Primary TPC tracks had to match well to the primary vertex:\\
     \end{tabular}
 \end{listliketab}\vspace{-15pt}
  
-\subsection{TOF hit matching}\label{sec:TpcTofMatchingRequirement}
-TPC tracks had to be matched with hits reconstructed in TOF:
-\begin{itemize}
- \item \textbf{$\bm{\text{TOF match flag}~\neq~0}$}.
-\end{itemize}
 
-\subsection{Kinematic range}\label{sec:TpcKinematicCuts}
+\section{Fiducial region of the measurement}\label{sec:TpcKinematicCuts}
 TPC tracks had to be contained within the kinematic range:
 \begin{itemize}
 \item \textbf{$\bm{|\eta|<0.7}$},
-\item pions:~~~~~\textbf{$\bm{p_{T}>0.2~\textrm{GeV}}$},\\kaons:~~~~\hspace{1.6pt}\textbf{$\bm{p_{T}>0.3~\textrm{GeV}}$},\\protons:~~\textbf{$\bm{p_{T}>0.4~\textrm{GeV}}$}.
+\item pions:~~~~~\textbf{$\bm{p_{T}>0.2~\textrm{GeV}}$},~~~~~~~~~~~tracks without identification:~~~~~\textbf{$\bm{p_{T}>0.2~\textrm{GeV}}$},\\[2pt]kaons:~~~~\hspace{1.6pt}\textbf{$\bm{p_{T}>0.3~\textrm{GeV}}$},~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\hspace*{-1.4pt}protons:~~~~~\textbf{$\bm{p_{T}>0.4~\textrm{GeV}}$}.
 \end{itemize}
