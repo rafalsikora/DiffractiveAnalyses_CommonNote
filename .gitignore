@@ -10,3 +10,4 @@ AutoDict*
 *.toc
 *.bbl
 *.synctex.gz
+.DS_Store
