@@ -9,7 +9,8 @@
 
 \section{TPC track acceptance and reconstruction efficiency}\label{sec:tpcAccAndEff}
 We defined joint acceptance and efficiency of reconstruction of a track in the TPC, $\epsilon_{\textrm{\tiny TPC}}$, as the probability that particle from the primary interaction generates signal in the detector which is reconstructed as a global track that satisfies all quality criteria (cuts~\ref{sec:TpcQualityCuts}).
-To derive this quantity the single particle STARsim MC embedded into zero-bias triggers was used.
+To derive this quantity the single particle STARsim MC embedded into zero-bias trigger data taken simultaneously with physics triggers 
+ was used.
 \subsection{STAR nominal method}
 Technically, the common method used by the STAR to obtain  $\epsilon_{\textrm{\tiny TPC}}$ is the following procedure:
 \begin{enumerate}
@@ -40,17 +41,22 @@ It was found during the analysis that in some events there are more than one rec
 		\includegraphics[width=\linewidth,page=3]{graphics/eff/trackSplitting_CD.pdf}\\
 		\includegraphics[width=\linewidth,page=6]{graphics/eff/trackSplitting_CD.pdf}\\
 	}%
-	\caption[Number of reconstructed global tracks, satisfying all quality criteria, matched with one true level primary particle.]{Number of reconstructed global tracks, satisfying all quality criteria (cuts~\ref{sec:TpcQualityCuts}), matched with one true level primary particle.}\label{fig:trackSplittingNominal}
+	\caption[Number of reconstructed global tracks, satisfying all quality criteria, matched with the same true level primary particle.]{Number of reconstructed global tracks, satisfying all quality criteria (cuts~\ref{sec:TpcQualityCuts}), matched with the~same true level primary particle.}\label{fig:trackSplittingNominal}
 \end{figure}
 
-The true level particle end vertex $V_r^{end}$ is not specified if the particle neither interacted with the dead material nor decayed. The analysis showed that the reconstructed track is sometimes matched to the parent true level particle, e.g. with $V_{r}^{end}<48$~cm (in front of TPC), which means that not all children particles are stored in the StMuMcTrack collection. Also, there are problems in the closure tests, where  the  reconstructed-level distributions weighted by the nominal efficiency corrections do not describe the true level distributions.
+The true level particle end vertex $V_r^{end}$ is not specified if the particle neither interacted with the dead material nor decayed. The analysis showed that the reconstructed track is sometimes matched to the parent true level particle. Problem with wrong true level matching is also present for tracks with only one track matched to true level particle which do not decay or interact with material. 
+It is visible on Fig.~\ref{fig:trackSplittingNominaldEdx} where $dE/dx$ is shown that some reconstracted tracks 
+have different PID than true level particle matched to it.
+ Also, there are problems in the closure tests, where  the  reconstructed-level distributions of rapidity and transverse momenta weighted by the nominal efficiency corrections do not describe the true level distributions. Main reason for failing of closure tests is non-negligible (and significant   for anti-protons) amount of global tracks matched with primary particles but no or little correlation in $\eta-\phi$ space beetwen
+matched pair. 
 The~distance 
 \begin{equation}\label{eq:tpcMatchingDeltaSquare}
 \delta^{2}\left(\eta,\phi\right)=\left(\eta^{true}-\eta^{reco}\right)^2+\left(\phi^{true}-\phi^{reco}\right)^2
 \end{equation}
 between the true level particle and global track assigned to it, shown in Fig.~\ref{fig:trackSplittingNominalDelta_1} for particles with only one  matched global track and Fig.~\ref{fig:trackSplittingNominalDelta_2} for particles with at least two  matched global tracks, indicates that some part of the tracks taken for the efficiency calculation are measured very bad ($\delta^{2}\left(\eta,\phi\right)$ is very large), even if there is only one global track matched to true-particle.
 
-Additionally, in some cases reconstructed tracks have different PID than true level matched particles, which can be seen on the $dE/dx$ distribution in Fig.~\ref{fig:trackSplittingNominaldEdx}.   Since that, the new definition of true level particle-track matching was introduced.
+Because of several above mentioned  problems with  nominal STAR definition of matching between reconstructed tracks and true  level particles we decided to use in the analysis modified matching            
+definition by taking into the account the difference    between reconstructed tracks and true particles in $\eta-\phi$ space.
 
 
 
@@ -114,7 +120,9 @@ Additionally, in some cases reconstructed tracks have different PID than true le
 	\caption[$dE/dx$ of the closest track matched to true level particle.]{$dE/dx$ of the closest track matched to true level particle. Lines indicate Bichsel function prediction for each particle species. Only tracks matched to true level particles without end vertex  are shown.}\label{fig:trackSplittingNominaldEdx}
 \end{figure}
 \subsection{Method used in this analysis}\label{subsec:definitionTrueLevelMatching}
-In this method, the definition of true level particle-track matching  is expanded. In addition to the requirement of the appropriate number of common hit points, the distance between true level particle and track is required to be smaller than $0.05$, $\delta^{2}\left(\eta,\phi\right)<0.0025$. Tracks, which do not satisfy this cut, are treated as background (even if they are matched to the true level particle in the standard way). In almost all cases, where the $\delta^{2}\left(\eta,\phi\right)<0.0025$, there is only one track matched to true level particle (Fig.~\ref{fig:trackSplittingetaPhi}). Additionally, the $dE/dx$ of the track is consistent with the true level PID (Fig.~\ref{fig:trackSplittingEtaPhidEdx}). Since that, the TPC acceptance and  reconstruction efficiency calculated with the extended matching definition is used as nominal. The sample TPC efficiency plot is shown in Fig.~\ref{fig:tpcEff_pion_sample}. All remaining TPC efficiency plots are contained in Appendix~\ref{appendix:tpcEff}. Figure~\ref{fig:trackTPCefficiencyComparisonEtaPhi} shows the difference between TPC efficiencies obtained with the standard and the extended definition of true particle-track matching.
+In this method, the definition of true level particle-track matching  is modified. In addition to the requirement of the appropriate number of common hit points, the distance between true level particle and track is required to be smaller than $0.05$, $\delta^{2}\left(\eta,\phi\right)<\left(0.05\right)^2$. It is quite an arbitrary value which should be small
+but not small enough to loose good events. That means almost
+all CEP tracks should be  from matched tracks.  Tracks, which do not satisfy this criteria, are treated as fake tracks (even if they are matched to the true level particle in the standard way). In almost all cases, where the $\delta^{2}\left(\eta,\phi\right)<\left(0.05\right)^2$, there is only one track matched to true level particle (Fig.~\ref{fig:trackSplittingetaPhi}). Additionally, the $dE/dx$ of the track is consistent with the true level PID (Fig.~\ref{fig:trackSplittingEtaPhidEdx}). The~TPC acceptance and  reconstruction efficiency calculated with the modified matching definition is used as nominal. TPC efficiency is shown in Fig.~\ref{fig:tpcEff_pion_sample}. All remaining TPC efficiency plots are contained in Appendix~\ref{appendix:tpcEff}. Figure~\ref{fig:trackTPCefficiencyComparisonEtaPhi} shows the difference between TPC efficiencies obtained with the STAR standard and the modified definition of true particle-track matching.
 \begin{figure}[ht]
 	\centering
 	\parbox{0.329\textwidth}{
@@ -132,7 +140,7 @@ In this method, the definition of true level particle-track matching  is expande
 		\includegraphics[width=\linewidth,page=3]{graphics/eff/trackSplitting_QualityEtaPhiCD.pdf}\\
 		\includegraphics[width=\linewidth,page=6]{graphics/eff/trackSplitting_QualityEtaPhiCD.pdf}\\
 	}%
-	\caption[Number of reconstructed global tracks, satisfying all quality criteria and $\delta^{2}\left(\eta,\phi\right)$ cut, matched with one true level primary particle.]{Number of reconstructed global tracks, satisfying all quality criteria (cuts~\ref{sec:TpcQualityCuts}) and $\delta^{2}\left(\eta,\phi\right)$ cut, matched with one true level primary particle.}\label{fig:trackSplittingetaPhi}
+	\caption[Number of reconstructed global tracks, satisfying all quality criteria and $\delta^{2}\left(\eta,\phi\right)$ cut, matched with the same true level primary particle.]{Number of reconstructed global tracks, satisfying all quality criteria (cuts~\ref{sec:TpcQualityCuts}) and $\delta^{2}\left(\eta,\phi\right)$ cut, matched with the same true level primary particle.}\label{fig:trackSplittingetaPhi}
 \end{figure}
 
 \begin{figure}[ht]
@@ -214,12 +222,12 @@ In order to maximize the statistics available for the measurement (possibly wide
 
 Combined TOF acceptance, hit reconstruction efficiency and matching efficiency with TPC tracks, $\epsilon_{\textrm{\tiny TOF}}$, was defined as the probability that the global TPC track that satisfy quality criteria (cuts~\ref{sec:TpcQualityCuts}) is matched with hit in TOF (\ref{sec:TpcTofMatchingRequirement}). This quantity is generally referred as ``TOF efficiency''.
 
-It was calculated in the very similiar way to TPC efficiency - single particle STARsim MC embedded into zero-bias triggers was used. Tracks belonging to $set~B$ from Sec.~\ref{sec:tpcAccAndEff} were utilized. From these tracks a sub-sample of tracks with non-zero TOF matching flag was extracted ($set~C$). The TOF efficiency was calculated as
+It was calculated in the very similiar way to TPC efficiency - single particle STARsim MC embedded into zero-bias triggers was used. Tracks belonging to $set~B$ from Sec.~\ref{sec:tpcAccAndEff} were utilized. From these tracks a sub-sample of tracks with non-zero TOF matching flag (StMuBTofPidTraits.mMatchFlag $>0$) was extracted ($set~C$). The TOF efficiency was calculated as
 \begin{equation}\label{eq:tofAccAndEffDefinition}
 		\epsilon_{\textrm{\tiny TOF}}\left(p_{T}, \eta, z_{vtx};~\textrm{sign},\textrm{PID}\right) = \frac{(p_{T},\eta, z_{vtx})~\textrm{histogram for particles of given sign and ID from}~set~C}{(p_{T},\eta, z_{vtx})~\textrm{histogram for particles of given sign and ID from}~set~B}.
 	\end{equation}
 
-An additional note has to be made here about the correction which is applied to TOF matching flag in MC analysis. It was found that in embedded simulation the dead TOF elements were not masked. To correct for this effect (hence obtain more reliable TOF efficiency) a data-based map of TOF modules was created, separately for each RHIC fill. Map was filled with modules which were matched with TPC tracks in the data. In all MC sample analyses (including efficiency determination) each TPC track with non-zero TOF match flag was additionally checked if TOF module that it was matched with had any entries in the data-based map. If not - the TOF match flag was considered 0.
+An additional note has to be made here about the correction which is applied to TOF matching flag in MC analysis. It was found that in embedded simulation the dead TOF elements were not masked. To correct for this effect (hence obtain more reliable TOF efficiency) a data-based map of modules was created, separately for each RHIC fill. Map was filled with modules which were matched with TPC tracks in the data. In all MC sample analyses (including efficiency determination) each TPC track with non-zero TOF match flag was additionally checked if TOF module that track was matched with had any entries in the data-based map. If not - the TOF match flag was considered 0.
 
 \subsection{Sample of  efficiency plots}
 
