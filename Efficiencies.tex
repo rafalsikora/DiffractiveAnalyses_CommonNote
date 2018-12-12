@@ -119,10 +119,38 @@ definition by taking into the account the difference    between reconstructed tr
 	}%
 	\caption[$dE/dx$ of the closest track matched to true level particle.]{$dE/dx$ of the closest track matched to true level particle. Lines indicate Bichsel function prediction for each particle species. Only tracks matched to true level particles without end vertex  are shown.}\label{fig:trackSplittingNominaldEdx}
 \end{figure}
+
+
+
 \subsection{Method used in this analysis}\label{subsec:definitionTrueLevelMatching}
-In this method, the definition of true level particle-track matching  is modified. In addition to the requirement of the appropriate number of common hit points, the distance between true level particle and track is required to be smaller than $0.05$, $\delta^{2}\left(\eta,\phi\right)<\left(0.05\right)^2$. It is quite an arbitrary value which should be small
-but not small enough to loose good events. That means almost
-all CEP tracks should be  from matched tracks.  Tracks, which do not satisfy this criteria, are treated as fake tracks (even if they are matched to the true level particle in the standard way). In almost all cases, where the $\delta^{2}\left(\eta,\phi\right)<\left(0.05\right)^2$, there is only one track matched to true level particle (Fig.~\ref{fig:trackSplittingetaPhi}). Additionally, the $dE/dx$ of the track is consistent with the true level PID (Fig.~\ref{fig:trackSplittingEtaPhidEdx}). The~TPC acceptance and  reconstruction efficiency calculated with the modified matching definition is used as nominal. TPC efficiency is shown in Fig.~\ref{fig:tpcEff_pion_sample}. All remaining TPC efficiency plots are contained in Appendix~\ref{appendix:tpcEff}. Figure~\ref{fig:trackTPCefficiencyComparisonEtaPhi} shows the difference between TPC efficiencies obtained with the STAR standard and the modified definition of true particle-track matching.
+In this method, the definition of true level particle-track matching is modified. In addition to the requirement of the appropriate number of common hit points, the distance between true level particle and track is required to be smaller than $0.15$, $\delta^{2}\left(\eta,\phi\right)<\left(0.15\right)^2$. It is quite an arbitrary value which should be small but not small enough to loose good events. That means almost
+all CEP tracks should be from matched tracks. It was verified with the CEP MC embedded into zero-bias triggers that with quoted value of cut on $\delta^{2}\left(\eta,\phi\right)$ less than $0.3\%$ of CEP events have at least one track which is not considered to be matched with true-level pion despite the standard matching (Fig.~\ref{fig:deltaSqCEP}). We consider this an acceptably low effect.
+
+Tracks, which do not satisfy the above criterion, are treated as fake tracks (even if they are matched to the true level particle in the standard way). In almost all cases, where the $\delta^{2}\left(\eta,\phi\right)<\left(0.15\right)^2$, there is only one track matched to true level particle (Fig.~\ref{fig:trackSplittingetaPhi}). Additionally, the $dE/dx$ of the track is consistent with the true level PID (Fig.~\ref{fig:trackSplittingEtaPhidEdx}). The~TPC acceptance and  reconstruction efficiency calculated with the modified matching definition is used as nominal. TPC efficiency is shown in Fig.~\ref{fig:tpcEff_pion_sample}. All remaining TPC efficiency plots are contained in Appendix~\ref{appendix:tpcEff}. Figure~\ref{fig:trackTPCefficiencyComparisonEtaPhi} shows the difference between TPC efficiencies obtained with the STAR standard and the modified definition of true particle-track matching.
+
+
+%---------------------------
+\begin{figure}[h!]%\vspace{-10pt}
+	\centering
+	\parbox{0.685\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}
+			\includegraphics[width=\linewidth]{graphics/eff/deltaEtaSqDeltaPhiSqMatchedExclusive.pdf}
+		\end{subfigure}
+	}%
+	\quad%
+	\parbox{0.285\textwidth}{
+		\centering
+		\begin{minipage}[t][0.78\linewidth][t]{\linewidth}\vspace{-60pt}
+			\caption[Distribution of $\delta^{2}\left(\eta,\phi\right)$ in CEP MC.]%
+			{Distribution of $\delta^{2}\left(\eta,\phi\right)$ for tracks matched with true-level pions (using standard matching) in CEP MC embedded into zero-bias triggers. Tracks were taken from events passing full CEP event selection, recognized as exclusive $\pi^{+}\pi^{-}$. The vertical red dashed line indicates the cut value of $0.15^{2} \approx 0.023$, above which less than 0.14\% of tracks is contained.}%
+			\label{fig:deltaSqCEP}
+		\end{minipage}
+	}
+\end{figure}
+%---------------------------
+
+
 \begin{figure}[ht]
 	\centering
 	\parbox{0.329\textwidth}{
@@ -215,7 +243,6 @@ In order to maximize the statistics available for the measurement (possibly wide
 	}
 \end{figure}
 %---------------------------
-
 
 
 
