@@ -242,7 +242,7 @@ In order to maximize the statistics available for the measurement (possibly wide
 			\subcaptionbox{\label{fig:tpcEff_pion_sample_b}}{\includegraphics[width=\linewidth,page=11]{graphics/eff/Eff2D_TPC_pion_Minus.pdf}\vspace*{-8pt}}
 		\end{subfigure}\\[5pt]
 		\begin{minipage}[t][0.78\linewidth][t]{\linewidth}\vspace{10pt}
-		\caption[Sample TPC acceptance and reconstruction efficiency of $\pi^{-}$.]{Sample TPC acceptance and reconstruction efficiency of $\pi^{-}$ in 3 bins of true $z_{\text{vtx}}$. Plots represents the TPC efficiency $\epsilon_{\text{TPC}}$ ($z$-axis) as a function of true particle pseudorapidity $\eta$ ($x$-axis) and transverse momentum $p_{T}$ ($y$-axis) in single $z$-vertex bin whose range is given at the top. Red lines and arrows indicate region accepted in analyses.}\label{fig:tpcEff_pion_sample}
+		\caption[Sample TPC acceptance and reconstruction efficiency of $\pi^{-}$.]{Sample TPC acceptance and reconstruction efficiency of $\pi^{-}$ in 3 bins of true $z_{\text{vtx}}$. Plots represent the TPC efficiency $\epsilon_{\text{TPC}}$ ($z$-axis) as a function of true particle pseudorapidity $\eta$ ($x$-axis) and transverse momentum $p_{T}$ ($y$-axis) in single $z$-vertex bin whose range is given at the top. Red lines and arrows indicate region accepted in analyses.}\label{fig:tpcEff_pion_sample}
 		\end{minipage}
 	}
 \end{figure}
@@ -267,8 +267,10 @@ An additional note has to be made here about the correction which is applied to 
 
 The sample TOF efficiency plot is shown in Fig.~\ref{fig:tofEff_pion_sample}. All remaining TOF efficiency plots are contained in Appendix~\ref{appendix:tofEff}.
 
+As shown in Sec.~\ref{sec:tofAbsEffCorr} the data-driven efficiency and MC effficiency differ significantly, therefore the final TOF efficiency which is used to correct the data is the presented here (taken from single particle embedded MC) but additionally modified according to correction derived in the reffered section.
+
 %---------------------------
-\begin{figure}[h!]%\vspace{-10pt}
+\begin{figure}[H]%\vspace{-10pt}
 	\centering
 	\parbox{0.485\textwidth}{
 		\centering
@@ -286,7 +288,7 @@ The sample TOF efficiency plot is shown in Fig.~\ref{fig:tofEff_pion_sample}. Al
 			\subcaptionbox{\label{fig:tofEff_pion_sample_b}}{\includegraphics[width=\linewidth,page=11]{graphics/eff/Eff2D_TOF_pion_Minus.pdf}\vspace*{-8pt}}
 		\end{subfigure}\\[5pt]
 		\begin{minipage}[t][0.78\linewidth][t]{\linewidth}\vspace{10pt}
-			\caption[Sample plotz of TOF acceptance, reconstruction and matching efficiency of $\pi^{-}$.]{Sample TOF acceptance, reconstruction and matching efficiency of $\pi^{-}$ in 3 bins of true $z_{\text{vtx}}$. Plots represents the TOF efficiency $\epsilon_{\text{TOF}}$ ($z$-axis) as a function of true particle pseudorapidity $\eta$ ($x$-axis) and transverse momentum $p_{T}$ ($y$-axis) in single $z$-vertex bin whose range is given at the top. Red lines and arrows indicate region accepted in analyses.}\label{fig:tofEff_pion_sample}
+			\caption[Sample plotz of TOF acceptance, reconstruction and matching efficiency of $\pi^{-}$.]{Sample TOF acceptance, reconstruction and matching efficiency of $\pi^{-}$ in 3 bins of true $z_{\text{vtx}}$. Plots represent the TOF efficiency $\epsilon_{\text{TOF}}$ ($z$-axis) as a function of true particle pseudorapidity $\eta$ ($x$-axis) and transverse momentum $p_{T}$ ($y$-axis) in single $z$-vertex bin whose range is given at the top. Red lines and arrows indicate region accepted in analyses.}\label{fig:tofEff_pion_sample}
 		\end{minipage}
 	}
 \end{figure}
@@ -299,7 +301,6 @@ The sample TOF efficiency plot is shown in Fig.~\ref{fig:tofEff_pion_sample}. Al
 %\end{figure}
 %---------------------------
 
-As shown in Sec.~\ref{subsec:tofAbsEffSystAndCorr}, it was found during estimation of the systematic uncertainty of the TOF efficiency that the data-driven efficiency and MC effficiency (obtained with a method described in this section) differ significantly. Therefore the final TOF efficiency which is used to correct the data is a modified MC efficiency. Form of MC efficiency modification is given in ... .
 
 % 
 % \section{TPC vertex reconstruction efficiency}\label{sec:tpcVxRecoEff}
