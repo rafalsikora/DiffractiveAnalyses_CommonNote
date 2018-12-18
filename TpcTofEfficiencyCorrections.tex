@@ -26,7 +26,7 @@ Unfortunately, in 2015 there were no low-luminosity (heavy-ion) runs that would 
 \quad\quad%
 \begin{minipage}{.4725\textwidth}%
   \centering%
-  \includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofL0Eff_1TofVtx_1TofTrack.pdf}%\vspace*{-5pt}
+  \includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofL0Eff_1TofVtx.pdf}%\vspace*{-5pt}
   \caption[Probability of the non-zero TOF L0 multiplicity if 1 primary TOF-matched TPC track vs. track $\eta$.]
    {Probability of the non-zero trigger-level TOF multiplicity in events with exactly 1 primary TPC track matched with offline TOF hit, as a function of track pseudorapidity. VPD signal required.}
    \label{fig:tofTrigEffTagAndProbe}%\vspace*{-29pt}
@@ -127,46 +127,9 @@ w=\left\{
 \end{equation}
 where factors related to trigger efficiency are accounted only in the data analysis. A sample histograms of the $p_{T}^{\text{miss}}$ distribution in the data and embedded MC filled with entries of weight $w$ are shown in Fig.~\ref{fig:sampleMissingPtTagAndProbe}.
 
-% \begin{equation}\label{eq:tofEffFunc}
-%  \varepsilon^{\text{TOF}}(p_{T}) = A\cdot \exp\Big\{-\left(B/p_{T}\right)^{C}\Big\}
-% \end{equation}
-
-% \begin{equation}\label{eq:nProbeTof}
-%  n_{\text{probe}}^{\text{TOF}}~=~\underbrace{N\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\bis}\times\varepsilon^{\text{TOF}}}_{\pi^{+}~\text{is tag},~\pi^{-}~\text{is probe}}~+~\underbrace{N\times\varepsilon^{\text{TOF}}\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\bis}}_{\pi^{+}~\text{is probe},~\pi^{-}~\text{is tag}}~=~ 2N\left(\varepsilon^{\text{TOF}}\right)^{2}\varepsilon_{\text{vtx}}^{\bis}
-% \end{equation}
-
-
-% \begin{equation}\label{eq:nProbeNoTof}
-%  n_{\text{probe}}^{!\text{TOF}}~=~\underbrace{N\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}\times\left(1-\varepsilon^{\text{TOF}}\right)}_{\pi^{+}~\text{is tag},~\pi^{-}~\text{is probe}}~+~\underbrace{N\times\left(1-\varepsilon^{\text{TOF}}\right)\times\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}}_{\pi^{+}~\text{is probe},~\pi^{-}~\text{is tag}}~=~ 2N\left(1-\varepsilon^{\text{TOF}}\right)\varepsilon^{\text{TOF}}\varepsilon_{\text{vtx}}^{\prime}
-% \end{equation}
-
-
-% \begin{multicols}{3}%~\\[-30pt]
-% \begin{equation}\label{eq:nProbeTofTilde}
-%  \tilde{n}_{\text{probe}}^{\text{TOF}}~=~\frac{n_{\text{probe}}^{\text{TOF}}}{\varepsilon_{\text{vtx}}^{\bis}}
-% \end{equation}
-%    \break\\[-20pt]
-%     \begin{equation}\label{eq:nProbeNoTofTilde}
-%  \tilde{n}_{\text{probe}}^{!\text{TOF}}~=~\frac{n_{\text{probe}}^{!\text{TOF}}}{\varepsilon_{\text{vtx}}^{\prime}}
-% \end{equation}
-% \break\\[-20pt]
-% \begin{equation}\label{eq:tofEffTagAndProbe}
-%  \varepsilon^{\text{TOF}} = \frac{\tilde{n}_{\text{probe}}^{\text{TOF}}}{\tilde{n}_{\text{probe}}^{\text{TOF}}~+~\tilde{n}_{\text{probe}}^{!\text{TOF}}}
-% \end{equation}
-%     \end{multicols}
-    
-% \begin{equation}\label{eq:nProbeTofTilde}
-%  \tilde{n}_{\text{probe}}^{\text{TOF}}~=~\frac{n_{\text{probe}}^{\text{TOF}}}{\varepsilon_{\text{vtx}}^{\bis}}
-% \end{equation}
-% 
-% 
-% \begin{equation}\label{eq:nProbeNoTofTilde}
-%  \tilde{n}_{\text{probe}}^{!\text{TOF}}~=~\frac{n_{\text{probe}}^{!\text{TOF}}}{\varepsilon_{\text{vtx}}^{\prime}}
-% \end{equation}
-% 
-% \begin{equation}\label{eq:tofEffTagAndProbe}
-%  \varepsilon^{\text{TOF}} = \frac{\tilde{n}_{\text{probe}}^{\text{TOF}}}{\tilde{n}_{\text{probe}}^{\text{TOF}}~+~\tilde{n}_{\text{probe}}^{!\text{TOF}}}
-% \end{equation}
+\begin{equation}\label{eq:tofEffFunc}
+ \varepsilon^{\text{TOF}}(p_{T}) = A\cdot \frac{\text{erf}\Big(\frac{p_{T}-B}{C}\Big) + 1}{2}
+\end{equation}
 
 
 
@@ -181,18 +144,23 @@ where factors related to trigger efficiency are accounted only in the data analy
 \parbox{0.4725\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:tofEffSystVsPt_CPT}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsPt.CPT.pdf}\vspace{-5pt}}}
-  \end{subfigure}
+                \subcaptionbox{\label{fig:tofEffSystVsPt_CPT}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsPt.CPT2.pdf}\vspace{-5pt}}}
+  \end{subfigure}\\[5pt]
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+                \subcaptionbox{\label{fig:tofEffSystVsZVtx_CPT}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsZVtx.CPT2.pdf}\vspace{-5pt}}}
+  \end{subfigure}  
 }
 \quad
 \parbox{0.4725\textwidth}{
-  \centering
-    \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:tofEffSystVsEta_CPT}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsEta.CPT.pdf}\vspace{-5pt}}}
-  \end{subfigure}
-}%\vspace{-5pt}%
-\caption[Tag\&Probe TOF efficiency from CEP data compared with the result from embedded CEP MC.]%
+  \centering\vspace*{-55pt}
+    \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}{
+                \subcaptionbox{\label{fig:tofEffSystVsEta_CPT}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsEta.CPT2.pdf}\vspace{-5pt}}}
+  \end{subfigure}\\[5pt]
+		\begin{minipage}[t][0.78\linewidth][t]{\linewidth}\vspace{10pt}
+			\caption[Tag\&Probe TOF efficiency from CEP data compared with the result from embedded CEP MC.]%
     {Tag\&Probe TOF efficiency from CEP data (black points) compared with the result from embedded CEP MC (red points) as a function of TPC track $p_{T}$ (top row) and $\eta$ (bottom row). The left and right hand side column represents results obtained from RP\_CPT and RP\_CPT2 triggers, respectively. Green points represent the TOF efficiency calculated in the standard way from embedded CEP MC sample. Blue lines denote the TOF efficiency calculated in the standard way solely from the selected probe tracks that were matched to primary pions at the true level. Difference between red points and blue lines show the potential bias of tag and probe method. Dashed lines are fits of function given by Eq.~\eqref{eq:tofEffFunc} to points of corresponding color. Dashed vertical lines with arrows indicate region of $p_{T}$ and $\eta$ accepted in analyses.}\label{fig:tofEffSyst}%
+		\end{minipage}
+}%\vspace{-5pt}%
 \end{figure}
 %---------------------------
 
@@ -200,55 +168,36 @@ where factors related to trigger efficiency are accounted only in the data analy
 
 
 
-% %---------------------------
-% \begin{figure}[h!]
-% \centering
-% \parbox{0.4725\textwidth}{
-%   \centering
-%   \begin{subfigure}[b]{\linewidth}
-%                 \subcaptionbox{\label{fig:tofEffSystVsPt}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsPt.pdf}}\vspace{-5pt}
-%   \end{subfigure}
-% }%
-% \quad\quad%
-% \parbox{0.4725\textwidth}{
-%   \centering
-%   \begin{subfigure}[b]{\linewidth}
-%                 \subcaptionbox{\label{fig:tofEffSystVsEta}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsEta.pdf}}\vspace{-5pt}
-%   \end{subfigure}
-% }%
-% \caption[Tag\&Probe TOF efficiency from CEP data compared with the result from embedded CEP MC.]%
-%     {Tag\&Probe TOF efficiency from CEP data (black points) compared with the result from embedded CEP MC (red points) as a function of TPC track $p_{T}$ (\ref{fig:tofEffSystVsPt}) and $\eta$ (\ref{fig:tofEffSystVsEta}). Green points represent the TOF efficiency calculated in the standard way from embedded CEP MC sample. Blue lines denote the TOF efficiency calculated in the standard way solely from the selected probe tracks that were matched to primary pions at the true level. Difference between red points and blue lines show the potential bias of tag and probe method.}\label{fig:tofEffSyst}%
-% \end{figure}
-% %---------------------------
+%---------------------------
+\begin{figure}[h!]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:TofEffVsPt_eta_minus07_to_minus03}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsPt_eta_minus07_to_minus03.CPT2.pdf}\vspace{-5pt}}}
+  \end{subfigure}\\[3pt]
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+                \subcaptionbox{\label{fig:TofEffVsPt_eta_plus03_to_0}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsPt_eta_plus03_to_0.CPT2.pdf}\vspace{-5pt}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}{
+                \subcaptionbox{\label{fig:TofEffVsPt_eta_minus03_to_0}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsPt_eta_minus03_to_0.CPT2.pdf}\vspace{-5pt}}}
+  \end{subfigure}\\[3pt]
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+                \subcaptionbox{\label{fig:TofEffVsPt_eta_plus07_to_plus03}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/TofEffVsPt_eta_plus07_to_plus03.CPT2.pdf}\vspace{-5pt}}}
+  \end{subfigure}
+}%\vspace{-5pt}%
+\caption[Tag\&Probe TOF efficiency from CEP data compared with the result from embedded CEP MC (divided w.r.t. $\eta$ of the probe).]%
+    {Tag\&Probe TOF efficiency from CEP data (black points) compared with the result from embedded CEP MC (red points) as a function of TPC track $p_{T}$ for negative (top row) and positive (bottom row) $\eta$ of the probe. The left and right hand side column represents results obtained from RP\_CPT and RP\_CPT2 triggers, respectively. Blue lines denote the TOF efficiency calculated in the standard way solely from the selected probe tracks that were matched to primary pions at the true level. Difference between red points and blue lines show the potential bias of tag and probe method. Dashed lines are fits of function given by Eq.~\eqref{eq:tofEffFunc} to points of corresponding color. Dashed vertical lines with arrows indicate region of $p_{T}$ and $\eta$ accepted in analyses.}\label{fig:tofEffSyst_etaBins}%
+\end{figure}
+%---------------------------
 
 
 
-% %---------------------------
-% \begin{figure}[h!]
-% \centering
-% \parbox{0.4725\textwidth}{
-%   \centering
-%   \begin{subfigure}[b]{\linewidth}{
-%                 \subcaptionbox{\label{fig:tofEffSystVsPt_negativeEta_CPT}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/CPT/TofEffVsPt_negativeEta.pdf}\vspace{-5pt}}}
-%   \end{subfigure}\\[3pt]
-%   \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
-%                 \subcaptionbox{\label{fig:tofEffSystVsPt_positiveEta_CPT}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/CPT/TofEffVsPt_positiveEta.pdf}\vspace{-5pt}}}
-%   \end{subfigure}
-% }
-% \quad
-% \parbox{0.4725\textwidth}{
-%   \centering
-%   \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-2}{
-%                 \subcaptionbox{\label{fig:tofEffSystVsPt_negativeEta_CPT2}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/CPT2/TofEffVsPt_negativeEta.pdf}\vspace{-5pt}}}
-%   \end{subfigure}\\[3pt]
-%   \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
-%                 \subcaptionbox{\label{fig:tofEffSystVsPt_positiveEta_CPT2}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TOF_tagAndProbe/CPT2/TofEffVsPt_positiveEta.pdf}\vspace{-5pt}}}
-%   \end{subfigure}
-% }%\vspace{-5pt}%
-% \caption[Tag\&Probe TOF efficiency from CEP data compared with the result from embedded CEP MC (divided w.r.t. $\eta$ of the probe).]%
-%     {Tag\&Probe TOF efficiency from CEP data (black points) compared with the result from embedded CEP MC (red points) as a function of TPC track $p_{T}$ for negative (top row) and positive (bottom row) $\eta$ of the probe. The left and right hand side column represents results obtained from RP\_CPT and RP\_CPT2 triggers, respectively. Blue lines denote the TOF efficiency calculated in the standard way solely from the selected probe tracks that were matched to primary pions at the true level. Difference between red points and blue lines show the potential bias of tag and probe method. Dashed lines are fits of function given by Eq.~\eqref{eq:tofEffFunc} to points of corresponding color. Dashed vertical lines with arrows indicate region of $p_{T}$ and $\eta$ accepted in analyses.}\label{fig:tofEffSyst_etaBins}%
-% \end{figure}
-% %---------------------------
+
 % %---------------------------
 % \begin{figure}[h!]
 % \centering
