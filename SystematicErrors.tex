@@ -175,8 +175,11 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 
 \subsection{Absolute error on TOF efficiency}\label{subsec:tofAbsEffSystAndCorr}
 
-Systematic uncertainty of the TOF efficiency related to the accuracy of the TOF system simulation in STARsim and the TOF efficiency correction derived in Sec.~\ref{sec:tofAbsEffCorr} was estimated using the TPC tracks containing hits in HFT. In some STAR analyses the TOF hit reconstrucion and matching efficiency is determined from the data with the use BEMC: real (in-time) tracks are selected based on the fact that they match to BEMC cluster. If they do, the TOF hit reconstruction and matching efficiency is calculated as a ratio of TOF-matched tracks to all tracks. This solution is not fully safe, because the signal in the detector ``behind'' TOF (BEMC) ensures that nothing strange happens between the last hit of the track in TPC and TOF. Such efficiency may be higher than the efficiency without BEMC matching requirement.
+Systematic uncertainty of the TOF efficiency related to the accuracy of the TOF system simulation in STARsim and the TOF efficiency correction derived in Sec.~\ref{sec:tofAbsEffCorr} was estimated by comparing that nominal TOF efficiency with the one obtained with an independent method described below.
 
+In some STAR analyses the TOF hit reconstrucion and matching efficiency is determined from the data with the use of BEMC: real (in-time) tracks are selected based on the fact that they match to BEMC cluster. If they do, the TOF efficiency is calculated as a ratio of number of TOF-matched tracks to number of all tracks. This solution may provide slightly biased efficiency, because the signal in the detector placed behind TOF, such as BEMC, ensures that particle followed the original helical path between the last hit of the track in TPC and the BEMC (Fig.~\ref{fig:hftEffSketch}).% Such efficiency may be higher than the efficiency without BEMC matching requirement.
+
+We decided to calculate the TOF efficiency using the TPC tracks containing hits in HFT.... % The HFT is a silicon detector which 
 %---------------------------
 \begin{figure}[h]%\vspace{-2pt}%
 \centering%
@@ -196,5 +199,74 @@ Systematic uncertainty of the TOF efficiency related to the accuracy of the TOF 
    \label{fig:zVtxHFT}%\vspace*{-29pt}
 \end{minipage}%
 \end{figure}%
+%---------------------------
+
+
+%---------------------------
+\begin{figure}[h!]
+\centering
+\parbox{0.31\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst//TofEffCorrection2D_pion.pdf}\vspace{-10pt}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.65\textwidth}{
+  \centering
+		\begin{minipage}[t][0.64\linewidth][t]{\linewidth}\vspace{30pt}
+			\caption[Temporary.]%
+    {Temporary.}\label{fig:erwetwet}%
+		\end{minipage}
+}\\[-20pt]
+\parbox{0.31\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth,page=4]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_pion.pdf}\vspace{-10pt}}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+                \subcaptionbox{\label{fig:bbb}}{\includegraphics[width=\linewidth,page=5]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_pion.pdf}\vspace{-10pt}}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth,page=6]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_pion.pdf}\vspace{-10pt}}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+                \subcaptionbox{\label{fig:bbb}}{\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_pion.pdf}\vspace{-10pt}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.31\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth,page=3]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_kaon.pdf}\vspace{-10pt}}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+                \subcaptionbox{\label{fig:bbb}}{\includegraphics[width=\linewidth,page=4]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_kaon.pdf}\vspace{-10pt}}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth,page=5]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_kaon.pdf}\vspace{-10pt}}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+                \subcaptionbox{\label{fig:bbb}}{\includegraphics[width=\linewidth,page=6]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_kaon.pdf}\vspace{-10pt}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.31\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth,page=3]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_proton.pdf}\vspace{-10pt}}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+                \subcaptionbox{\label{fig:bbb}}{\includegraphics[width=\linewidth,page=4]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_proton.pdf}\vspace{-10pt}}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth,page=5]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_proton.pdf}\vspace{-10pt}}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}{
+                \subcaptionbox{\label{fig:bbb}}{\includegraphics[width=\linewidth,page=6]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_proton.pdf}\vspace{-10pt}}}
+  \end{subfigure}
+}
+
+\end{figure}
 %---------------------------
 
