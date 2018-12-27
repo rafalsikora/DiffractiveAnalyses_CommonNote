@@ -6,9 +6,9 @@
 
 
 \chapter{Energy Loss Correction}\label{chap:energyLossCorrection}
-Particles passing through the detector material loose energy as they travel. The track momentum $p_T^{true}$ is reconstructed by fitting a helical path to the track points left in the detector. Fitting the track points to an ideal
+Particles passing through the detector material lose energy as they travel. The track momentum $p_T$ is reconstructed by fitting a helical path to the track points left in the detector. Fitting the track points to an ideal
 helical track tends to underestimate the momentum due to these energy loss effects. To minimize biases due to this effect, correction procedure is applied 
-during standard track momentum reconstruction procedure for both data and MC simulation. For this procedure all particles are assumed to be pions and the reconstructed momentum $p_T^{meas}$ is corrected by the amount of energy loss for a pion.  For anything that is not a pion some rest bias  is still present since on average energy loss is specific for each particle type. These biases  can be determined from simulated tracks run through GEANT.
+during standard track momentum reconstruction  for both data and MC simulation. For this procedure pion hypothesis is used  and the reconstructed momentum $p_T^{meas}$ is corrected by the amount of energy loss specific for a pion.  For all particles but a pion some rest bias  is still present since  energy loss is specific for each particle type. These biases  can be determined from simulated tracks run through GEANT.
 The correction $p_T^{meas}-p_T^{true}$ was calculated for each particle species as a function of $p_T^{meas}$, $\eta$ and $z$-vertex. The sample energy loss correction averaged over $|\eta|<0.7$ for $K^-$ is shown in Fig. \ref{fig:energyLossPrimaryK_minus_sample}. 
 \noindent The energy loss corrections for other particle species are shown in \Cref{fig:energyLossPrimaryPi_minus,fig:energyLossPrimaryPi_plus,fig:energyLossPrimaryK_minus,fig:energyLossPrimaryK_plus,fig:energyLossPrimaryP_bar,fig:energyLossPrimaryP,fig:energyLossPrimaryNegative,fig:energyLossPrimaryPositive,fig:energyLossPrimaryP_barGlobal,fig:energyLossPrimaryPGlobal} in Appendix \ref{appendix:energyLoss}.\newline
 
