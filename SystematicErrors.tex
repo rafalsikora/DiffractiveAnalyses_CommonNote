@@ -209,18 +209,18 @@ We decided to calculate the TOF efficiency using the TPC tracks containing hits 
 \parbox{0.4725\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}
-                \subcaptionbox{\label{fig:aaaa}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/NSigmaKaonVsPt.pdf}}\vspace{-5pt}
+                \subcaptionbox{\label{fig:hftTracksNSigmaKaonVsPt}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/NSigmaKaonVsPt.pdf}}\vspace{-5pt}
   \end{subfigure}
 }%
 \quad\quad%
 \parbox{0.4725\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}
-                \subcaptionbox{\label{fig:dddd}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/NSigmaProtonVsPt.pdf}}\vspace{-5pt}
+                \subcaptionbox{\label{fig:hftTracksNSigmaProtonVsPt}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/NSigmaProtonVsPt.pdf}}\vspace{-5pt}
   \end{subfigure}
 }%
-\caption[dsasas]%
-    {Casase.}\label{fig:safsdgf}%
+\caption[Distribution of $n^{\sigma}$ (kaon and proton) vs. transverse momentum for tracks containing HFT hits.]%
+    {Distribution of $n^{\sigma}_{\text{kaon}}$ (\ref{fig:hftTracksNSigmaKaonVsPt}) and $n^{\sigma}_{\text{proton}}$ (\ref{fig:hftTracksNSigmaProtonVsPt}) vs. track $p_{T}$ for tracks containing HFT hits. The insert in each subfigure shows the corresponding $n^{\sigma}$ vs. $p_{T}$ distribution after the selection of tracks of given spiecies. Tracks were selected according to description provided in the text.}\label{fig:hftTracksNSigmaVsPt}%
 \end{figure}
 %---------------------------
 
@@ -231,35 +231,35 @@ We decided to calculate the TOF efficiency using the TPC tracks containing hits 
 \parbox{0.31\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst//TofEffCorrection2D_pion.pdf}\vspace{-12pt}}}
+                \subcaptionbox{\label{fig:TPcorrectionTofEff2D}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/TofEffCorrection2D_pion.pdf}\vspace{-12pt}}}
   \end{subfigure} 
 } 
 \quad
 \parbox{0.65\textwidth}{ 
   \centering
 		\begin{minipage}[t][0.64\linewidth][t]{\linewidth}\vspace{30pt}
-			\caption[Temporary.]%
-    {Temporary.}\label{fig:erwetwet}%  
+			\caption[Comparison of the TOF eff. correction from tag\&probe method and the difference between TOF eff. calculated using standard method from the HFT-tagged tracks and efficiency from embedded single particle MC.]%
+    {Comparison of the TOF efficiency correction obtained with tag\&probe method on CEP $\pi^{+}\pi^{-}$ events (\ref{fig:TPcorrectionTofEff2D}, description in Sec.~\ref{sec:tofAbsEffCorr}) and the difference between TOF efficiency calculated using standard method from the HFT-tagged tracks and efficiency from embedded single particle MC for pions (\ref{fig:tofEffDifference_pion}), kaons (\ref{fig:tofEffDifference_kaon}) and protons (\ref{fig:tofEffDifference_proton}). Yellow hatched area mark empty bins.}\label{fig:tofEffSystematics2DComparison}% 
 		\end{minipage}
 }\\[-25pt]
 \parbox{0.31\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_pion.pdf}\vspace{-12pt}}}
+                \subcaptionbox{\label{fig:tofEffDifference_pion}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/tofEffDifference_pion.pdf}\vspace{-12pt}}}
   \end{subfigure}
 }
 \quad
 \parbox{0.31\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_kaon.pdf}\vspace{-12pt}}}
+                \subcaptionbox{\label{fig:tofEffDifference_kaon}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/tofEffDifference_kaon.pdf}\vspace{-12pt}}}
   \end{subfigure}
 } 
 \quad
 \parbox{0.31\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_proton.pdf}\vspace{-12pt}}}
+                \subcaptionbox{\label{fig:tofEffDifference_proton}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/tofEffDifference_proton.pdf}\vspace{-12pt}}}
   \end{subfigure}
 }
 
@@ -294,3 +294,9 @@ We decided to calculate the TOF efficiency using the TPC tracks containing hits 
     {Temporary.}\label{fig:werwrw}%
 \end{figure}
 %---------------------------
+
+
+
+\section{Roman Pot track recontruction efficiency}\label{sec:rpTrackRecoEffSystematics}
+
+
