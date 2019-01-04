@@ -177,9 +177,18 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 
 Systematic uncertainty of the TOF efficiency related to the accuracy of the TOF system simulation in STARsim and the TOF efficiency correction derived in Sec.~\ref{sec:tofAbsEffCorr} was estimated by comparing that nominal TOF efficiency with the one obtained with an independent method described below.
 
-In some STAR analyses the TOF hit reconstrucion and matching efficiency is determined from the data with the use of BEMC: real (in-time) tracks are selected based on the fact that they match to BEMC cluster. If they do, the TOF efficiency is calculated as a ratio of number of TOF-matched tracks to number of all tracks. This solution may provide slightly biased efficiency, because the signal in the detector placed behind TOF, such as BEMC, ensures that particle still followed the original helical path past the last hit of the track in TPC (Fig.~\ref{fig:hftEffSketch}).% Such efficiency may be higher than the efficiency without BEMC matching requirement.
+In some STAR analyses the TOF hit reconstrucion and matching efficiency is determined from the data with the use of BEMC: real (in-time) tracks are selected based on the fact that they match to BEMC cluster. If they do, the TOF efficiency is calculated as a ratio of number of TOF-matched tracks to number of all tracks. This solution may provide slightly biased efficiency, because the signal in the detector placed behind TOF, such as BEMC, ensures that particle still followed the original helical path past the last hit of the track in TPC (Fig.~\ref{fig:hftEffSketch}). Also, BEMC clusters are more efficiently reconstructed as the energy deposits in the calorimeter increase, which may favor tracks which generated secondaries in front of the BEMC, hence possibly also in front of TOF thus increasing a chance to reconstruct hit in TOF.
 
-We decided to calculate the TOF efficiency using the TPC tracks containing hits in HFT.... % The HFT is a silicon detector which 
+To estimate systematic error of the TOF efficiency we decided to calculate efficiency utilizing the TPC tracks containing hits in HFT. The HFT is a group of silicon detectors (PXL, IST, SST) which differ from the gaseous detectors (like TPC) in many aspects. The difference that is most important for this study is the time of response/memory - much shorter in HFT than in TPC. Therefore if the TPC track contain hits in the silicon of HFT it is very probably a real track of particle produced in the proton-proton interaction in the corresponding bunch crossing. With this HFT-tagged tracks we ommit potential bias related to matching with BEMC cluster.
+
+We used the data from st\_ssdmb stream (VPDMB-5-ssd trigger) from the same runs as the Roman Pot data used in our physics analyses. The HFT-tagged tracks were selected as the primary tracks passing the quality cuts \ref{sec:TpcQualityCuts} (only the TPC hits were counted). They were required to contain hits in two HFT layers: IST ans SST, which vastly reduced probability to select an off-time track in TPC (PXL was not used in reconstrucion due to problems in firmware). As shown in Fig.~\ref{fig:zVtxHFT}, the $z_{\text{vtx}}$ coverage of the HFT-tagges tracks is limited to about $\pm20$~cm, but we accept such limitation.% as we know that the TOF efficiency in the kinematic range of our measurements (Sec.~\ref{sec:TpcKinematicCuts}) 
+\begin{itemize}
+ \item pions:~~~~~$|n^{\sigma}_{\text{pion}}| < 2$
+ \item kaons:~~~~~$-2 < n^{\sigma}_{\text{proton}} < 2.5$~~~\&\&~~~$|n^{\sigma}_{\text{pion}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{electron}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{proton}}| > 3.5$
+ \item protons:~~$-2 < n^{\sigma}_{\text{proton}} < 3$~~~~~\&\&~~~~$|n^{\sigma}_{\text{pion}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{electron}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{kaon}}| > 3.5$
+\end{itemize}
+
+
 %---------------------------
 \begin{figure}[h]%\vspace{-2pt}%
 \centering%
@@ -196,7 +205,7 @@ We decided to calculate the TOF efficiency using the TPC tracks containing hits 
   \includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/zVtxHFT.pdf}%\vspace*{-5pt}
   \caption[Distribution of $z$-position of vertices with TPC tracks containing hits in HFT.]
    {Distribution of $z$-position of vertices containing TPC tracks with HFT hits (st\_ssd stream). Open circles represent vertices with tracks with hits in IST or SST, full circles - IST and SST.}
-   \label{fig:zVtxHFT}%\vspace*{-29pt}
+   \label{fig:zVtxHFT}%\vspace*{-29pt} 
 \end{minipage}%
 \end{figure}%
 %---------------------------  
@@ -220,7 +229,7 @@ We decided to calculate the TOF efficiency using the TPC tracks containing hits 
   \end{subfigure}
 }%
 \caption[Distribution of $n^{\sigma}$ (kaon and proton) vs. transverse momentum for tracks containing HFT hits.]%
-    {Distribution of $n^{\sigma}_{\text{kaon}}$ (\ref{fig:hftTracksNSigmaKaonVsPt}) and $n^{\sigma}_{\text{proton}}$ (\ref{fig:hftTracksNSigmaProtonVsPt}) vs. track $p_{T}$ for tracks containing HFT hits. The insert in each subfigure shows the corresponding $n^{\sigma}$ vs. $p_{T}$ distribution after the selection of tracks of given spiecies. Tracks were selected according to description provided in the text.}\label{fig:hftTracksNSigmaVsPt}%
+    {Distribution of $n^{\sigma}_{\text{kaon}}$ (\ref{fig:hftTracksNSigmaKaonVsPt}) and $n^{\sigma}_{\text{proton}}$ (\ref{fig:hftTracksNSigmaProtonVsPt}) vs. track $p_{T}$ for tracks containing HFT hits. The insert in each subfigure shows the corresponding $n^{\sigma}$ vs. $p_{T}$ distribution after preselection of tracks of given spiecies (without cut on variable in $y$-axis) according to description provided in the text in preceding page. Dashed magenta lines represent final cuts on corresponding $n^{\sigma}$ quantity used to select tracks of given species.}\label{fig:hftTracksNSigmaVsPt}%
 \end{figure}
 %---------------------------
 
@@ -237,9 +246,9 @@ We decided to calculate the TOF efficiency using the TPC tracks containing hits 
 \quad
 \parbox{0.65\textwidth}{ 
   \centering
-		\begin{minipage}[t][0.64\linewidth][t]{\linewidth}\vspace{30pt}
+		\begin{minipage}[t][0.64\linewidth][t]{\linewidth}\vspace{33pt}
 			\caption[Comparison of the TOF eff. correction from tag\&probe method and the difference between TOF eff. calculated using standard method from the HFT-tagged tracks and efficiency from embedded single particle MC.]%
-    {Comparison of the TOF efficiency correction obtained with tag\&probe method on CEP $\pi^{+}\pi^{-}$ events (\ref{fig:TPcorrectionTofEff2D}, description in Sec.~\ref{sec:tofAbsEffCorr}) and the difference between TOF efficiency calculated using standard method from the HFT-tagged tracks and efficiency from embedded single particle MC for pions (\ref{fig:tofEffDifference_pion}), kaons (\ref{fig:tofEffDifference_kaon}) and protons (\ref{fig:tofEffDifference_proton}). Yellow hatched area mark empty bins.}\label{fig:tofEffSystematics2DComparison}% 
+    {Comparison of the TOF efficiency correction obtained with tag\&probe method on CEP $\pi^{+}\pi^{-}$ events (\ref{fig:TPcorrectionTofEff2D}, description in Sec.~\ref{sec:tofAbsEffCorr}) and the difference between TOF efficiency calculated using standard method from the HFT-tagged tracks and efficiency from embedded single particle MC for pions (\ref{fig:tofEffDifference_pion}), kaons (\ref{fig:tofEffDifference_kaon}) and protons (\ref{fig:tofEffDifference_proton}). Yellow hatched area mark empty bins. Dashed horizontal lines represent minimum track $p_{T}$ thresholds used in our analyses: $0.3$~GeV for kaons (green) and $0.4$~GeV for protons (blue).}\label{fig:tofEffSystematics2DComparison}% 
 		\end{minipage}
 }\\[-25pt]
 \parbox{0.31\textwidth}{
@@ -273,25 +282,25 @@ We decided to calculate the TOF efficiency using the TPC tracks containing hits 
 \parbox{0.31\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_Delta_pion.pdf}\vspace{-12pt}}}
+                \subcaptionbox{\label{fig:tofEffDifference_Delta_pion}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/tofEffDifference_Delta_pion.pdf}\vspace{-12pt}}}
   \end{subfigure}
 }
 \quad
 \parbox{0.31\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_Delta_kaon.pdf}\vspace{-12pt}}}
+                \subcaptionbox{\label{fig:tofEffDifference_Delta_kaon}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/tofEffDifference_Delta_kaon.pdf}\vspace{-12pt}}}
   \end{subfigure}
 } 
 \quad
 \parbox{0.31\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}{
-                \subcaptionbox{\label{fig:aaa}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst//tofEffDifference_Delta_proton.pdf}\vspace{-12pt}}}
+                \subcaptionbox{\label{fig:tofEffDifference_Delta_proton}}{\includegraphics[width=\linewidth]{graphics/systematicsEfficiency/TofSyst/tofEffDifference_Delta_proton.pdf}\vspace{-12pt}}}
   \end{subfigure}
 }
-\caption[Temporary.]%
-    {Temporary.}\label{fig:werwrw}%
+\caption[Difference between the TOF eff. correction estimated with tag\&probe method and with the HFT-tagged tracks.]%
+    {Difference between the TOF eff. correction estimated with tag\&probe method on CEP $\pi^{+}\pi^{-}$ events and with the HFT-tagged tracks for pions (\ref{fig:tofEffDifference_Delta_pion}), kaons (\ref{fig:tofEffDifference_Delta_kaon}) and protons (\ref{fig:tofEffDifference_Delta_proton}). Figure \ref{fig:tofEffDifference_Delta_pion} is the difference between \ref{fig:tofEffDifference_pion} and \ref{fig:TPcorrectionTofEff2D}, Figure \ref{fig:tofEffDifference_Delta_kaon} is the difference between \ref{fig:tofEffDifference_kaon} and \ref{fig:TPcorrectionTofEff2D}, and Figure \ref{fig:tofEffDifference_Delta_proton} is the difference between \ref{fig:tofEffDifference_proton} and \ref{fig:TPcorrectionTofEff2D}. Yellow hatched area mark empty bins in histogram for HFT-tagged tracks (thus difference is incalculable). Dashed horizontal lines represent minimum track $p_{T}$ thresholds used in our analyses: $0.3$~GeV for kaons (green) and $0.4$~GeV for protons (blue).}\label{fig:tofEffDifference_Delta}% 
 \end{figure}
 %---------------------------
 
