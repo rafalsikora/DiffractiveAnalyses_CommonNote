@@ -181,16 +181,17 @@ In some STAR analyses the TOF hit reconstrucion and matching efficiency is deter
 
 To estimate systematic error of the TOF efficiency we decided to calculate efficiency utilizing the TPC tracks containing hits in HFT. The HFT is a group of silicon detectors (PXL, IST, SST) which differ from the gaseous detectors (like TPC) in many aspects. The difference that is most important for this study is the time of response/memory - much shorter in HFT than in TPC. Therefore if the TPC track contain hits in the silicon of HFT it is very probably a real track of particle produced in the proton-proton interaction in the corresponding bunch crossing. With this HFT-tagged tracks we ommit potential bias related to matching with BEMC cluster.
 
-We used the data from st\_ssdmb stream (VPDMB-5-ssd trigger) from the same runs as the Roman Pot data used in our physics analyses. The HFT-tagged tracks were selected as the primary tracks passing the quality cuts \ref{sec:TpcQualityCuts} (only the TPC hits were counted). They were required to contain hits in two HFT layers: IST ans SST, which vastly reduced probability to select an off-time track in TPC (PXL was not used in reconstrucion due to problems in firmware). As shown in Fig.~\ref{fig:zVtxHFT}, the $z_{\text{vtx}}$ coverage of the HFT-tagges tracks is limited to about $\pm20$~cm, but we accept such limitation.% as we know that the TOF efficiency in the kinematic range of our measurements (Sec.~\ref{sec:TpcKinematicCuts}) 
+We used the data from st\_ssdmb stream (VPDMB-5-ssd trigger) from the same runs as the data used in our physics analyses. The HFT-tagged tracks were selected as the primary tracks passing the quality cuts \ref{sec:TpcQualityCuts} (only the TPC hits were counted). These tracks were required to contain hits in two HFT layers: IST ans SST, which vastly reduced probability to select an off-time track in TPC (PXL was not used in reconstrucion due to problems in firmware). As shown in Fig.~\ref{fig:zVtxHFT}, the $z_{\text{vtx}}$ coverage of the HFT-tagged tracks is limited to about $\pm20$~cm. We imposes cut on the $z$ position of the vertex $|z_{\text{\text{vtx}}}|<20$~cm to remove tracks from the tails, which generally have large $|\eta|$.
+
+Identification of particles was done using the specific energy loss measured in the TPC ($n^{\sigma}$ variables were used). The following requirements were imposed on $n^{\sigma}$ variables in order to select three species of particles whose tracks were selected for the TOF efficiency analysis:
 \begin{itemize}
- \item pions:~~~~~$|n^{\sigma}_{\text{pion}}| < 2$
- \item kaons:~~~~~$-2 < n^{\sigma}_{\text{proton}} < 2.5$~~~\&\&~~~$|n^{\sigma}_{\text{pion}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{electron}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{proton}}| > 3.5$
- \item protons:~~$-2 < n^{\sigma}_{\text{proton}} < 3$~~~~~\&\&~~~~$|n^{\sigma}_{\text{pion}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{electron}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{kaon}}| > 3.5$
+ \item pions:~~~~~$|n^{\sigma}_{\text{pion}}| < 2$,
+ \item kaons:~~~~~$-2 < n^{\sigma}_{\text{proton}} < 2.5$~~~\&\&~~~$|n^{\sigma}_{\text{pion}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{electron}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{proton}}| > 3.5$,
+ \item protons:~~$-2 < n^{\sigma}_{\text{proton}} < 3$~~~~~\&\&~~~~$|n^{\sigma}_{\text{pion}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{electron}}| > 3.5$~~~\&\&~~~$|n^{\sigma}_{\text{kaon}}| > 3.5$.
 \end{itemize}
 
-
 %---------------------------
-\begin{figure}[h]%\vspace{-2pt}%
+\begin{figure}[b!]%\vspace{-2pt}%
 \centering%
 \begin{minipage}{.4725\textwidth}%
   \centering%\vspace{11pt}
@@ -210,10 +211,9 @@ We used the data from st\_ssdmb stream (VPDMB-5-ssd trigger) from the same runs 
 \end{figure}%
 %---------------------------  
 
-
-
+\noindent Selection of pions by cut solely on $n^{\sigma}_{\text{pion}}$ (without additional cuts on $n^{\sigma}$ for kaon, proton and electron hypothesis) is driven by the dominance of pion production over other species and by the fact that the dE/dx of pions overlap with kaons and protons at momenta which are relatively large, hence the TOF efficiency is saturated and the same for all particle species. More sophisticated selection was used for kaons and protons. Figure~\ref{fig:hftTracksNSigmaVsPt} shows the $n^{\sigma}$ variables before and after the selection of kaons (\ref{fig:hftTracksNSigmaKaonVsPt}) and protons (\ref{fig:hftTracksNSigmaProtonVsPt}), where one can find proof that clean samples of these particles were selected, for the price of limited coverage in track $p_{T}$.
 %---------------------------
-\begin{figure}[hb]
+\begin{figure}[t!]
 \centering
 \parbox{0.4725\textwidth}{
   \centering
@@ -233,9 +233,8 @@ We used the data from st\_ssdmb stream (VPDMB-5-ssd trigger) from the same runs 
 \end{figure}
 %---------------------------
 
-
 %---------------------------
-\begin{figure}[h!]%\vspace{-38pt}
+\begin{figure}[b!]\vspace{-34pt}
 \centering
 \parbox{0.31\textwidth}{
   \centering
@@ -246,7 +245,7 @@ We used the data from st\_ssdmb stream (VPDMB-5-ssd trigger) from the same runs 
 \quad
 \parbox{0.65\textwidth}{ 
   \centering
-		\begin{minipage}[t][0.64\linewidth][t]{\linewidth}\vspace{33pt}
+		\begin{minipage}[t][0.64\linewidth][t]{\linewidth}\vspace{73pt}
 			\caption[Comparison of the TOF eff. correction from tag\&probe method and the difference between TOF eff. calculated using standard method from the HFT-tagged tracks and efficiency from embedded single particle MC.]%
     {Comparison of the TOF efficiency correction obtained with tag\&probe method on CEP $\pi^{+}\pi^{-}$ events (\ref{fig:TPcorrectionTofEff2D}, description in Sec.~\ref{sec:tofAbsEffCorr}) and the difference between TOF efficiency calculated using standard method from the HFT-tagged tracks and efficiency from embedded single particle MC for pions (\ref{fig:tofEffDifference_pion}), kaons (\ref{fig:tofEffDifference_kaon}) and protons (\ref{fig:tofEffDifference_proton}). Yellow hatched area mark empty bins. Dashed horizontal lines represent minimum track $p_{T}$ thresholds used in our analyses: $0.3$~GeV for kaons (green) and $0.4$~GeV for protons (blue).}\label{fig:tofEffSystematics2DComparison}% 
 		\end{minipage}
@@ -276,6 +275,10 @@ We used the data from st\_ssdmb stream (VPDMB-5-ssd trigger) from the same runs 
 %---------------------------
 
 
+From selected sample of pion, kaon and proton tracks the TOF hit reconstruction and matching efficiency was calculated using the standard method - as a ratio of number of tracks matched with TOF and number of all tracks. This efficiency was compared with the efficiency extracted from the zero-bias-embedded single particle MC, calculated for $|z_{\text{vtx}}|<20$~cm and averaged between positive- and negative-charge particles. The result of comparison - the difference between efficiency calculated with HFT-tagged tracks and efficiency from single particle MC, is presented in Fig.~\ref{fig:tofEffSystematics2DComparison} (subfigures \ref{fig:tofEffDifference_pion}-\ref{fig:tofEffDifference_proton}). This difference could be interpreted as a data-driven correction to the TOF efficiency calculated from single particle MC, alternative to correction derived with tag\&probe method on CEP events, described in Sec.~\ref{sec:tofAbsEffCorr}.
+
+The difference between the correction from tag\&probe (Fig.\ref{fig:TPcorrectionTofEff2D}) and alternative correction in Figs.~\ref{fig:tofEffDifference_pion}-\ref{fig:tofEffDifference_proton}, $\Delta\delta\varepsilon_{\text{TOF}}$, can be used as a measure of the uncertainty of the overall TOF efficiency. Aforementioned difference is depicted in Fig.~\ref{fig:tofEffDifference_Delta}. We decided to symmetrize the systematic uncertainty of the TOF efficiency. For this purpose, on top of the correction to the TOF efficiency from CEP tag\&probe method, we add the half of the difference from Fig.~\ref{fig:tofEffDifference_Delta} to the TOF efficiency of corresponding particle type. We then assign a systematic uncertainty of the TOF efficiency to each $(\eta,p_{T})$ bin as an absolute value of the half of that difference, $\frac{1}{2}|\Delta\delta\varepsilon_{\text{TOF}}|$. For high track $p_{T}$, when there are no estimates of $\Delta\delta\varepsilon_{\text{TOF}}$, the value from the last non-empty $p_{T}$ bin (at given $\eta$ bin) is used as a correction, and maximum absolute value among the last 3 non-empty $p_{T}$ bins (at given $\eta$ bin) is used as a systematic uncertainty.
+
 %---------------------------
 \begin{figure}[h]%\vspace{-38pt} 
 \centering
@@ -300,7 +303,7 @@ We used the data from st\_ssdmb stream (VPDMB-5-ssd trigger) from the same runs 
   \end{subfigure}
 }
 \caption[Difference between the TOF eff. correction estimated with tag\&probe method and with the HFT-tagged tracks.]%
-    {Difference between the TOF eff. correction estimated with tag\&probe method on CEP $\pi^{+}\pi^{-}$ events and with the HFT-tagged tracks for pions (\ref{fig:tofEffDifference_Delta_pion}), kaons (\ref{fig:tofEffDifference_Delta_kaon}) and protons (\ref{fig:tofEffDifference_Delta_proton}). Figure \ref{fig:tofEffDifference_Delta_pion} is the difference between \ref{fig:tofEffDifference_pion} and \ref{fig:TPcorrectionTofEff2D}, Figure \ref{fig:tofEffDifference_Delta_kaon} is the difference between \ref{fig:tofEffDifference_kaon} and \ref{fig:TPcorrectionTofEff2D}, and Figure \ref{fig:tofEffDifference_Delta_proton} is the difference between \ref{fig:tofEffDifference_proton} and \ref{fig:TPcorrectionTofEff2D}. Yellow hatched area mark empty bins in histogram for HFT-tagged tracks (thus difference is incalculable). Dashed horizontal lines represent minimum track $p_{T}$ thresholds used in our analyses: $0.3$~GeV for kaons (green) and $0.4$~GeV for protons (blue).}\label{fig:tofEffDifference_Delta}% 
+    {Difference between the TOF eff. correction estimated with tag\&probe method on CEP $\pi^{+}\pi^{-}$ events and with the HFT-tagged tracks for pions (\ref{fig:tofEffDifference_Delta_pion}), kaons (\ref{fig:tofEffDifference_Delta_kaon}) and protons (\ref{fig:tofEffDifference_Delta_proton}). Figure \ref{fig:tofEffDifference_Delta_pion} is the difference between \ref{fig:tofEffDifference_pion} and \ref{fig:TPcorrectionTofEff2D}, Figure \ref{fig:tofEffDifference_Delta_kaon} is the difference between \ref{fig:tofEffDifference_kaon} and \ref{fig:TPcorrectionTofEff2D}, and Figure \ref{fig:tofEffDifference_Delta_proton} is the difference between \ref{fig:tofEffDifference_proton} and \ref{fig:TPcorrectionTofEff2D}. Yellow hatched area mark bins which were empty in histograms for HFT-tagged tracks (thus difference is incalculable). Dashed horizontal lines represent minimum track $p_{T}$ thresholds used in our analyses: $0.3$~GeV for kaons (green) and $0.4$~GeV for protons (blue).}\label{fig:tofEffDifference_Delta}% 
 \end{figure}
 %---------------------------
 
