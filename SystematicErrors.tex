@@ -283,14 +283,30 @@ The difference between the correction from tag\&probe (Fig.\ref{fig:TPcorrection
 
 \subsection{Track reconstruction efficiency (absolute reconstruction efficiency)}
 
-The systematic uncertainty of the RP track reconstruction efficiency has been estimated using elastic scattering events. The same analysis scheme was used for the data and for embedded elastic scattering MC events. The difference between efficiency estimates extracted from the data and simulation was established as a measure of the systematic uncertainty of the RP track reconstruction efficiency ()nominally calculated with the zero-bias-embedded MC events).
+Nominally the RP track reconstruction efficiency is calculated with the zero-bias-embedded MC events as a probability that forward scattered proton is transported from the IP to the RP stations and produces hits in SSDs that are reconstructed as a track point(s) that form a track which passes selection cuts. The systematic uncertainty of this efficiency, which reflects the accuracy of the simulation (modeling of the dead material, signal digitization etc.), has been estimated using elastic scattering events. The same analysis scheme was used for the data and for embedded elastic scattering MC events. The difference between efficiency estimates extracted from the data and simulation was established as a measure of the systematic uncertainty of the nominal RP track reconstruction efficiency.
 
-RP\_ET triggers were used in this analysis. Elastic proton-proton scattering MC events simulated in Geant4 and embedded into zero-bias data were subjected to the same trigger conditions (signal in trigger counters in opposite RP branches was required). events with entire STAR detector empty were selected: veto on any activity (no TOF L0, no TOF hits, no TOF-TPC tracks, no signal in VPD/ZDC/BBC-large/BBC-small)
-Also required that there is only single branch with trigger on each side (forbidden RP IT trigger bit)
+An idea of this analysis was to select elastic proton-proton scattering events by requiring the elastic trigger (signal in PMTs in two opposite RP branches) and clean RP track on one side of the IP, and counting how often there is reconstructed and successfully selected RP track in the opposite branch with trigger signal. The method is illustrated in Fig.~\ref{fig:sketchRpTrackEffSyst}. Detailed description of the algorithm is provided below:
+\begin{enumerate}
+\item RP\_ET triggers were used. Elastic proton-proton scattering MC events simulated in Geant4 and embedded into zero-bias data were subjected to the same trigger conditions (signal in trigger counters in opposite RP branches was required). The zero-bias data used in embedding was taken from the same runs for which RP\_ET triggers were analyzed. Also number of simulated events for each run was proportional to number of elastic scattering events in given run.
+\item Since RP\_ET triggers can be fired not only by elastic interactions but also by central diffraction events, minimum bias events with forward remnants of protons, overlap of single diffraction events with beam halo protons, etc., a list of vetoes was exerted to suppress non-elastic interaction/pile-up:\vspace*{-7pt}
+\begin{multicols}{3}
+	\begin{itemize}
+		\item TOF L0 mulitplicity = 0
+		\item n. of TPC-TOF tracks = 0
+		\item n. of recon. TOF hits = 0
+		\item empty ZDC
+		\item empty VPD
+		\item empty BBC (small, large)
+		\item false state of RP\_IT trigger bit (trigger signal only in RP branches forming an elastic trigger bit RP\_ET)
+	\end{itemize}
+\end{multicols}
+\item
 Selected events with very clean clean RP track on one side
 Checked if in the opposite branch there is a RP track which passes the track selection used in analysis; this probability is referred to as the RP track reconstruction efficiency
+\end{enumerate}
 
-\begin{figure}[h]%\vspace{-34pt}
+
+\begin{figure}[t!]%\vspace{-34pt}
 	\centering
 	\parbox{0.65\textwidth}{%
 		\centering%
@@ -305,6 +321,32 @@ Checked if in the opposite branch there is a RP track which passes the track sel
 		%\end{minipage}
 	}
 	
+\end{figure}
+%---------------------------
+
+
+
+%---------------------------
+\begin{figure}[h]%\vspace{-34pt}
+	\centering
+	\parbox{0.54\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}{
+				\subcaptionbox{\label{fig:totalRpRecoEff2D}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/totalRpRecoEff2D.pdf}\vspace{-12pt}}}
+		\end{subfigure}
+	\caption[Coparison of estimated RP track reconstruction efficiency in 2D and 1D.]%
+	{Comparison of RP track reconstruction efficiency estimated with the described method as a function of $(p_{x},p_{y})$ of proton (\ref{fig:totalRpRecoEff2D}) and comparison of 1-dimensional projections on $p_{x}$ (\ref{fig:totalRpRecoEff1D_px}) and $p_{y}$ (\ref{fig:totalRpRecoEff1D_py}). Lower pad in each subfigure shows the difference between efficiency extracted from the data and elastic scattering MC embedded into zero-bias data.}\label{fig:wefwfwef}\vspace{60pt}%
+	}
+	\quad
+	\parbox{0.43\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}{
+				\subcaptionbox{\label{fig:totalRpRecoEff1D_px}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/dataTotalEff_1D.pdf}\vspace{-12pt}}}
+		\end{subfigure}
+		\begin{subfigure}[b]{\linewidth}{
+				\subcaptionbox{\label{fig:totalRpRecoEff1D_py}}{\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/RpSyst/dataTotalEff_1D.pdf}\vspace{-12pt}}}
+		\end{subfigure}
+	}
 \end{figure}
 %---------------------------
 
