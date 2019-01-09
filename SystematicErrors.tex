@@ -285,7 +285,7 @@ The difference between the correction from tag\&probe (Fig.\ref{fig:TPcorrection
 
 Nominally the RP track reconstruction efficiency is calculated with the zero-bias-embedded MC events as a probability that forward scattered proton is transported from the IP to the RP stations and produces hits in SSDs that are reconstructed as a track point(s) that form a track which passes selection cuts. The systematic uncertainty of this efficiency, which reflects the accuracy of the simulation (modeling of the dead material, signal digitization etc.), has been estimated using elastic scattering events. The same analysis scheme was used for the data and for embedded elastic scattering MC events. The difference between efficiency estimates extracted from the data and simulation was established as a measure of the systematic uncertainty of the nominal RP track reconstruction efficiency.
 
-An idea of this analysis was to select elastic proton-proton scattering events by requiring the elastic trigger (signal in PMTs in two opposite RP branches) and clean RP track on one side of the IP, and counting how often there is reconstructed and successfully selected RP track in the opposite branch with trigger signal. The method is illustrated in Fig.~\ref{fig:sketchRpTrackEffSyst}. Detailed description of the algorithm is provided below:
+An idea of this analysis was to select elastic proton-proton scattering events by requiring the elastic trigger (signal in PMTs in two opposite RP branches) and clean RP track of $\xi=0$ on one side of the IP, and counting how often there is reconstructed and successfully selected collinear RP track in the opposite branch with trigger signal. The method is illustrated in Fig.~\ref{fig:sketchRpTrackEffSyst}. Detailed description of the algorithm is provided below:
 \begin{enumerate}
 \item RP\_ET triggers were used. Elastic proton-proton scattering MC events simulated in Geant4 and embedded into zero-bias data were subjected to the same trigger conditions (signal in trigger counters in opposite RP branches was required). The zero-bias data used in embedding was taken from the same runs for which RP\_ET triggers were analyzed. Also number of simulated events for each run was proportional to number of elastic scattering events in given run.\vspace{-4pt}
 \item Since RP\_ET triggers can be fired not only by elastic interactions but also, for instance, by central diffraction events, minimum bias events with forward remnants of protons, overlap of single diffraction events with beam halo protons, etc., a list of vetoes was exerted to suppress non-elastic interaction/pile-up:\vspace*{-7pt}
@@ -318,7 +318,7 @@ From the figures one can read that the difference between the RP track reconstru
 	\quad
 	\parbox{0.31\textwidth}{ 
 		\centering
-		%\begin{minipage}[t][0.64\linewidth][t]{\linewidth}%\vspace{73pt}
+		%\begin{minipage}[t][0.64\linewidth][t]{\linewidth}%\vspace{73pt} 
 			\caption[Draft of the method of estimation of the RP track reconstruction efficiency for systematic uncertainty determination.]%
 			{Sketch of the Roman Pot system with drafted method of estimation of the RP track reconstruction efficiency using elastic scattering events.}\label{fig:sketchRpTrackEffSyst}% 
 		%\end{minipage}
@@ -328,18 +328,60 @@ From the figures one can read that the difference between the RP track reconstru
 %---------------------------
 
 
+\begin{figure}[h]%\vspace{-34pt} 
+	\centering
+	\parbox{0.4725\textwidth}{%
+		\centering%
+		\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/xiPerBranch.pdf}%
+	} 
+	\quad
+	\parbox{0.4725\textwidth}{ 
+		\centering
+		%\begin{minipage}[t][0.64\linewidth][t]{\linewidth}%\vspace{73pt} 
+			\caption[...]%
+			{...}\label{fig:rpSystXi_EU}% 
+		%\end{minipage}
+	}
+	
+\end{figure}
+%---------------------------
+
+
+%---------------------------
+\begin{figure}[h]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:rpSystCollinearity_x}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/collinearity.pdf}\vspace{-7pt}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:rpSystCollinearity_y}}{\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/RpSyst/collinearity.pdf}\vspace{-7pt}}
+  \end{subfigure}
+}%
+\caption[...]%
+    {...}\label{fig:rpSystCollinearity}%
+\end{figure}
+%---------------------------
 
 %---------------------------
 \begin{figure}[h]%\vspace{-34pt}
 	\centering
 	\parbox{0.54\textwidth}{
 		\centering
-		\begin{subfigure}[b]{\linewidth}{
+		\begin{subfigure}[b]{\linewidth}{\vspace{10pt}
 				\subcaptionbox{\label{fig:totalRpRecoEff2D_EU}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/totalRpRecoEff2D.pdf}\vspace{-12pt}}}
 		\end{subfigure}
+  \begin{minipage}[t][0.64\linewidth][t]{\linewidth}\vspace{10pt}
 	\caption[Coparison of estimated RP track reconstruction efficiency in 2D and 1D.]%
-	{Sample comparison of RP track reconstruction efficiency (branch EU) estimated with the method described in the text as a function of $(p_{x},p_{y})$ of proton (\ref{fig:totalRpRecoEff2D_EU}) and comparison of 1-dimensional projections of efficiencies in a fiducial region marked with green envelope: $p_{x}$ (\ref{fig:totalRpRecoEff1D_EU_px}) and $p_{y}$ (\ref{fig:totalRpRecoEff1D_EU_py}). Lower pad in each subfigure shows the difference between efficiency extracted from the data and elastic scattering MC embedded into zero-bias data. The difference between efficiencies in Fig.~'\ref{fig:totalRpRecoEff2D_EU} was calculated only for entries in the fiducial region. Similar plots for the remaining branches can be found in Appendix~\ref{appendix:rpTrackRecoEffSyst}.%
-	}\label{fig:totalRpRecoEff_EU}\vspace{14pt}%
+	{Sample comparison of RP track reconstruction efficiency (branch EU) estimated with the method described in the text as a function of $(p_{x},p_{y})$ of proton track (\ref{fig:totalRpRecoEff2D_EU}) and comparison of 1-dimensional projections of efficiencies in a fiducial region marked with green envelope: $p_{x}$ (\ref{fig:totalRpRecoEff1D_EU_px}) and $p_{y}$ (\ref{fig:totalRpRecoEff1D_EU_py}). Lower pad in each subfigure shows the difference between efficiency extracted from the data and elastic scattering MC embedded into zero-bias data. The difference between efficiencies in Fig.~'\ref{fig:totalRpRecoEff2D_EU} was calculated only for entries in the fiducial region. Similar plots for the remaining branches can be found in Appendix~\ref{appendix:rpTrackRecoEffSyst}.%
+	}\label{fig:totalRpRecoEff_EU}
+	\end{minipage}
+	%\vspace{14pt}%
 	}
 	\quad
 	\parbox{0.43\textwidth}{
@@ -371,5 +413,36 @@ From the figures one can read that the difference between the RP track reconstru
 		%\end{minipage}
 	}
 	
+\end{figure}
+%---------------------------
+
+
+
+
+%---------------------------
+\begin{figure}[h]%\vspace{-34pt}
+	\centering
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}{%\vspace{10pt}
+				\subcaptionbox{\label{fig:totalRpRecoEff2D_EU111}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/relativeRpRecoEff2D_pxpy.pdf}\vspace{-12pt}}}
+		\end{subfigure}
+		\begin{subfigure}[b]{\linewidth}{
+				\subcaptionbox{\label{fig:totalRpRecoEff1D_EU_px11}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/dataRelativeEff_1D.pdf}\vspace{-12pt}}}
+		\end{subfigure}
+	}
+	\quad
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}{%\vspace{10pt}
+				\subcaptionbox{\label{fig:totalRpRecoEff2D_EU111}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/relativeRpRecoEff2D.pdf}\vspace{-12pt}}}
+		\end{subfigure}
+		\begin{subfigure}[b]{\linewidth}{
+				\subcaptionbox{\label{fig:totalRpRecoEff1D_EU_py111}}{\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/RpSyst/dataRelativeEff_1D.pdf}\vspace{-12pt}}}
+		\end{subfigure}
+	}
+	\caption[Coparison of estimated RP track reconstruction efficiency in 2D and 1D.]%
+	{Sample comparison of RP track reconstruction efficiency (branch EU) estimated with the method described in the text as a function of $(p_{x},p_{y})$ of proton track (\ref{fig:totalRpRecoEff2D_EU}) and comparison of 1-dimensional projections of efficiencies in a fiducial region marked with green envelope: $p_{x}$ (\ref{fig:totalRpRecoEff1D_EU_px}) and $p_{y}$ (\ref{fig:totalRpRecoEff1D_EU_py}). Lower pad in each subfigure shows the difference between efficiency extracted from the data and elastic scattering MC embedded into zero-bias data. The difference between efficiencies in Fig.~'\ref{fig:totalRpRecoEff2D_EU} was calculated only for entries in the fiducial region. Similar plots for the remaining branches can be found in Appendix~\ref{appendix:rpTrackRecoEffSyst}.%
+	}\label{fig:totalRpRecoEff_EU111}
 \end{figure}
 %---------------------------
