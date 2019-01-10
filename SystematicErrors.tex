@@ -285,9 +285,9 @@ The difference between the correction from tag\&probe (Fig.\ref{fig:TPcorrection
 
 Nominally the RP track reconstruction efficiency is calculated with the zero-bias-embedded MC events as a probability that forward scattered proton is transported from the IP to the RP stations and produces hits in SSDs that are reconstructed as a track point(s) that form a track which passes selection cuts. The systematic uncertainty of this efficiency, which reflects the accuracy of the simulation (modeling of the dead material, signal digitization etc.), has been estimated using elastic scattering events. The same analysis scheme was used for the data and for embedded elastic scattering MC events. The difference between efficiency estimates extracted from the data and simulation was established as a measure of the systematic uncertainty of the nominal RP track reconstruction efficiency.
 
-An idea of this analysis was to select elastic proton-proton scattering events by requiring the elastic trigger (signal in PMTs in two opposite RP branches) and clean RP track on one side of the IP, and counting how often there is reconstructed and successfully selected RP track in the opposite branch with trigger signal. The method is illustrated in Fig.~\ref{fig:sketchRpTrackEffSyst}. Detailed description of the algorithm is provided below:
+An idea of this analysis was to select elastic proton-proton scattering events by requiring the elastic trigger (signal in PMTs in two opposite RP branches) and clean RP track of $\xi=0$ on one side of the IP, and counting how often there is reconstructed and successfully selected collinear RP track in the opposite branch with trigger signal. The method is illustrated in Fig.~\ref{fig:sketchRpTrackEffSyst}. Detailed description of the algorithm is provided below:
 \begin{enumerate}
-\item RP\_ET triggers were used. Elastic proton-proton scattering MC events simulated in Geant4 and embedded into zero-bias data were subjected to the same trigger conditions (signal in trigger counters in opposite RP branches was required). The zero-bias data used in embedding was taken from the same runs for which RP\_ET triggers were analyzed. Also number of simulated events for each run was proportional to number of elastic scattering events in given run.\vspace{-4pt}
+\item RP\_ET triggers were used. Elastic proton-proton scattering MC events (generated with $B=14.3~\text{GeV}^{-2}$ as it was measured in independent analysis, see Ref.~\cite{ElasticNote}) simulated in Geant4 and embedded into zero-bias data were subjected to the same trigger conditions (signal in trigger counters in opposite RP branches was required). The zero-bias data used in embedding was taken from the same runs for which RP\_ET triggers were analyzed. Also number of simulated events for each run was proportional to number of elastic scattering events in given run.\vspace{-4pt}
 \item Since RP\_ET triggers can be fired not only by elastic interactions but also, for instance, by central diffraction events, minimum bias events with forward remnants of protons, overlap of single diffraction events with beam halo protons, etc., a list of vetoes was exerted to suppress non-elastic interaction/pile-up:\vspace*{-7pt}
 \begin{multicols}{3}
 	\begin{itemize}
@@ -299,15 +299,26 @@ An idea of this analysis was to select elastic proton-proton scattering events b
 		\item empty BBC (small, large)
 		\item false state of RP\_IT trigger bit (trigger signal only in RP branches forming an elastic trigger bit RP\_ET)
 	\end{itemize}
-\end{multicols}\vspace{-15pt}
+\end{multicols}\vspace{-10pt}
+As shown in Fig.~\ref{fig:rpSystXi_EU}, the mentioned types of background events that fire RP\_ET trigger are vastly suppressed with the above vetoes.\vspace{-4pt}
 \item From the difference between average time of the trigger signal in west and east RPs the $z$-position of the vertex was reconstructed and required to satisfy condition $|z_{\text{vtx}}|<80$~cm, which is the same as the range of $z_{\text{vtx}}$ accepted in our physics analyses.\vspace{-4pt}
-\item One side (a 'tagging' side) was checked if a clean set of track points was reconstructed in a branch with trigger signal. By clean set of track points we understand either 1 and 0, 0 and 1, or 1 and 1 reconstructed track point in the $1^{\text{st}}$ and $2^{\text{nd}}$ RP in given branch, respectively. If yes, from this(ese) track point(s) a RP track was reconstructed with the $z$-position of the vertex assumed to be as it was reconstructed in \#3.\vspace{-4pt}
-\item Checked if in the 'probed' opposite branch (that has a trigger signal) there is a RP track which passes the track selection used in CEP analysis (criteria \textbf{C4} in Ref.~\cite{AnalysisNoteRafal}). This probability is referred to as the RP track reconstruction efficiency $\varepsilon$. Technically it was calculated as a ratio of the number of events with reconstructed track in a probed branch and clean track in tagging branch, to all number of events with clean track in tagging branch.\vspace{-4pt}
-\item Steps \#4-\#5 were repeated for the other side.
+\item One side (a 'tagging' side, or a reference side) was checked if a clean set of track points was reconstructed in a branch with trigger signal. By clean set of track points we understand either 1 and 0, 0 and 1, or 1 and 1 reconstructed track point in the $1^{\text{st}}$ and $2^{\text{nd}}$ RP in given branch, respectively. If yes, from this(ese) track point(s) a RP track was formed, reconstructed with the $z$-position of the vertex assumed to be as it was reconstructed in \#3.\vspace{-4pt}
+\item Checked if in the 'probed' branch (that has a trigger signal, opposite to the reference branch) there is RP track which passes the track selection used in CEP analysis, and there is exactly 1 such track (as in CEP analysis):\vspace*{-4pt}% (criteria \textbf{C4} in Ref.~\cite{AnalysisNoteRafal}).
+\begin{itemize}
+  \itemm RP track contains only track-points with at least 3 (out of maximum 4) planes used in reconstrucion,
+  \itemm Local angles are consistent with the forward proton track originating from the IP:\vspace{-5pt}
+  \[-2~\text{mrad}<\theta_{x}^{\text{RP}}-x^{\text{RP}}/|z^{\text{RP}}|<4~\text{mrad},~~~~~-2~\text{mrad}<\theta_{y}^{\text{RP}}-y^{\text{RP}}/|z^{\text{RP}}|<2~\text{mrad}\]
+\end{itemize}\vspace{-4pt}
+If the above was satisfied, the collinearity was calculated between the track reconstructed in the branch under study and the reference track (Fig.~\ref{fig:rpSystCollinearity}). If the collinearity was within 3.5 standard deviations the elastic track was claimed reconstructed.\vspace{-4pt}
+\item The RP track reconstruction efficiency $\varepsilon$ was defined as a probability that in the studied branch exactly 1 RP track was reconstructed and selected, and found collinear with the reference track within 3.5 standard deviations (as required in \#5). It was calculated as a ratio of the number of events with reconstructed track in a probed branch and clean track in tagging branch, to all number of events with clean track in tagging branch.\vspace{-4pt}
+\item Steps \#4-\#6 were repeated for the other side.
 \end{enumerate}
-The efficiencies obtained with the described method were calculated as a function of the transverse momentum components of the proton in the branch under study. These components were assumed to be equal to the $(p_{x},p_{y})$ of the track in the tagging branch taken with the "-" sign to reflect the fact that elastically scattered protons have opposite momentum, $(p_{x}^{\text{E}},p_{y}^{\text{E}},p_{z}^{\text{E}}) = (-p_{x}^{\text{W}},-p_{y}^{\text{W}},-p_{z}^{\text{W}})$ (in the center-of-mass reference frame, which here is identical with the laboratory frame). The sample result for a single branch is presented in Fig.~\ref{fig:totalRpRecoEff_EU}. The remaining results were placed in Appendix~\ref{appendix:rpTrackRecoEffSyst}.
+The efficiencies obtained with the described method were calculated as a function of the expected transverse momentum components of the proton in the branch under study. These components were assumed to be equal to the $(p_{x},p_{y})$ of the track in the tagging branch taken with the "-" sign to reflect the fact that elastically scattered protons have opposite momentum, $(p_{x}^{\text{E}},p_{y}^{\text{E}},p_{z}^{\text{E}}) = (-p_{x}^{\text{W}},-p_{y}^{\text{W}},-p_{z}^{\text{W}})$ (in the center-of-mass reference frame, which here is identical with the laboratory frame). The sample result for a single branch is presented in Fig.~\ref{fig:totalRpRecoEff_EU}. The remaining results were placed in Appendix~\ref{appendix:rpTrackRecoEffSyst}.
 
 From the figures one can read that the difference between the RP track reconstruction efficiency estimated from the data and from embedded MC do not differ by more than $\sim5\%$, on average by not more than $\sim2\%$. The largest difference between the data and simulation is observed in the corner of the fiducial region where the RF shield is present between the $1^{\text{st}}$ and $2^{\text{nd}}$ RP station. This may indicate that the thickness of this shield is not accurately modeled (too thick piece of material implemented in the simulation). More significant differences are generally observed close to the edges of the fiducial region rather than its center. This could be an influence of the angular beam divergence which was assumed constant in the simulation, while in the data it changes over time (grows with the RHIC store lifetime). However, the scale of the inconsistencies between the data and MC is satisfactorily low hence we accept them as the estimate of the systematic uncertainty of the RP track reconstruction efficiency. The systematic uncertainty assigned to the track of reconstructed $(p_{x}, p_{y})$ is equal to the absolute value of the difference shown in Fig.~\ref{fig:totalRpRecoEff2D_EU} and similar differences in Appendix~\ref{appendix:rpTrackRecoEffSyst}.
+\begin{equation}
+ 0.2<|p_{y}|<0.4,~~~-0.2<p_{x},~~~(p_{x}+0.3)^{2}+p_{y}^{2}<0.5^{2}~~~(\text{all in GeV})
+\end{equation}
 
 \begin{figure}[t!]%\vspace{-34pt}
 	\centering
@@ -318,7 +329,7 @@ From the figures one can read that the difference between the RP track reconstru
 	\quad
 	\parbox{0.31\textwidth}{ 
 		\centering
-		%\begin{minipage}[t][0.64\linewidth][t]{\linewidth}%\vspace{73pt}
+		%\begin{minipage}[t][0.64\linewidth][t]{\linewidth}%\vspace{73pt} 
 			\caption[Draft of the method of estimation of the RP track reconstruction efficiency for systematic uncertainty determination.]%
 			{Sketch of the Roman Pot system with drafted method of estimation of the RP track reconstruction efficiency using elastic scattering events.}\label{fig:sketchRpTrackEffSyst}% 
 		%\end{minipage}
@@ -328,18 +339,61 @@ From the figures one can read that the difference between the RP track reconstru
 %---------------------------
 
 
+%---------------------------
+\begin{figure}[h]%\vspace{-34pt} 
+	\centering
+	\parbox{0.4725\textwidth}{%
+		\centering%
+		\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/xiPerBranch.pdf}%
+	} 
+	\quad
+	\parbox{0.4725\textwidth}{ 
+		\centering
+		%\begin{minipage}[t][0.64\linewidth][t]{\linewidth}%\vspace{73pt} 
+			\caption[Fractional momentum loss $\xi$ of clean proton tracks before and after implying vetoes in the data and MC (branch EU).]%
+			{Fractional momentum loss $\xi$ of clean proton tracks in branch EU before and after implying vetoes. Data are represented by opened and filled circles, while elastic MC embedded into zero-bias data is drawn as filled histograms. MC histograms are scaled by the ratio of data and MC yields after imposing vetoes in other STAR detector subsystems. Lower pad shows the ratio of corresponding distributions in the data and MC. Before vetoes are applied a significant contribution of non-elastic forward protons in the data sample is clearly visible (excees over MC for $\xi>0.01$). Satisfactory agreement between the data and MC is found after imposing vetoes, which indicates successfull purification of data sample. Dashed green vertical lines show the $\xi$ range of tracks accepted for the RP track (and also track point) efficiency studies, $|\xi|<0.01$. Similar plot for the remaining branches can be found in Appendix~\ref{appendix:rpTrackRecoEffSyst}.}\label{fig:rpSystXi_EU}%  
+		%\end{minipage}
+	}
+	
+\end{figure}
+%---------------------------
+
+
+%---------------------------
+\begin{figure}[h]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:rpSystCollinearity_x}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/collinearity.pdf}\vspace{-7pt}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:rpSystCollinearity_y}}{\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/RpSyst/collinearity.pdf}\vspace{-7pt}}
+  \end{subfigure}
+}%
+\caption[Collinearity of a reference track and track reconstructed in studied branch.]%
+    {Collinearity of a reference track (the clean track which is required to have $|\xi|<0.1$) and track reconstructed in branch for which reconstruction efficiency is studied. An elastic track is claimed as reconstructed if the collinearity of two tracks does not exceed 3.5 standard deviations, as marked with dashed green vertical lines and arrows.}\label{fig:rpSystCollinearity}%
+\end{figure}
+%---------------------------
 
 %---------------------------
 \begin{figure}[h]%\vspace{-34pt}
 	\centering
 	\parbox{0.54\textwidth}{
 		\centering
-		\begin{subfigure}[b]{\linewidth}{
+		\begin{subfigure}[b]{\linewidth}{\vspace{10pt}
 				\subcaptionbox{\label{fig:totalRpRecoEff2D_EU}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/totalRpRecoEff2D.pdf}\vspace{-12pt}}}
 		\end{subfigure}
-	\caption[Coparison of estimated RP track reconstruction efficiency in 2D and 1D.]%
-	{Sample comparison of RP track reconstruction efficiency (branch EU) estimated with the method described in the text as a function of $(p_{x},p_{y})$ of proton (\ref{fig:totalRpRecoEff2D_EU}) and comparison of 1-dimensional projections of efficiencies in a fiducial region marked with green envelope: $p_{x}$ (\ref{fig:totalRpRecoEff1D_EU_px}) and $p_{y}$ (\ref{fig:totalRpRecoEff1D_EU_py}). Lower pad in each subfigure shows the difference between efficiency extracted from the data and elastic scattering MC embedded into zero-bias data. The difference between efficiencies in Fig.~'\ref{fig:totalRpRecoEff2D_EU} was calculated only for entries in the fiducial region. Similar plots for the remaining branches can be found in Appendix~\ref{appendix:rpTrackRecoEffSyst}.%
-	}\label{fig:totalRpRecoEff_EU}\vspace{14pt}%
+  \begin{minipage}[t][0.64\linewidth][t]{\linewidth}\vspace{5pt}
+	\caption[Coparison of estimated RP track reconstruction efficiency in 2D and 1D (branch EU).]%
+	{Sample comparison of RP track reconstruction efficiency (branch EU) estimated with the method described in the text as a function of $(p_{x},p_{y})$ of proton track (\ref{fig:totalRpRecoEff2D_EU}) and comparison of 1-dimensional projections of efficiencies in a fiducial region marked with green envelope: $p_{x}$ (\ref{fig:totalRpRecoEff1D_EU_px}) and $p_{y}$ (\ref{fig:totalRpRecoEff1D_EU_py}). Dashed orange line marks the border between fiducial region part where the correction to RP track reconstruction efficiency is required. Lower pad in each subfigure shows the difference between efficiency extracted from the data and elastic scattering MC embedded into zero-bias data. Hatched orange area marks bins without any entries (efficiency incalculable). The difference between efficiencies in Fig.~'\ref{fig:totalRpRecoEff2D_EU} was calculated only for entries in the fiducial region. Similar plots for the remaining branches can be found in Appendix~\ref{appendix:rpTrackRecoEffSyst}.%
+	}\label{fig:totalRpRecoEff_EU}
+	\end{minipage}
+	%\vspace{14pt}%
 	}
 	\quad
 	\parbox{0.43\textwidth}{
@@ -354,7 +408,7 @@ From the figures one can read that the difference between the RP track reconstru
 \end{figure}
 %---------------------------
 
-\subsection{Track point reconstruction efficiency (relative reconstruction efficiency)}
+\subsection{Track point reconstruction efficiency (relative reconstruction efficiency)}\label{sec:rpTrackPointRecoEffSystematics}
 
 \begin{figure}[h]%\vspace{-34pt}
 	\centering
@@ -371,5 +425,59 @@ From the figures one can read that the difference between the RP track reconstru
 		%\end{minipage}
 	}
 	
+\end{figure}
+%---------------------------
+
+
+
+
+
+%---------------------------
+\begin{figure}[h]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:rpSystPositionDifference_x}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/positionDifference.pdf}\vspace{-7pt}}
+  \end{subfigure}
+}%
+\quad\quad%
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:rpSystPositionDifference_y}}{\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/RpSyst/positionDifference.pdf}\vspace{-7pt}}
+  \end{subfigure}
+}%
+\caption[Difference between measured and extrapolated position of track point in E1U.]%
+    {Difference between position of a track point (with clusters in 3 out 4 silicon planes) reconstructed in E1U (if E1U has a trigger signal) and expected track point position extrapolated from a reference track point reconstructed in E2U, for elastic scattering events with the collinearity of the track in the opposite branch and track reconstructed from a reference track point better than 3.5 standard deviations. A track point is claimed as reconstructed if the position difference is not larger than 1.2~mm, as marked with dashed green vertical lines and arrows.}\label{fig:rpSystPositionDifference}%
+\end{figure}
+%---------------------------
+
+
+%---------------------------
+\begin{figure}[h]%\vspace{-34pt}  
+	\centering
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}{%\vspace{10pt}
+				\subcaptionbox{\label{fig:relativeRpRecoEff2D_E1U_pxpy}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/relativeRpRecoEff2D_pxpy.pdf}\vspace{-12pt}}}
+		\end{subfigure}
+		\begin{subfigure}[b]{\linewidth}{\addtocounter{subfigure}{1}{
+				\subcaptionbox{\label{fig:relativeRpRecoEff1D_E1U_x}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/dataRelativeEff_1D.pdf}\vspace{-12pt}}}}
+		\end{subfigure}
+	}
+	\quad
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}{\addtocounter{subfigure}{-2}{%\vspace{10pt} 
+				\subcaptionbox{\label{fig:relativeRpRecoEff2D_E1U_xy}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/relativeRpRecoEff2D.pdf}\vspace{-12pt}}}}
+		\end{subfigure}
+		\begin{subfigure}[b]{\linewidth}{\addtocounter{subfigure}{1}{
+				\subcaptionbox{\label{fig:relativeRpRecoEff1D_E1U_y}}{\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/RpSyst/dataRelativeEff_1D.pdf}\vspace{-12pt}}}}
+		\end{subfigure}
+	}
+	\caption[Coparison of estimated RP track point reconstruction efficiency in 2D and 1D (detector E1U).]%
+	{Sample comparison of RP track point reconstruction efficiency (detector E1U) estimated with the method described in the text as a function of $(p_{x},p_{y})$ of proton track (\ref{fig:relativeRpRecoEff2D_E1U_pxpy}), $(x,y)$ position extrapolated from the reference RP (E2U) to the studied RP (\ref{fig:relativeRpRecoEff2D_E1U_xy}), and comparison of 1-dimensional projections of efficiencies in selected ranges of hit position (given in the plot): $x$ (\ref{fig:relativeRpRecoEff1D_E1U_x}) and $y$ (\ref{fig:relativeRpRecoEff1D_E1U_y}). Lower pad in each subfigure shows the difference between efficiency extracted from the data and elastic scattering MC embedded into zero-bias data. Hatched orange area marks bins without any entries (efficiency incalculable). The fiducial region in $(x,y)$ plot is represented by two envelopes which correspond to the extreme accepted values of $z_{vtx}$. Similar plots for the remaining detectors can be found in Appendix~\ref{appendix:rpTrackRecoEffSyst}.% 
+	}\label{fig:relativeRpRecoEff_E1U}
 \end{figure}
 %---------------------------
