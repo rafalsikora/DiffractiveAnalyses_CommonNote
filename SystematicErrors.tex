@@ -313,14 +313,9 @@ If the above was satisfied, the collinearity was calculated between the track re
 \item The RP track reconstruction efficiency $\varepsilon$ was defined as a probability that in the studied branch exactly 1 RP track was reconstructed and selected, and found collinear with the reference track within 3.5 standard deviations (as required in \#5). It was calculated as a ratio of the number of events with reconstructed track in a probed branch and clean track in tagging branch, to all number of events with clean track in tagging branch.\vspace{-4pt}
 \item Steps \#4-\#6 were repeated for the other side.
 \end{enumerate}
-The efficiencies obtained with the described method were calculated as a function of the expected transverse momentum components of the proton in the branch under study. These components were assumed to be equal to the $(p_{x},p_{y})$ of the track in the tagging branch taken with the "-" sign to reflect the fact that elastically scattered protons have opposite momentum, $(p_{x}^{\text{E}},p_{y}^{\text{E}},p_{z}^{\text{E}}) = (-p_{x}^{\text{W}},-p_{y}^{\text{W}},-p_{z}^{\text{W}})$ (in the center-of-mass reference frame, which here is identical with the laboratory frame). The sample result for a single branch is presented in Fig.~\ref{fig:totalRpRecoEff_EU}. The remaining results were placed in Appendix~\ref{appendix:rpTrackRecoEffSyst}.
 
-From the figures one can read that the difference between the RP track reconstruction efficiency estimated from the data and from embedded MC do not differ by more than $\sim5\%$, on average by not more than $\sim2\%$. The largest difference between the data and simulation is observed in the corner of the fiducial region where the RF shield is present between the $1^{\text{st}}$ and $2^{\text{nd}}$ RP station. This may indicate that the thickness of this shield is not accurately modeled (too thick piece of material implemented in the simulation). More significant differences are generally observed close to the edges of the fiducial region rather than its center. This could be an influence of the angular beam divergence which was assumed constant in the simulation, while in the data it changes over time (grows with the RHIC store lifetime). However, the scale of the inconsistencies between the data and MC is satisfactorily low hence we accept them as the estimate of the systematic uncertainty of the RP track reconstruction efficiency. The systematic uncertainty assigned to the track of reconstructed $(p_{x}, p_{y})$ is equal to the absolute value of the difference shown in Fig.~\ref{fig:totalRpRecoEff2D_EU} and similar differences in Appendix~\ref{appendix:rpTrackRecoEffSyst}.
-\begin{equation}
- 0.2<|p_{y}|<0.4,~~~-0.2<p_{x},~~~(p_{x}+0.3)^{2}+p_{y}^{2}<0.5^{2}~~~(\text{all in GeV})
-\end{equation}
-
-\begin{figure}[t!]%\vspace{-34pt}
+%---------------------------
+\begin{figure}[h]%\vspace{-34pt}
 	\centering
 	\parbox{0.65\textwidth}{%
 		\centering%
@@ -338,9 +333,22 @@ From the figures one can read that the difference between the RP track reconstru
 \end{figure}
 %---------------------------
 
+The efficiencies obtained with the described method were calculated as a function of the expected transverse momentum components of the proton in the branch under study. These components were assumed to be equal to the $(p_{x},p_{y})$ of the track in the tagging branch taken with the "-" sign to reflect the fact that elastically scattered protons have opposite momentum, $(p_{x}^{\text{E}},p_{y}^{\text{E}},p_{z}^{\text{E}}) = (-p_{x}^{\text{W}},-p_{y}^{\text{W}},-p_{z}^{\text{W}})$ (in the center-of-mass reference frame, which here is identical with the laboratory frame). The sample result for a single branch is presented in Fig.~\ref{fig:totalRpRecoEff_EU}. The remaining results were placed in Appendix~\ref{appendix:rpTrackRecoEffSyst}.
+
+From the figures one can read that the difference between the RP track reconstruction efficiency estimated from the data and from embedded MC do not differ by more than $\sim5\%$. In the central part of the fiducial region used in CEP analysis, defined by Ineqs.~\eqref{eq:fiducialPxPy} as
+\begin{equation}\label{eq:fiducialPxPy}
+ 0.2<|p_{y}|<0.4,~~~-0.2<p_{x},~~~(p_{x}+0.3)^{2}+p_{y}^{2}<0.5^{2}~~~(\text{all in GeV}),
+\end{equation}
+where sensitivity to the edge effects (uncertainty on aperture positions), to dead material effects and to inaccuracies in simulated angular beam divergence is suppressed, the difference is not larger than $\sim1\%$, which could be interpreted as the uncertainty on the track reconstruction efficiency related to the signal digitization and embedding and the track reconstruction algorithm. The largest difference between the data and simulation is observed in the corner of the fiducial region satisfying Ineq.~\eqref{eq:fiducialPxPyCorner}
+\begin{equation}\label{eq:fiducialPxPyCorner}
+(p_{x}-0.2)^{2}+p_{y}^{2}>0.46^{2}~~~(\text{all in GeV}),
+\end{equation}
+where the RF shield is present between the $1^{\text{st}}$ and $2^{\text{nd}}$ RP station, and possibly also the front part of the DX-D0 chamber is present. This may indicate that the thickness/density of these elemts is not accurately modeled (too thick/dense pieces of material implemented in the simulation). %
+% More significant differences are generally observed close to the edges of the fiducial region rather than its center. This could be an influence of the angular beam divergence which was assumed constant in the simulation, while in the data it changes over time (grows with the RHIC store lifetime). 
+We decided to introduce correction to the RP track reconstruction efficiency that was calculated from the simulated MC events in the corner of the fiducial region (Ineq.~\ref{eq:fiducialPxPyCorner}), equal to the difference between data and MC track reconstruction efficiency estimates presented in Fig.\ref{fig:totalRpRecoEff2D_EU} (and corresponding plots for other branches). We assign a conservative systematic uncertainty to the efficiency in this corner region equal to the absolute value of the efficiency correction. We may conduct an independent analysis of this corner region in order to have better, more realistic estimate od the systematic uncertainty.
 
 %---------------------------
-\begin{figure}[h]%\vspace{-34pt} 
+\begin{figure}[t!]%\vspace{-34pt} 
 	\centering
 	\parbox{0.4725\textwidth}{%
 		\centering%
@@ -360,7 +368,7 @@ From the figures one can read that the difference between the RP track reconstru
 
 
 %---------------------------
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \parbox{0.4725\textwidth}{
   \centering
@@ -379,6 +387,11 @@ From the figures one can read that the difference between the RP track reconstru
     {Collinearity of a reference track (the clean track which is required to have $|\xi|<0.1$) and track reconstructed in branch for which reconstruction efficiency is studied. An elastic track is claimed as reconstructed if the collinearity of two tracks does not exceed 3.5 standard deviations, as marked with dashed green vertical lines and arrows.}\label{fig:rpSystCollinearity}%
 \end{figure}
 %---------------------------
+
+For the remaining part of the fiducial $(p_{x},p_{y})$ region we also assign a systematic uncertainty of the RP track reconstruction efficiency equal to the absolute value of the difference between data and MC track reconstruction efficiency estimates shown in Fig.~\ref{fig:totalRpRecoEff2D_EU} and in Appendix~\ref{appendix:rpTrackRecoEffSyst}. These differences should also cover uncertainties related to the angular beam divergence effects and error on positions of limiting apertures.
+
+
+
 
 %---------------------------
 \begin{figure}[h]%\vspace{-34pt}
