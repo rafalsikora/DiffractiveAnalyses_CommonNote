@@ -302,7 +302,7 @@ An idea of this analysis was to select elastic proton-proton scattering events b
 \end{multicols}\vspace{-10pt}
 As shown in Fig.~\ref{fig:rpSystXi_EU}, the mentioned types of background events that fire RP\_ET trigger are vastly suppressed with the above vetoes.\vspace{-4pt}
 \item From the difference between average time of the trigger signal in west and east RPs the $z$-position of the vertex was reconstructed and required to satisfy condition $|z_{\text{vtx}}|<80$~cm, which is the same as the range of $z_{\text{vtx}}$ accepted in our physics analyses.\vspace{-4pt}
-\item One side (a 'tagging' side, or a reference side) was checked if a clean set of track points was reconstructed in a branch with trigger signal. By clean set of track points we understand either 1 and 0, 0 and 1, or 1 and 1 reconstructed track point in the $1^{\text{st}}$ and $2^{\text{nd}}$ RP in given branch, respectively. If yes, from this(ese) track point(s) a RP track was formed, reconstructed with the $z$-position of the vertex assumed to be as it was reconstructed in \#3.\vspace{-4pt}
+\item One side (a 'tagging' side, or a reference side) was checked if a clean set of track points was reconstructed in a branch with trigger signal. By clean set of track points we understand either 1 and 0, 0 and 1, or 1 and 1 reconstructed track point in the $1^{\text{st}}$ and $2^{\text{nd}}$ RP in given branch, respectively. If yes, from this(ese) track point(s) a RP track was formed, reconstructed with the $z$-position of the vertex assumed to be as it was reconstructed in \#3. Fractional momentum loss of this track was required to be $|\xi|<0.01$ (Fig.\ref{fig:rpSystXi_EU}).\vspace{-4pt}
 \item Checked if in the 'probed' branch (that has a trigger signal, opposite to the reference branch) there is RP track which passes the track selection used in CEP analysis, and there is exactly 1 such track (as in CEP analysis):\vspace*{-4pt}% (criteria \textbf{C4} in Ref.~\cite{AnalysisNoteRafal}).
 \begin{itemize}
   \itemm RP track contains only track-points with at least 3 (out of maximum 4) planes used in reconstrucion,
@@ -403,7 +403,7 @@ For the remaining part of the fiducial $(p_{x},p_{y})$ region we also assign a s
 		\end{subfigure}
   \begin{minipage}[t][0.64\linewidth][t]{\linewidth}\vspace{5pt}
 	\caption[Coparison of estimated RP track reconstruction efficiency in 2D and 1D (branch EU).]%
-	{Sample comparison of RP track reconstruction efficiency (branch EU) estimated with the method described in the text as a function of $(p_{x},p_{y})$ of proton track (\ref{fig:totalRpRecoEff2D_EU}) and comparison of 1-dimensional projections of efficiencies in a fiducial region marked with green envelope: $p_{x}$ (\ref{fig:totalRpRecoEff1D_EU_px}) and $p_{y}$ (\ref{fig:totalRpRecoEff1D_EU_py}). Dashed orange line marks the border between fiducial region part where the correction to RP track reconstruction efficiency is required. Lower pad in each subfigure shows the difference between efficiency extracted from the data and elastic scattering MC embedded into zero-bias data. Hatched orange area marks bins without any entries (efficiency incalculable). The difference between efficiencies in Fig.~'\ref{fig:totalRpRecoEff2D_EU} was calculated only for entries in the fiducial region. Similar plots for the remaining branches can be found in Appendix~\ref{appendix:rpTrackRecoEffSyst}.%
+	{Sample comparison of RP track reconstruction efficiency (branch EU) estimated with the method described in the text as a function of $(p_{x},p_{y})$ of proton track (\ref{fig:totalRpRecoEff2D_EU}) and comparison of 1-dimensional projections of efficiencies in a fiducial region marked with green envelope: $p_{x}$ (\ref{fig:totalRpRecoEff1D_EU_px}) and $p_{y}$ (\ref{fig:totalRpRecoEff1D_EU_py}). Dashed orange line marks the border of the fiducial region part where the correction to RP track reconstruction efficiency is required. Lower pad in each subfigure shows the difference between efficiency extracted from the data and elastic scattering MC embedded into zero-bias data. Hatched orange area marks bins without any entries (efficiency incalculable). The difference between efficiencies in Fig.~'\ref{fig:totalRpRecoEff2D_EU} was calculated only for entries in the fiducial region. Similar plots for the remaining branches can be found in Appendix~\ref{appendix:rpTrackRecoEffSyst}.%
 	}\label{fig:totalRpRecoEff_EU}
 	\end{minipage}
 	%\vspace{14pt}%
@@ -421,7 +421,24 @@ For the remaining part of the fiducial $(p_{x},p_{y})$ region we also assign a s
 \end{figure}
 %---------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 \subsection{Track point reconstruction efficiency (relative reconstruction efficiency)}\label{sec:rpTrackPointRecoEffSystematics}
+
+A single track point reconstruction efficiency can be studied in a way similar to the track reconstruction efficiency. In contrast to the latter, to estimate track point reconstruction efficiency one can reconstruct elastic scattering event independently from the studied detector, which provides even higher purity of the sample in comparison to the track reconstruction efficiency.% The comparison between track point reconstruction efficiency extracted from the data and simulation gives hint about discrepancies
+
+In this analysis elastic proton-proton scattering events were selected by requiring the elastic trigger (signal in PMTs in two opposite RP branches) and clean RP track of $\xi=0$ on one side of the IP, and clean track point with trigger signal in at least one RP (a reference RP) in the opposite branch. A track was formed from this clean track point and the two tracks were required collinear within 3.5 standard deviations. In the other RP detector in a studied branch a trigger was required. The probability to have exactly 1 track point in the studied RP with position consistent with that extrapolated from the reference RP was referred to as the track point reconstruction efficiency. The method is illustrated in Fig.~\ref{fig:sketchRpTrackEffSyst}. Detailed description of the algorithm is provided below, excluding steps \#1-\#4 which are the same as in Sec.~\ref{subsec:rpTrackRecoEffSyst}:
 
 \begin{figure}[h]%\vspace{-34pt}
 	\centering
@@ -442,11 +459,18 @@ For the remaining part of the fiducial $(p_{x},p_{y})$ region we also assign a s
 %---------------------------
 
 
+\begin{enumerate}\setcounter{enumi}{4}%
+\item Selected one RP station with a trigger signal in the studied branch (opposite to the tagging branch). We call it a reference detector. A clean track point in that RP was required. By clean track point we understand exactly 1 track point, in addition reconstructed with at least 3 (out of 4) silicon planes. A track was formed from the track point in the reference detector. Collinearity was calculated between the track reconstructed in the branch with clean track point and the reference track (Fig.~\ref{fig:rpSystCollinearity}). If the collinearity was satisfied within 3.5 standard deviations the elastic track was claimed reconstructed.\vspace{-4pt}
+\item The trigger signal was required in the detector under study (the other detector in the same branch as a reference detector). The RP track point reconstruction efficiency $\varepsilon$ was defined as a probability that in the studied RP, among unlimited number of reconstructed track points exactly 1 track point had reconstructed $(x,y)$ position consistent with the position extrapolated from the reference detector $(x_{\text{extr}},y_{\text{extr}})$ within $1.2$~mm (Fig.~\ref{fig:rpSystPositionDifference}). It was calculated as a ratio of the number of selected events elastic scattering event with a trigger signal in a studied detector, and exactly 1 track point of reconstructed position matching the expected, to all number of selected elastic scattering events with a trigger signal in the studied detector.\vspace{-4pt}
+\item Steps \#5-\#6 were repeated for the other detector in studied branch.\vspace{-4pt}
+\item Steps \#5-\#7 were repeated for the other side.
+\end{enumerate}
 
+The estimates of track point reconstruction efficiency obtained with the described method are shown in Fig.~\ref{fig:relativeRpRecoEff_E1U} (for one detector) and Appendix~\ref{appendix:rpTrackRecoEffSyst} (for the remaining). They are presented 2-dimensionally: in $(p_{x},p_{y})$ (Fig.~\ref{fig:relativeRpRecoEff2D_E1U_pxpy}) and $(x,y)$ (Fig.~\ref{fig:relativeRpRecoEff2D_E1U_xy}), as well as 1-dimensionally: in $x$ (Fig.~\ref{fig:relativeRpRecoEff1D_E1U_x}) and $y$ (Fig.~\ref{fig:relativeRpRecoEff1D_E1U_y}). One can find in the figures that information about the track point reconstruction efficiency is limited - there is no access to the part of the fiducial region at $p_{x}\lessapprox-0.08$~GeV. This is caused by the fact that RPs in the $1^{\text{st}}$ and the $2^{\text{nd}}$ station does not fully overlap - they are shifted with respect to each other in $x$ direction.
 
 
 %---------------------------
-\begin{figure}[h]
+\begin{figure}[b!]
 \centering
 \parbox{0.4725\textwidth}{
   \centering
@@ -466,6 +490,7 @@ For the remaining part of the fiducial $(p_{x},p_{y})$ region we also assign a s
 \end{figure}
 %---------------------------
 
+In the area of detector accessible in this study an excellent agreement ($<0.5\%$ difference) between the efficiency estimates from data and MC is found in the region of no material on the proton path from IP to the RPs. This reflects correct simulation of the silicon signal digitization, cluster reconstruction and matching, track point reconstruction and embedding. The differences between data and MC are more significant in the region of aperture shadows, e.g. DX shadow visible the best in Fig.~\ref{fig:relativeRpRecoEff1D_E1U_x} at $x \gtrapprox 20$~mm (possibly too much simulated material), or DX-D0 chamber entry/RF shield shadow visible in Fig.~\ref{fig:relativeRpRecoEff1D_E1U_y} at $y \gtrapprox 60$~mm (probably also too much simulated material).
 
 %---------------------------
 \begin{figure}[h]%\vspace{-34pt}  
