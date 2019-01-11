@@ -10,12 +10,19 @@
 \subsection{Embedding (pile-up) effect}\label{subsec:TpcEffSystPileUp}
 One major difference between simulation and real data is the presence of pile-up
 events. The average number of pile-up tracks in
-a triggering event is proportional to the BBC coincidence rate. It is expected that
+a triggering event is proportional to the BBC coincidence rate as shown in Fig.~\ref{fig:events_bbc_and_meanGlobalTracks}. It is expected that
 the difference between simulation and real data drops at lower BBC rates, and the
 effects of pile-up tracks could be much reduced by fitting the tracking efficiency as a
-function of BBC rate and using the extrapolated value at zero luminosity to compare
-with simulation.\newline
-
+function of BBC rate and using the~extrapolated value at zero luminosity to compare
+with simulation.
+\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.7\textwidth, page=9]{graphics/systematicsEfficiency/bbc_and/Out.pdf}
+		\caption[Number of global tracks as a function of BBC\_AND rate.]
+		{Number of global tracks as a function of BBC\_AND rate. The average number of global tracks in a triggering event is proportional to the BBC coincidence for almost all BBC\_AND rates, especially for  \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}, which are used in this section.}
+		\label{fig:events_bbc_and_meanGlobalTracks}%\vspace*{-29pt}
+\end{figure}
+\newline
 %---------------------------
 \begin{wrapfigure}{r}{0.45\textwidth}\vspace*{-9pt}
 	\centering
@@ -25,7 +32,7 @@ with simulation.\newline
 	\label{fig:events_bbc_and}%\vspace*{-29pt}
 \end{wrapfigure}
 %---------------------------
-\noindent The embedded MC was divided into two samples due to mean BBC\_AND rate: \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}. Next, the track reconstruction efficiency was calculated for those two samples and no-pile-up MC corresponding to them. The difference between TPC track reconstruction efficiences for pile-up and no-pile-up MCs was calculated as:
+\noindent The embedded MC was divided into two samples due to mean BBC\_AND rate: \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}, as shown in Fig.~\ref{fig:events_bbc_and}. Next, the track reconstruction efficiency was calculated for those two samples and no-pile-up MC corresponding to them. The difference between TPC track reconstruction efficiences for pile-up and no-pile-up MCs was calculated as:
 \begin{equation}
 	\Delta\epsilon_{ TPC}^{1400/700\text{ kHz}} = \frac{N_{reco}^{no-pile-up}-N_{reco}^{pile-up}}{N_{gen}}\\
 	\label{eq:tpcSyst}
@@ -34,6 +41,7 @@ where:\\
 $N_{gen}$-number of MC tracks,\\
 $N_{reco}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks in no-pile-up MC,\\
 $N_{reco}^{pile-up}$ - number of reconstructed tracks, matched with MC tracks in pile-up MC.
+
 
 The difference between high and low pile-up runs is given by:
 \begin{equation}
@@ -67,6 +75,23 @@ Finally, above difference, shown in  \Cref{fig:systError1Dtpc,fig:systError2Dtpc
 	}%
 	\caption[The difference $\Delta\epsilon_{ TPC} =\Delta\epsilon_{ TPC}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TPC}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$]{The difference $\Delta\epsilon_{ TPC} =\Delta\epsilon_{ TPC}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TPC}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$. }
 	\label{fig:systError2Dtpc}
+\end{figure}
+
+The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $15\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, 
+the effect of the embedding on the TPC track reconstruction efficiency is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced and is equal to $1.5\%$ and $1\%$ for SD and CD, respectively.
+	
+\begin{figure}[H]
+	\centering
+	\parbox{0.495\textwidth}{
+		\centering
+		\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/bbc_and/out.pdf}\\
+	}~
+	\parbox{0.495\textwidth}{
+		\centering
+		\includegraphics[width=\linewidth,page=8]{graphics/systematicsEfficiency/bbc_and/out.pdf}\\
+	}%
+	\caption[Comparison of the BBC\_AND rate in the data  and   embedded MC for SD and CD.]{Comparison of the BBC\_AND rate in the data  and   embedded MC for SD and CD. The mean BBC\_AND rate for data and MC is given on each plot.}
+	\label{fig:systErrorEmbDataRate}
 \end{figure}
 
 \subsection{Dead material effect on TPC track reconstruction efficiency}\label{sec:deadMaterialSystematics}
@@ -315,7 +340,7 @@ If the above was satisfied, the collinearity was calculated between the track re
 \end{enumerate}
 
 %---------------------------
-\begin{figure}[h]%\vspace{-34pt}
+\begin{figure}[t]%\vspace{-34pt}
 	\centering
 	\parbox{0.65\textwidth}{%
 		\centering%
