@@ -85,11 +85,11 @@ the effect of the embedding on the TPC track reconstruction efficiency is about 
 	\centering
 	\parbox{0.495\textwidth}{
 		\centering
-		\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/bbc_and/out.pdf}\\
+		\includegraphics[width=\linewidth,page=7]{graphics/systematicsEfficiency/bbc_and/Out.pdf}\\
 	}~
 	\parbox{0.495\textwidth}{
 		\centering
-		\includegraphics[width=\linewidth,page=8]{graphics/systematicsEfficiency/bbc_and/out.pdf}\\
+		\includegraphics[width=\linewidth,page=8]{graphics/systematicsEfficiency/bbc_and/Out.pdf}\\
 	}%
 	\caption[Comparison of the BBC\_AND rate in the data  and   embedded MC for SD and CD.]{Comparison of the BBC\_AND rate in the data  and   embedded MC for SD and CD. The mean BBC\_AND rate for data and MC is given on each plot.}
 	\label{fig:systErrorEmbDataRate}
@@ -312,7 +312,9 @@ The difference between the correction from tag\&probe (Fig.\ref{fig:TPcorrection
 
 Nominally the RP track reconstruction efficiency is calculated with the zero-bias-embedded MC events as a probability that forward scattered proton is transported from the IP to the RP stations and produces hits in SSDs that are reconstructed as a track point(s) that form a track which passes selection cuts. The systematic uncertainty of this efficiency, which reflects the accuracy of the simulation (modeling of the dead material, signal digitization etc.), has been estimated using elastic scattering events. The same analysis scheme was used for the data and for embedded elastic scattering MC events. The difference between efficiency estimates extracted from the data and simulation was established as a measure of the systematic uncertainty of the nominal RP track reconstruction efficiency.
 
-An idea of this analysis was to select elastic proton-proton scattering events by requiring the elastic trigger (signal in PMTs in two opposite RP branches) and clean RP track of $\xi=0$ on one side of the IP, and counting how often there is reconstructed and successfully selected collinear RP track in the opposite branch with trigger signal. The method is illustrated in Fig.~\ref{fig:sketchRpTrackEffSyst}. Detailed description of the algorithm is provided below:
+Obviously, in our physics analyses we study processes other than elastic proton-proton scattering, nevertheless the difference between the result obtained with data and simulated elastic scattering MC events are a good measure of the systematic uncertainty also for other processes. We choose elastic scattering for this study as it is the cleanest process involving forward protons - backgrounds can be suppressed relatively easy with the collinearity constraint. In addition to this, parameters of the proton track (its momentum, position in the detector) can be reconstructed even in case of lack of signal in one or both detectors in a branch. An additional argument to use elastic scattering is that in CEP of low central masses ($\lesssim3$~GeV) forward protons have $\xi\approx0$, rarely exceeding $0.05$ in studied rapidity range of the central state.% For SD and CD analysis an addional 
+
+An idea of presented analysis was to select elastic proton-proton scattering events by requiring the elastic trigger (signal in PMTs in two opposite RP branches) and clean RP track of $\xi$ consistent with 0 within $3.5\sigma_{\xi}$ on one side of the IP, and counting how often there is reconstructed and successfully selected collinear RP track in the opposite branch with trigger signal. The method is illustrated in Fig.~\ref{fig:sketchRpTrackEffSyst}. Detailed description of the algorithm is provided below:
 \begin{enumerate}
 \item RP\_ET triggers were used. Elastic proton-proton scattering MC events (generated with $B=14.3~\text{GeV}^{-2}$ as it was measured in independent analysis, see Ref.~\cite{ElasticNote}) simulated in Geant4 and embedded into zero-bias data were subjected to the same trigger conditions (signal in trigger counters in opposite RP branches was required). The zero-bias data used in embedding was taken from the same runs for which RP\_ET triggers were analyzed. Also number of simulated events for each run was proportional to number of elastic scattering events in given run.\vspace{-4pt}
 \item Since RP\_ET triggers can be fired not only by elastic interactions but also, for instance, by central diffraction events, minimum bias events with forward remnants of protons, overlap of single diffraction events with beam halo protons, etc., a list of vetoes was exerted to suppress non-elastic interaction/pile-up:\vspace*{-7pt}
@@ -336,7 +338,7 @@ As shown in Fig.~\ref{fig:rpSystXi_EU}, the mentioned types of background events
   \itemm Local angles are consistent with the forward proton track originating from the IP:\vspace{-5pt}
   \[-2~\text{mrad}<\theta_{x}^{\text{RP}}-x^{\text{RP}}/|z^{\text{RP}}|<4~\text{mrad},~~~~~-2~\text{mrad}<\theta_{y}^{\text{RP}}-y^{\text{RP}}/|z^{\text{RP}}|<2~\text{mrad}\]
 \end{itemize}\vspace{-4pt}
-If the above was satisfied, the collinearity was calculated between the track reconstructed in the branch under study and the reference track (Fig.~\ref{fig:rpSystCollinearity}). If the collinearity was within 3.5 standard deviations the elastic track was claimed reconstructed.\vspace{-4pt}
+If the above was satisfied, the collinearity was calculated between the track reconstructed in the branch under study and the reference track (Fig.~\ref{fig:rpSystCollinearity}). If the collinearity was within 3.5 standard deviations ($\sigma_{\Delta\theta_{x}} \approx \sigma_{\Delta\theta_{y}} \approx 180~\mu\text{rad}$) the elastic track was claimed reconstructed.\vspace{-4pt}
 \item The RP track reconstruction efficiency $\varepsilon$ was defined as a probability that in the studied branch exactly 1 RP track was reconstructed and selected, and found collinear with the reference track within 3.5 standard deviations (as required in \#5). It was calculated as a ratio of the number of events with reconstructed track in a probed branch and clean track in tagging branch, to all number of events with clean track in tagging branch.\vspace{-4pt}
 \item Steps \#4-\#6 were repeated for the other side.
 \end{enumerate}
@@ -366,13 +368,13 @@ From the figures one can read that the difference between the RP track reconstru
 \begin{equation}\label{eq:fiducialPxPy}
  0.2<|p_{y}|<0.4,~~~-0.2<p_{x},~~~(p_{x}+0.3)^{2}+p_{y}^{2}<0.5^{2}~~~(\text{all in GeV}),
 \end{equation}
-where sensitivity to the edge effects (uncertainty on aperture positions), to dead material effects and to inaccuracies in simulated angular beam divergence is suppressed, the difference is not larger than $\sim1\%$, which could be interpreted as the uncertainty on the track reconstruction efficiency related to the signal digitization and embedding and the track reconstruction algorithm. The largest difference between the data and simulation is observed in the corner of the fiducial region satisfying Ineq.~\eqref{eq:fiducialPxPyCorner}
+where sensitivity to the edge effects (uncertainty on aperture positions), to dead material effects and to inaccuracies in simulated angular beam divergence is suppressed, the difference is not larger than $\sim1\%$, which was taken as the uncertainty on the track reconstruction efficiency related to the signal digitization and embedding and the track reconstruction algorithm. The largest difference between the data and simulation is observed in the corner of the fiducial region satisfying Ineq.~\eqref{eq:fiducialPxPyCorner}
 \begin{equation}\label{eq:fiducialPxPyCorner}
 (p_{x}-0.2)^{2}+p_{y}^{2}>0.46^{2}~~~(\text{all in GeV}),
 \end{equation}
-where the RF shield is present between the $1^{\text{st}}$ and $2^{\text{nd}}$ RP station, and possibly also the front part of the DX-D0 chamber is present. This may indicate that the thickness/density of these elemts is not accurately modeled (too thick/dense pieces of material implemented in the simulation). %
+where the RF shield is present between the $1^{\text{st}}$ and $2^{\text{nd}}$ RP station, and possibly also the front part of the DX-D0 chamber is present. This may indicate that the thickness/density of these elements is not accurately modeled (too thick/dense pieces of material implemented in the simulation). %
 % More significant differences are generally observed close to the edges of the fiducial region rather than its center. This could be an influence of the angular beam divergence which was assumed constant in the simulation, while in the data it changes over time (grows with the RHIC store lifetime). 
-We decided to introduce correction to the RP track reconstruction efficiency that was calculated from the simulated MC events in the corner of the fiducial region (Ineq.~\ref{eq:fiducialPxPyCorner}), equal to the difference between data and MC track reconstruction efficiency estimates presented in Fig.\ref{fig:totalRpRecoEff2D_EU} (and corresponding plots for other branches). We assign a conservative systematic uncertainty to the efficiency in this corner region equal to the absolute value of the efficiency correction. We may conduct an independent analysis of this corner region in order to have better, more realistic estimate od the systematic uncertainty.
+We decided to introduce correction to the RP track reconstruction efficiency in the corner of the fiducial region (Ineq.~\ref{eq:fiducialPxPyCorner}), equal to the difference between data and MC track reconstruction efficiency estimates presented in Fig.\ref{fig:totalRpRecoEff2D_EU} (and corresponding plots for other branches). We assign a conservative systematic uncertainty to the efficiency in this corner region equal to the absolute value of the efficiency correction. We may conduct an independent analysis of this corner region in order to have better, more realistic estimate od the systematic uncertainty.
 
 %---------------------------
 \begin{figure}[t!]%\vspace{-34pt} 
@@ -410,8 +412,8 @@ We decided to introduce correction to the RP track reconstruction efficiency tha
                 \subcaptionbox{\label{fig:rpSystCollinearity_y}}{\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/RpSyst/collinearity.pdf}\vspace{-7pt}}
   \end{subfigure}
 }%
-\caption[Collinearity of a reference track and track reconstructed in studied branch.]%
-    {Collinearity of a reference track (the clean track which is required to have $|\xi|<0.1$) and track reconstructed in branch for which reconstruction efficiency is studied. An elastic track is claimed as reconstructed if the collinearity of two tracks does not exceed 3.5 standard deviations, as marked with dashed green vertical lines and arrows.}\label{fig:rpSystCollinearity}%
+\caption[Collinearity of a reference track and track reconstructed in studied branch.]% 
+    {Collinearity of a reference track (the clean track which is required to have $|\xi|<0.01$) and track reconstructed in branch for which reconstruction efficiency is studied, separately in $xz$-plane (Fig.~\ref{fig:rpSystCollinearity_x}) and $yz$-plane (Fig.~\ref{fig:rpSystCollinearity_y}). An elastic track is claimed as reconstructed if the collinearity of two tracks does not exceed 3.5 standard deviations, as marked with dashed green vertical lines and arrows.}\label{fig:rpSystCollinearity}%
 \end{figure}
 %---------------------------
 
@@ -461,9 +463,9 @@ For the remaining part of the fiducial $(p_{x},p_{y})$ region we also assign a s
 
 
 
-\subsection{Track point reconstruction efficiency (relative reconstruction efficiency)}\label{sec:rpTrackPointRecoEffSystematics}
+\subsection{Track point reconstruction efficiency (relative reconstruction efficiency)}\label{subsec:rpTrackPointRecoEffSyst}
 
-A single track point reconstruction efficiency can be studied in a way similar to the track reconstruction efficiency. In contrast to the latter, to estimate track point reconstruction efficiency one can reconstruct elastic scattering event independently from the studied detector, which provides even higher purity of the sample in comparison to the track reconstruction efficiency.% The comparison between track point reconstruction efficiency extracted from the data and simulation gives hint about discrepancies
+A single track point reconstruction efficiency can be studied in a way similar to the track reconstruction efficiency. In contrast to the latter, to estimate track point reconstruction efficiency one can reconstruct elastic scattering event independently from the studied detector, which provides even higher purity of the sample in comparison to the track reconstruction efficiency.% The comparison between track point reconstruction efficiency extracted from the data and simulation gives hint about discrepancies 
 
 In this analysis elastic proton-proton scattering events were selected by requiring the elastic trigger (signal in PMTs in two opposite RP branches) and clean RP track of $\xi=0$ on one side of the IP, and clean track point with trigger signal in at least one RP (a reference RP) in the opposite branch. A track was formed from this clean track point and the two tracks were required collinear within 3.5 standard deviations. In the other RP detector in a studied branch a trigger was required. The probability to have exactly 1 track point in the studied RP with position consistent with that extrapolated from the reference RP was referred to as the track point reconstruction efficiency. The method is illustrated in Fig.~\ref{fig:sketchRpTrackEffSyst}. Detailed description of the algorithm is provided below, excluding steps \#1-\#4 which are the same as in Sec.~\ref{subsec:rpTrackRecoEffSyst}:
 
