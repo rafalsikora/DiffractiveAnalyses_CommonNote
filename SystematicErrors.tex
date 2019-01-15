@@ -156,7 +156,11 @@ In Fig. \ref{fig:dead_materialCDSD1D}  the systematic uncertainty is shown for e
 \section{TOF matching efficiency}\label{sec:tofSystematics}
 In this section the systematic uncertainties on TOF matching efficiency due to the embedding procedure and the simulation accurancy are described.
 \subsection{Embedding (pile-up) effect}\label{sec:tofSystematicsPileUpEffect}
-The approach to calculate the systematic uncertainty on TOF matching efficiency related to pile-up was quite similar to the one used for TPC track reconstruction efficiency (Sec.~\ref{subsec:TpcEffSystPileUp}). However, the TOF matching efficiency is conditional and depends on TPC track reconstruction efficiency. Since that, the difference between high and low pile-up runs is given by:
+The effects of pile-up on TOF efficiency is taken into account by using single particle MC embedded into Zerobias data, which can be biased. To estimate the systematic uncertainty of the TOF efficiency related to the~embedding procedure, the offset from the linearity of TOF efficiency  as a function of the mean BBC\_AND rate, $<\text{BBC\_AND}>$, was calculated. The embedded MC was divided into two samples in which $<\text{BBC\_AND}>$ rate differs by a factor of two: \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz} as shown in Fig.~\ref{fig:events_bbc_and} (Sec.~\ref{subsec:TpcEffSystPileUp}).
+Next, it was checked whether the difference between TOF efficiency in pile-up and no-pile-up MC also changes by a factor of two.
+
+\noindent
+The TOF matching efficiency is conditional and depends on TPC track reconstruction efficiency. Since that, the difference between pile-up and  no-pile-up MC was calculated as:
 \begin{equation}
 \Delta\epsilon_{ TOF}^{1400/700\text{ kHz}}=\frac{N_{TPC-TOF}^{no-pile-up}}{N_{TPC}^{no-pile-up}}-\frac{N_{TPC-TOF}^{pile-up}}{N_{TPC}^{pile-up}}
 \label{eq:tofSyst}
@@ -166,8 +170,14 @@ $N_{TPC-TOF}^{pile-up}$ - number of reconstructed tracks, matched with MC tracks
 $N_{TPC-TOF}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks and TOF hit in no-pile-up MC,\\
 $N_{TPC}^{pile-up}$ - number of reconstructed tracks, matched with MC tracks in pile-up MC,\\
 $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks in no-pile-up MC.
+\newline
 
-\noindent Next the offset between high and low pile-up events was calculated with the formula similar to the one given by Eq. \ref{eq:tpcSystDifference} and is shown in \Cref{fig:systError1Dtof,fig:systError2Dtof}.  Finally, the obtained value of $\Delta\epsilon_{ TOF}$ is  smaller than $0.5\%$ and can be neglected in comparison with other systematic uncertainties.
+\noindent Next the offset between high and low pile-up events was calculated with the formula:
+\begin{equation}
+\Delta\epsilon_{ TOF} =\Delta\epsilon_{ TOF}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TOF}^{700\text{ kHz}}
+\label{eq:tofSystDifference}
+\end{equation}
+ and is shown in \Cref{fig:systError1Dtof,fig:systError2Dtof}.  Finally, the obtained value of $\Delta\epsilon_{ TOF}$ is  smaller than $0.5\%$ and can be neglected in comparison with other systematic uncertainties.
 \begin{figure}[hb]
 	\centering
 	\parbox{0.495\textwidth}{
@@ -178,7 +188,7 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 		\centering
 		\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/bbc_and/tofEffi_d0_1_5_etapt_1.pdf}\\
 	}%
-	\caption[$\pi^\pm$ TOF matching efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}]{$\pi^\pm$ TOF matching efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}. The efficiences from corresponding no-pile-up MC samples were also shown. Additionally, the differences  from Eq. \ref{eq:tpcSystDifference} were drawn in the bottom of each plot.}
+	\caption[$\pi^\pm$ TOF matching efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}]{$\pi^\pm$ TOF matching efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}. The efficiences from corresponding no-pile-up MC samples were also shown. Additionally, the offset  from Eq. \ref{eq:tofSystDifference} was drawn in the bottom of each plot.}
 	\label{fig:systError1Dtof}
 \end{figure}
 \begin{figure}[H]
@@ -191,7 +201,7 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 		\centering
 		\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/bbc_and/tofEffi_d0_1_5_etapt_12D.pdf}\\
 	}%
-	\caption[The difference $\Delta\epsilon_{ TOF} =\Delta\epsilon_{ TOF}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TOF}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$]{The difference $\Delta\epsilon_{ TOF} =\Delta\epsilon_{ TOF}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TOF}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$. }
+	\caption[The difference $\Delta\epsilon_{ TOF} =\Delta\epsilon_{ TOF}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TOF}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$]{The offset $\Delta\epsilon_{ TOF} =\Delta\epsilon_{ TOF}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TOF}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$. }
 	\label{fig:systError2Dtof}
 \end{figure}
 
