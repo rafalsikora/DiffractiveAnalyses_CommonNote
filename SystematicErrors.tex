@@ -82,6 +82,28 @@ Finally, above difference, shown in  \Cref{fig:systError1Dtpc,fig:systError2Dtpc
 %tutaj pisac 
 %%%%%%%%%%%
 
+%---------------------------
+\begin{figure}[h]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:PhiVsEta_runRange1}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/bbc_and/PhiVsEta.pdf}\vspace{-5pt}}\vspace{-5pt}
+  \end{subfigure}
+}%
+\quad\quad% 
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:PhiVsEta_runRange2}}{\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/bbc_and/PhiVsEta.pdf}\vspace{-5pt}}\vspace{-5pt}
+  \end{subfigure}
+}%
+\caption[Density map of global TPC track first point $(\eta,\varphi)$ coordinates for runs with/without dead sector \#19.]%
+    {Density map of global TPC track first point $(\eta,\varphi)$ coordinates for runs with dead sector \#19 (up to 16073050, \ref{fig:PhiVsEta_runRange1}) and with that sector back in operation (after run 16073050, \ref{fig:PhiVsEta_runRange2}).}\label{fig:PhiVsEtaTpcSyst}%
+\end{figure}
+%---------------------------
+
+
 
 The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $15\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, 
 the effect of the embedding on the TPC track reconstruction efficiency is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as about $1.5\%$ and $1\%$ for SD and CD, respectively.
@@ -645,6 +667,6 @@ In Tab.~\ref{tab:systErrors} we summarize all systematic uncertainties of TPC, T
                         &   \specialcell{detector simulation \\\specialcell{accuracy (joint effect\\\specialcell{of alignment, beam\\ang. div., and others)}}}  &  - &  -  & $20\%$ & - & - & $2\%$ &  &  & \\ \hline
 %
 \end{tabular}%
-\caption[Summary of the TPC, TOF and RP efficiency systematic uncertainty.]{Summary of the systematic uncertainty of the TPC, TOF and RP track reconstruction/matching efficiency. All numbers reflect uncertainties determined for tracks within the fiducial range of kinematic variables defined for a physics measurement. Systematic uncertainties for three particle species are separately given for the central tracks, while in case of the RP tracks efficiency uncertainty for forward scattered protons is provided. The total uncertainty is a quadratic sum of all uncertainty components for a given detector system. All numers are absolute uncertainties of efficiencies (e.g. syst. uncertainty $\delta^{\text{syst.}}=3\%$ for efficiency $\varepsilon=50\%$ should be read $\varepsilon=0.50\pm 0.03$).}\label{tab:systErrors}%
+\caption[Summary of the TPC, TOF and RP efficiency systematic uncertainty.]{Summary of the systematic uncertainty of the TPC, TOF and RP track reconstruction/matching efficiency. All numbers reflect uncertainties determined for tracks within the fiducial range of kinematic variables defined for a physics measurement. Systematic uncertainties for three particle species are separately given for the central tracks, while in case of the RP track efficiency uncertainty for forward scattered protons is provided. The total uncertainty is a quadratic sum of all uncertainty components for a given detector system. All numers are absolute uncertainties of efficiencies (e.g. syst. uncertainty $\delta^{\text{syst.}}=3\%$ for efficiency $\varepsilon=50\%$ should be read $\varepsilon=0.50\pm 0.03$).}\label{tab:systErrors}%
 \end{table}
 
