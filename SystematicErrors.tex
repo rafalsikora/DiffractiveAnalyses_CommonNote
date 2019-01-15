@@ -78,6 +78,11 @@ Finally, above difference, shown in  \Cref{fig:systError1Dtpc,fig:systError2Dtpc
 	\label{fig:systError2Dtpc}
 \end{figure}
 
+%%%%%%%%%%
+%tutaj pisac 
+%%%%%%%%%%%
+
+
 The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $15\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, 
 the effect of the embedding on the TPC track reconstruction efficiency is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as about $1.5\%$ and $1\%$ for SD and CD, respectively.
 	
@@ -449,7 +454,7 @@ The efficiencies obtained with the described method were calculated as a functio
 	\vspace{14pt}%
 	}
 	\quad
-	\parbox{0.43\textwidth}{
+	\parbox{0.43\textwidth}{\vspace{-15pt}
 		\centering
 		\begin{subfigure}[b]{\linewidth}{
 				\subcaptionbox{\label{fig:totalRpRecoEff1D_EU_px}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/dataTotalEff_1D.pdf}\vspace{-12pt}}}
@@ -610,3 +615,36 @@ In the area of detector accessible in this study an excellent agreement ($<0.5\%
 	}\label{fig:relativeRpRecoEff_E2U}
 \end{figure}
 %---------------------------
+
+
+
+\section{Summary of the systematic uncertainties of efficiences}
+
+In Tab.~\ref{tab:systErrors} we summarize all systematic uncertainties of TPC, TOF and RP efficiency which were discussed in this note.
+
+\begin{table}[h]%
+\centering%
+\begin{tabular}{c||c|C{0.8cm}!{\color{lightgray}\vrule}C{0.8cm}!{\color{lightgray}\vrule}C{0.8cm}|C{0.8cm}!{\color{lightgray}\vrule}C{0.8cm}!{\color{lightgray}\vrule}C{0.8cm}|C{0.8cm}!{\color{lightgray}\vrule}C{0.8cm}!{\color{lightgray}\vrule}C{0.8cm}}%\hline 
+\multirow{2}{*}{\textbf{System}}   &  \multirow{2}{*}{\specialcell{\textbf{Source of systematic}\\ \textbf{uncertainty}}} & \multicolumn{3}{c|}{\specialcell{\textbf{Maximum}\\ \textbf{$\bm{\delta}^{\text{syst.}}$}}} &  \multicolumn{3}{c|}{\specialcell{\textbf{Average}\\ \textbf{$\bm{\delta}^{\text{syst.}}$}}}  &  \multicolumn{3}{c}{\specialcell{\textbf{Total average}\\ \textbf{$\bm{\delta}^{\text{syst.}}$}}} \\ 
+%
+&    & $\pi$ & $K$ & $p$ & $\pi$ & $K$ & $p$ & $\pi$ & $K$ & $p$ \\ \hline
+%
+%
+%
+ \multirow{2}{*}{TPC}   &  \specialcell{MC signal embedding\\into real data} & \multicolumn{3}{c|}{$2\%$} & \multicolumn{3}{c|}{$2\%$} & \multirow{2}{*}{$2\%$\vspace{-17pt}} &  \multirow{2}{*}{$2.5\%$\vspace{-17pt}}  &  \multirow{2}{*}{$2.5\%$\vspace{-17pt}} \\ \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
+                        & \specialcell{dead material\\modeling} & $0.4\%$ &  $2\%$  & $2\%$ & $0.3\%$ & $1\%$ & $1\%$ &  &  & \\ \hline
+%
+%
+%
+ \multirow{2}{*}{TOF}   &  \specialcell{MC signal embedding\\into real data} & \multicolumn{3}{c|}{$<0.5\%$} & \multicolumn{3}{c|}{$<0.5\%$} & \multirow{2}{*}{$1\%$\vspace{-17pt}} &  \multirow{2}{*}{$2\%$\vspace{-17pt}}  &  \multirow{2}{*}{$3\%$\vspace{-17pt}} \\  \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
+                        &  \specialcell{detector simulation \\ accuracy}  &  $3\%$ &  $4.5\%$  & $4\%$ & $1\%$ & $2\%$ & $3\%$ &  &  & \\ \hline
+%
+%
+%
+ \multirow{2}{*}{RP}   &  \specialcell{MC signal embedding\\into real data} & - & - & $0.5\%$ & - & - & $0.5\%$ & \multirow{2}{*}{-\vspace{-40pt}} &  \multirow{2}{*}{-\vspace{-40pt}}  &  \multirow{2}{*}{$2\%$\vspace{-40pt}} \\  \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
+                        &   \specialcell{detector simulation \\\specialcell{accuracy (joint effect\\\specialcell{of alignment, beam\\ang. div., and others)}}}  &  - &  -  & $20\%$ & - & - & $2\%$ &  &  & \\ \hline
+%
+\end{tabular}%
+\caption[Summary of the TPC, TOF and RP efficiency systematic uncertainty.]{Summary of the systematic uncertainty of the TPC, TOF and RP track reconstruction/matching efficiency. All numbers reflect uncertainties determined for tracks within the fiducial range of kinematic variables defined for a physics measurement. Systematic uncertainties for three particle species are separately given for the central tracks, while in case of the RP tracks efficiency uncertainty for forward scattered protons is provided. The total uncertainty is a quadratic sum of all uncertainty components for a given detector system. All numers are absolute uncertainties of efficiencies (e.g. syst. uncertainty $\delta^{\text{syst.}}=3\%$ for efficiency $\varepsilon=50\%$ should be read $\varepsilon=0.50\pm 0.03$).}\label{tab:systErrors}%
+\end{table}
+
