@@ -214,6 +214,30 @@ Tracks, which do not satisfy the above criterion, are treated as fake tracks (ev
 
 \subsection{Sample of  efficiency plots}\label{subsec:sampleTpcEffPlots}
 
+During Run~$15$ the inner sector $\#19$ in the TPC was dead during runs up to $16073050$~\cite{sector19inner}. In Figure~\ref{fig:PhiVsEtaTpcSyst} we show density map of global TPC track first point $(\eta,\varphi)$ coordinates for runs with dead sector $\#19$  and with that sector back in operation.
+Since that, the TPC track acceptance and reconstruction efficiency was calculated for two periods: runs up to 16073050 and after 16073050.
+
+%---------------------------
+\begin{figure}[h]
+	\centering
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}
+			\subcaptionbox{\label{fig:PhiVsEta_runRange1}}{\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/bbc_and/PhiVsEta.pdf}\vspace{-5pt}}\vspace{-5pt}
+		\end{subfigure}
+	}%
+	\quad\quad% 
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}
+			\subcaptionbox{\label{fig:PhiVsEta_runRange2}}{\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/bbc_and/PhiVsEta.pdf}\vspace{-5pt}}\vspace{-5pt}
+		\end{subfigure}
+	}%
+	\caption[Density map of global TPC track first point $(\eta,\varphi)$ coordinates for runs with/without dead sector \#19.]%
+	{Density map of global TPC track first point $(\eta,\varphi)$ coordinates for runs with dead sector \#19 (up to 16073050, \ref{fig:PhiVsEta_runRange1}) and with that sector back in operation (after run 16073050, \ref{fig:PhiVsEta_runRange2}).}\label{fig:PhiVsEtaTpcSyst}%
+\end{figure}
+%---------------------------
+
 In Figure~\ref{fig:tpcEff_pion_sample} we present sample plots of the TPC track acceptance and reconstruction efficiency calculated with modified definition of reconstructed track and true-level particle matching (according to description in Sec.~\ref{subsec:definitionTrueLevelMatching}), used in our analyses. Plots for all analyzed particle types and all bins of true $z_{\text{vtx}}$ are contained in Appendix~\ref{appendix:tpcEff}.
 
 In order to maximize the statistics available for the measurement (possibly wide range of accepted longitudinal vertex position $z_{\text{vtx}}$) with maximized probed phase-space in analyzed physics processes (wide range of track $p_{T}$ and $\eta$) and minimized systematic uncertainties related to the central detector (TPC and TOF), we have studied the efficiency plots like ones shown in Fig.~\ref{fig:tpcEff_pion_sample} and Fig.~\ref{fig:tofEff_pion_sample}. We thus decided to set the cut on $z_{\text{vtx}}$ at $\pm80~\text{cm}$, which corresponds to 89\% of the full integral of normal distribution with mean at 0 and standard deviation of 50~cm. At the same time we set the cuts on track $p_{T}$ and $\eta$ as listed in Sec.~\ref{sec:TpcKinematicCuts}. These cuts are represented with red dashed lines in Fig.~\ref{fig:tpcEff_pion_sample} and Fig.~\ref{fig:tofEff_pion_sample}. Our goal was to operate within cuboid ($z_{\text{vtx}}$, $p_{T}$, $\eta$) region of relatively high TPC and TOF efficiency ($\geq50\%$ of the maximum value). In other words, we required high acceptance and efficiency for a rectangular ($p_{T}$, $\eta$) space with limits independent from $z_{\text{vtx}}$. One can see that the red lines in Fig.~\ref{fig:tpcEff_pion_sample} and Fig.~\ref{fig:tofEff_pion_sample} always contain in their interior the region of relatively high acceptance.
