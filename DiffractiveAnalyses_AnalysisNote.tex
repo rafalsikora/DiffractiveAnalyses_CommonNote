@@ -27,6 +27,9 @@
 \usepackage{cleveref}
 \usepackage[bottom]{footmisc}
 \usepackage{blindtext}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
 %\usepackage{lineno}
 %\linenumbers
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% making figures in the subsection where placed (according to https://tex.stackexchange.com/questions/279/how-do-i-ensure-that-figures-appear-in-the-section-theyre-associated-with/235312#235312 )
@@ -41,6 +44,13 @@
 \let\Oldsubsubsection\subsubsection
 \renewcommand{\subsubsection}{\FloatBarrier\Oldsubsubsection}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+
 
 \pdfinfo{%
   /Title    ()
