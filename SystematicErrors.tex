@@ -30,16 +30,20 @@ The same quality cut on the number of hits used in the helix fit (Sec.~\ref{sec:
 
 %%OPIS RAFAL
 
-In 
+Figure~\ref{fig:systError1Dtpc} shows the TPC track reconstruction efficiency with deafult, for   \mbox{$<\text{BBC\_AND}>=1100$~kHz} sample, and modified quality cut on the number of hits used in the helix fit, for \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz} samples, for two periods of data collection (with dead sector \#19 and with that sector back in operation). 
 
 
 
-The difference between high and low pile-up runs is given by:
+The offset between medium and low, high pile-up runs was separately calculated as:
 \begin{equation}
-\Delta\epsilon_{ TPC} =\Delta\epsilon_{ TPC}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TPC}^{700\text{ kHz}}
+\Delta\epsilon_{ TPC}^{(1100,i)} = \epsilon_{ TPC}^{1100, \text{nHitsFit}\geq 25}-\epsilon_{ TPC}^{i}
 \label{eq:tpcSystDifference}
 \end{equation}
-Finally, above difference, shown in  \Cref{fig:systError1Dtpc,fig:systError2Dtpc} for $\pi^\pm$, varies between $2-3\%$ and was taken as systematic uncertainty related to TPC track reconstruction efficiency.
+where:\\
+$\epsilon_{ TPC}^{1100, \text{nHitsFit}\geq 25}$ - TPC track reconstruction efficiency calculated from sample with \mbox{$<\text{BBC\_AND}>=1100$~kHz} with default nHitsFit quality cut,\\
+$\epsilon_{ TPC}^{i}$ - TPC track reconstruction efficiency calculated from  samples with  \mbox{$<\text{BBC\_AND}>$=1400~kHz} and  \mbox{$<\text{BBC\_AND}>$=700~kHz}  and modified nHitsFit quality cut.
+
+Finally, above offset, shown in  the bottom of each plot in Figure~\ref{fig:systError1Dtpc}  for $\pi^\pm$, varies between $1-2\%$ and was taken as systematic uncertainty related to TPC track reconstruction efficiency.
 %\vspace{10em}
 \begin{figure}[H]
 	\centering
@@ -59,7 +63,7 @@ Finally, above difference, shown in  \Cref{fig:systError1Dtpc,fig:systError2Dtpc
 		\centering
 		\includegraphics[width=\linewidth,page=4]{graphics/systematicsEfficiency/bbc_and/tpcEffi.pdf}\\
 	}
-	\caption[$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}]{$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz},\mbox{$<\text{BBC\_AND}>=1100$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}. The~efficiences from corresponding MC samples with changed cut on the number of hits used in the helix fit were also shown. Additionally, the differences  from Eq. \ref{eq:tpcSystDifference} were drawn in the bottom of each plot. Red lines and arrows indicate region accepted in the analysis.}
+	\caption[$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}]{$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz},\mbox{$<\text{BBC\_AND}>=1100$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}. The~efficiences from corresponding MC samples with changed cut on the number of hits used in the helix fit were also shown. Additionally, the offsets  from Eq. \ref{eq:tpcSystDifference} were drawn in the bottom of each plot. Red lines and arrows indicate region accepted in the analysis.}
 	\label{fig:systError1Dtpc}
 \end{figure}
 
