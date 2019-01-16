@@ -122,8 +122,7 @@ Finally, above offset, shown in  the bottom of each plot in Figure~\ref{fig:syst
 
 
 
-The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $5\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, 
-the effect of the embedding on the TPC track reconstruction efficiency is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as about $0.5\%$ and $1\%$ for SD and CD, respectively.
+The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $5\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, the effect of different TPC track reconstruction efficiency depending on TPC occupancy (the BBC rate) is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as about $0.5\%$ and $1\%$ for SD and CD, respectively.
 	
 \begin{figure}[H]
 	\centering
@@ -616,7 +615,7 @@ The estimates of track point reconstruction efficiency obtained with the describ
 In the area of detector accessible in this study an excellent agreement ($<0.5\%$ difference) between the efficiency estimates from data and MC is found in the region of no material on the proton path from IP to the RPs. This reflects correct simulation of the silicon signal digitization, cluster reconstruction and matching, track point reconstruction and embedding. The differences between data and MC are more significant in the region of aperture shadows, e.g. DX shadow visible the best in Fig.~\ref{fig:relativeRpRecoEff1D_E1U_x} at $x \gtrapprox 20$~mm (possibly too much simulated material), or DX-D0 chamber entry/RF shield shadow visible in Fig.~\ref{fig:relativeRpRecoEff1D_E1U_y} at $y \gtrapprox 60$~mm (probably also too much simulated material).
 
 %---------------------------
-\begin{figure}[h]%\vspace{-34pt}  
+\begin{figure}[h]%\vspace{-34pt}   
 	\centering
 	\parbox{0.4725\textwidth}{
 		\centering
@@ -688,17 +687,18 @@ In Tab.~\ref{tab:systErrors} we summarize all systematic uncertainties of TPC, T
 %
 %
 %
- \multirow{2}{*}{TPC}   &  \specialcell{MC signal embedding\\into real data} & \multicolumn{3}{c|}{$3\%$} & \multicolumn{3}{c|}{$1.5\%$} & \multirow{2}{*}{$1.5\%$\vspace{-17pt}} &  \multirow{2}{*}{$1.8\%$\vspace{-17pt}}  &  \multirow{2}{*}{$1.8\%$\vspace{-17pt}} \\ \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
+ \multirow{3}{*}{TPC\vspace{-34pt}}   &  \specialcell{MC signal embedding\\into real data} & \multicolumn{3}{c|}{$3\%$} & \multicolumn{3}{c|}{$1.8\%$} & \multirow{2}{*}{$2.1\%$\vspace{-44pt}} &  \multirow{2}{*}{$2.1\%$\vspace{-44pt}}  &  \multirow{2}{*}{$1.8\%$\vspace{-44pt}} \\ \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
+                        &  \specialcell{representativeness of\\embedded MC in terms\\of TPC occupancy}  &  \multicolumn{3}{c|}{$\leq1\%$} & \multicolumn{3}{c|}{$\leq1\%$} &  &  & \\ \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
                         & \specialcell{dead material\\modeling} & $0.4\%$ &  $2\%$  & $2\%$ & $0.3\%$ & $1\%$ & $1\%$ &  &  & \\ \hline
 %
 %
 %
- \multirow{2}{*}{TOF}   &  \specialcell{MC signal embedding\\into real data} & \multicolumn{3}{c|}{$<0.5\%$} & \multicolumn{3}{c|}{$<0.5\%$} & \multirow{2}{*}{$1\%$\vspace{-17pt}} &  \multirow{2}{*}{$2\%$\vspace{-17pt}}  &  \multirow{2}{*}{$3\%$\vspace{-17pt}} \\  \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
+ \multirow{2}{*}{TOF\vspace{-17pt}}   &  \specialcell{MC signal embedding\\into real data} & \multicolumn{3}{c|}{$<0.5\%$} & \multicolumn{3}{c|}{$<0.5\%$} & \multirow{2}{*}{$1\%$\vspace{-17pt}} &  \multirow{2}{*}{$2\%$\vspace{-17pt}}  &  \multirow{2}{*}{$3\%$\vspace{-17pt}} \\  \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
                         &  \specialcell{detector simulation \\ accuracy}  &  $3\%$ &  $4.5\%$  & $4\%$ & $1\%$ & $2\%$ & $3\%$ &  &  & \\ \hline
 %
 %
 %
- \multirow{2}{*}{RP}   &  \specialcell{MC signal embedding\\into real data} & - & - & $0.5\%$ & - & - & $0.5\%$ & \multirow{2}{*}{-\vspace{-40pt}} &  \multirow{2}{*}{-\vspace{-40pt}}  &  \multirow{2}{*}{$2\%$\vspace{-40pt}} \\  \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
+ \multirow{2}{*}{RP\vspace{-34pt}}   &  \specialcell{MC signal embedding\\into real data} & - & - & $0.5\%$ & - & - & $0.5\%$ & \multirow{2}{*}{-\vspace{-40pt}} &  \multirow{2}{*}{-\vspace{-40pt}}  &  \multirow{2}{*}{$2\%$\vspace{-40pt}} \\  \arrayrulecolor{lightgray} \cline{2-8} \arrayrulecolor{black}
                         &   \specialcell{detector simulation \\\specialcell{accuracy (joint effect\\\specialcell{of alignment, beam\\ang. div., and others)}}}  &  - &  -  & $20\%$ & - & - & $2\%$ &  &  & \\ \hline
 %
 \end{tabular}%
