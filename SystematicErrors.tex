@@ -40,7 +40,7 @@ events. The in-time pile-up does not affect the TPC reconstruction efficiency. O
 %---------------------------
 
 
-The same quality cut on the number of hits used in the helix fit (Sec.~\ref{sec:TpcQualityCuts}) in three above samples results in a significantly different TPC track reconstruction efficiency. To compare the efficiencies between these MC samples and estimate the systematic uncertainty, the nHitsFit cut was modfied for events with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}.
+The same quality cut on the number of hits used in the helix fit (Sec.~\ref{sec:TpcQualityCuts}) in three above samples results in a significantly different TPC track reconstruction efficiency. To compare the efficiencies between these MC samples and estimate the systematic uncertainty, the $N_{\text{hits}}^{\text{fit}}$ cut was modfied for events with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}.
 
 
 In order to find cut value of $N_{\text{hits}}^{\text{fit}}$ that provides the same selection efficiency for in-time TPC tracks depending on the average rate in BBC, we utilized tag\&probe method. With this method we studied the efficiency of selecting an in-time signal TPC tracks under the condition that the track was reconstructed. We modified variation of the tag\&probe method presented in Sec.~\ref{sec:tofAbsEffCorr}, preserving the general idea of using the process of CEP of $\pi^{+}\pi^{-}$ and extracting the signal yield from $p_{T}^{\text{miss}}$ distribution. The efficiency of TPC quality cuts was calculated according to Eq.~\eqref{eq:tagAndProbeEffDef} with modified definitions of the tag track and probe track, as explained in the tag\&probe algorithm:
@@ -112,8 +112,8 @@ The offset between medium and low, high pile-up runs was separately calculated a
 \label{eq:tpcSystDifference}
 \end{equation}
 where:\\[5pt]
-$\epsilon_{ TPC}^{1100, \text{nHitsFit}\geq 25}$ - TPC track reconstruction efficiency calculated from sample with \mbox{$<\text{BBC\_AND}>=1100$~kHz}\\\hspace*{70pt}with default nHitsFit quality cut,\\
-$\epsilon_{ TPC}^{i}$ - TPC track reconstruction efficiency calculated from  samples with  \mbox{$<\text{BBC\_AND}>$=1400~kHz} and \\\mbox{~~~~~~~~~~$<\text{BBC\_AND}>$=700~kHz}  and modified nHitsFit quality cut.
+$\epsilon_{ TPC}^{1100, \text{nHitsFit}\geq 25}$ - TPC track reconstruction efficiency calculated from sample with \mbox{$<\text{BBC\_AND}>=1100$~kHz}\\\hspace*{70pt}with default $N_{\text{hits}}^{\text{fit}}$ quality cut,\\
+$\epsilon_{ TPC}^{i}$ - TPC track reconstruction efficiency calculated from  samples with  \mbox{$<\text{BBC\_AND}>$=1400~kHz} and \\\mbox{~~~~~~~~~~$<\text{BBC\_AND}>$=700~kHz}  with modified $N_{\text{hits}}^{\text{fit}}$ quality cut.
 
 Finally, above offset, shown in  the bottom of each plot in Figure~\ref{fig:systError1Dtpc}  for $\pi^\pm$, varies between $1-2\%$ and was taken as systematic uncertainty related to TPC track reconstruction efficiency.
 %\vspace{10em}
