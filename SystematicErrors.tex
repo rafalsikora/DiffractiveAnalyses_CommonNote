@@ -8,72 +8,64 @@
 \chapter{Systematic uncertainties}\label{chap:systematicErrors}
 In this chapter we describe the common systematic uncertainties for two analyses~\cite{AnalysisNoteRafal,AnalysisNoteLukasz}, related to: TPC track reconstruction efficiency, TOF matching efficiency and RP track reconstruction efficiency.
 \section{TPC track reconstruction efficiency}\label{sec:tpcSystematics}
+The TPC track reconstruction inefficiency is caused by:
+\begin{itemize}
+	\item embedding  - additional pile-up TPC hits (quality cuts)
+	\item dead material interactions in front of the TPC
+	\item particle decays.
+	
+\end{itemize}
+In the following sections, we describe the systematic uncertainties related to the embedding effect and dead material interactions in front of the TPC. The systematic uncertainty  on particle decays is not considered  since they should be well simulated by the MC.
 \subsection{Embedding (pile-up) effect}\label{subsec:TpcEffSystPileUp}
 One major difference between simulation and real data is the presence of pile-up
-events. The average number of pile-up tracks in
-a triggering event is proportional to the BBC coincidence rate as shown in Fig.~\ref{fig:events_bbc_and_meanGlobalTracks}. It is expected that
-the difference between simulation and real data drops at lower BBC rates, and the
-effects of pile-up tracks could be much reduced by fitting the tracking efficiency as a
-function of BBC rate and using the~extrapolated value at zero luminosity to compare
-with simulation.
-\newline
-%---------------------------
-\begin{wrapfigure}{r}{0.45\textwidth}\vspace*{-9pt}
+events. The in-time pile-up does not affect the TPC reconstruction efficiency. On the other hand, the off-time pile-up significantly reduces that efficiency due to additional pile-up hits. That effect is taken into account by using single particle MC embedded into Zerobias data. To calculate the systematic uncertainty related to this procedure, the MC  was divided into three samples due to mean BBC coincidence rate, which depends on the luminosity: \mbox{$<\text{BBC\_AND}>=700$~kHz}, \mbox{$<\text{BBC\_AND}>=1100$~kHz}, \mbox{$<\text{BBC\_AND}>=1400$~kHz}, as shown in Fig.~\ref{fig:events_bbc_and}. 
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=0.45\textwidth, page=5]{graphics/systematicsEfficiency/bbc_and/Out.pdf}
+	\includegraphics[width=0.55\textwidth, page=5]{graphics/systematicsEfficiency/bbc_and/Out.pdf}
 	\caption[Number of events in embedded MC as a function of BBC\_AND rate.]
-	{Number of events in embedded MC as a function of BBC\_AND rate. The black and red lines represent the events with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz},  respectively.}
+	{Number of events in embedded MC as a function of BBC\_AND rate. The black and red lines represent the events with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz},  respectively. The region between these two corresponds to events with \mbox{$<\text{BBC\_AND}>=1100$~kHz}.}
 	\label{fig:events_bbc_and}%\vspace*{-29pt}
-\end{wrapfigure}
-%---------------------------
-\noindent The embedded MC was divided into two samples due to mean BBC\_AND rate: \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}, as shown in Fig.~\ref{fig:events_bbc_and}. Next, the track reconstruction efficiency was calculated for those two samples and no-pile-up MC corresponding to them. The difference between TPC track reconstruction efficiences for pile-up and no-pile-up MCs was calculated as:
-\begin{equation}
-	\Delta\epsilon_{ TPC}^{1400/700\text{ kHz}} = \frac{N_{reco}^{no-pile-up}-N_{reco}^{pile-up}}{N_{gen}}\\
-	\label{eq:tpcSyst}
-\end{equation}
-where:\\
-$N_{gen}$-number of MC tracks,\\
-$N_{reco}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks in no-pile-up MC,\\
-$N_{reco}^{pile-up}$ - number of reconstructed tracks, matched with MC tracks in pile-up MC.
+\end{figure}
+The same quality cut on the number of hits used in the helix fit (Sec.~\ref{sec:TpcQualityCuts}) in three above samples results in a significantly different TPC track reconstruction efficiency. To compare the efficiencies between these MC samples and estimate the systematic uncertainty, the nHitsFit cut was modfied for events with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}.
+
+%%OPIS RAFAL
+
+Figure~\ref{fig:systError1Dtpc} shows the TPC track reconstruction efficiency with deafult, for   \mbox{$<\text{BBC\_AND}>=1100$~kHz} sample, and modified quality cut on the number of hits used in the helix fit, for \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz} samples, for two periods of data collection (with dead sector \#19 and with that sector back in operation). 
 
 
-The difference between high and low pile-up runs is given by:
+
+The offset between medium and low, high pile-up runs was separately calculated as:
 \begin{equation}
-\Delta\epsilon_{ TPC} =\Delta\epsilon_{ TPC}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TPC}^{700\text{ kHz}}
+\Delta\epsilon_{ TPC}^{(1100,i)} = \epsilon_{ TPC}^{1100, \text{nHitsFit}\geq 25}-\epsilon_{ TPC}^{i}
 \label{eq:tpcSystDifference}
 \end{equation}
-Finally, above difference, shown in  \Cref{fig:systError1Dtpc,fig:systError2Dtpc} for $\pi^\pm$, varies between $2-3\%$ and was taken as systematic uncertainty related to TPC track reconstruction efficiency.
+where:\\
+$\epsilon_{ TPC}^{1100, \text{nHitsFit}\geq 25}$ - TPC track reconstruction efficiency calculated from sample with \mbox{$<\text{BBC\_AND}>=1100$~kHz} with default nHitsFit quality cut,\\
+$\epsilon_{ TPC}^{i}$ - TPC track reconstruction efficiency calculated from  samples with  \mbox{$<\text{BBC\_AND}>$=1400~kHz} and  \mbox{$<\text{BBC\_AND}>$=700~kHz}  and modified nHitsFit quality cut.
+
+Finally, above offset, shown in  the bottom of each plot in Figure~\ref{fig:systError1Dtpc}  for $\pi^\pm$, varies between $1-2\%$ and was taken as systematic uncertainty related to TPC track reconstruction efficiency.
 %\vspace{10em}
-\begin{figure}[hb]
-	\centering
-	\parbox{0.495\textwidth}{
-		\centering
-		\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/bbc_and/tpcEffi_d0_1_5_etapt_1.pdf}\\
-	}~
-	\parbox{0.495\textwidth}{
-		\centering
-		\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/bbc_and/tpcEffi_d0_1_5_etapt_1.pdf}\\
-	}%
-	\caption[$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}]{$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}. The efficiences from corresponding no-pile-up MC samples were also shown. Additionally, the differences  from Eq. \ref{eq:tpcSystDifference} were drawn in the bottom of each plot.}
-	\label{fig:systError1Dtpc}
-\end{figure}
 \begin{figure}[H]
 	\centering
 	\parbox{0.495\textwidth}{
 		\centering
-		\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/bbc_and/tpcEffi_d0_1_5_etapt_12D.pdf}\\
+		\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/bbc_and/tpcEffi.pdf}\\
 	}~
 	\parbox{0.495\textwidth}{
 		\centering
-		\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/bbc_and/tpcEffi_d0_1_5_etapt_12D.pdf}\\
+		\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/bbc_and/tpcEffi.pdf}\\
+	}\newline
+	\parbox{0.495\textwidth}{
+		\centering
+		\includegraphics[width=\linewidth,page=3]{graphics/systematicsEfficiency/bbc_and/tpcEffi.pdf}\\
 	}~
-	\caption[The difference $\Delta\epsilon_{ TPC} =\Delta\epsilon_{ TPC}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TPC}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$]{The difference $\Delta\epsilon_{ TPC} =\Delta\epsilon_{ TPC}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TPC}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$. }
-	\label{fig:systError2Dtpc}
+	\parbox{0.495\textwidth}{
+		\centering
+		\includegraphics[width=\linewidth,page=4]{graphics/systematicsEfficiency/bbc_and/tpcEffi.pdf}\\
+	}
+	\caption[$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}]{$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz},\mbox{$<\text{BBC\_AND}>=1100$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}. The~efficiences from corresponding MC samples with changed cut on the number of hits used in the helix fit were also shown. Additionally, the offsets  from Eq. \ref{eq:tpcSystDifference} were drawn in the bottom of each plot. Red lines and arrows indicate region accepted in the analysis.}
+	\label{fig:systError1Dtpc}
 \end{figure}
-
-%%%%%%%%%%
-%tutaj pisac 
-%%%%%%%%%%%
 
 
 %---------------------------
@@ -99,8 +91,8 @@ Finally, above difference, shown in  \Cref{fig:systError1Dtpc,fig:systError2Dtpc
 
 
 
-The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $15\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, 
-the effect of the embedding on the TPC track reconstruction efficiency is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as about $1.5\%$ and $1\%$ for SD and CD, respectively.
+The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $5\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, 
+the effect of the embedding on the TPC track reconstruction efficiency is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as about $0.5\%$ and $1\%$ for SD and CD, respectively.
 	
 \begin{figure}[H]
 	\centering
@@ -158,8 +150,8 @@ In Fig. \ref{fig:dead_materialCDSD1D}  the systematic uncertainty is shown for e
 \section{TOF matching efficiency}\label{sec:tofSystematics}
 In this section the systematic uncertainties on TOF matching efficiency due to the embedding procedure and the simulation accurancy are described.
 \subsection{Embedding (pile-up) effect}\label{sec:tofSystematicsPileUpEffect}
-The effects of pile-up on TOF efficiency is taken into account by using single particle MC embedded into Zerobias data, which can be biased. To estimate the systematic uncertainty of the TOF efficiency related to the~embedding procedure, the offset from the linearity of TOF efficiency  as a function of the mean BBC\_AND rate, $<\text{BBC\_AND}>$, was calculated. The embedded MC was divided into two samples in which $<\text{BBC\_AND}>$ rate differs by a factor of two: \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz} as shown in Fig.~\ref{fig:events_bbc_and} (Sec.~\ref{subsec:TpcEffSystPileUp}).
-Next, it was checked whether the difference between TOF efficiency in pile-up and no-pile-up MC also changes by a factor of two.
+The effects of pile-up on TOF efficiency is taken into account by using single particle MC embedded into Zerobias data. To estimate the systematic uncertainty of the TOF efficiency related to the~embedding procedure, the offset from the linearity of TOF efficiency  as a function of the mean BBC\_AND rate, $<\text{BBC\_AND}>$, was calculated. The embedded MC was divided into two samples in which $<\text{BBC\_AND}>$ rate differs by a factor of two: \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz} as shown in Fig.~\ref{fig:events_bbc_and} (Sec.~\ref{subsec:TpcEffSystPileUp}).
+Next, it was checked whether the difference between TOF efficiency in pile-up and no-pile-up MC also changes by a factor of two between these two samples.
 
 \noindent
 The TOF matching efficiency is conditional and depends on TPC track reconstruction efficiency. Since that, the difference between pile-up and  no-pile-up MC was calculated as:
@@ -190,7 +182,7 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 		\centering
 		\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/bbc_and/tofEffi_d0_1_5_etapt_1.pdf}\\
 	}%
-	\caption[$\pi^\pm$ TOF matching efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}]{$\pi^\pm$ TOF matching efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}. The efficiences from corresponding no-pile-up MC samples were also shown. Additionally, the offset  from Eq. \ref{eq:tofSystDifference} was drawn in the bottom of each plot.}
+	\caption[$\pi^\pm$ TOF matching efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}]{$\pi^\pm$ TOF matching efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$<\text{BBC\_AND}>=700$~kHz} and \mbox{$<\text{BBC\_AND}>=1400$~kHz}. The efficiences from corresponding no-pile-up MC samples were also shown. Additionally, the offset  from Eq. \ref{eq:tofSystDifference} was drawn in the bottom of each plot. Red lines and arrows indicate region accepted in the analysis.}
 	\label{fig:systError1Dtof}
 \end{figure}
 \begin{figure}[H]
@@ -203,7 +195,7 @@ $N_{TPC}^{no-pile-up}$ - number of reconstructed tracks, matched with MC tracks 
 		\centering
 		\includegraphics[width=\linewidth,page=2]{graphics/systematicsEfficiency/bbc_and/tofEffi_d0_1_5_etapt_12D.pdf}\\
 	}%
-	\caption[The difference $\Delta\epsilon_{ TOF} =\Delta\epsilon_{ TOF}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TOF}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$]{The offset $\Delta\epsilon_{ TOF} =\Delta\epsilon_{ TOF}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TOF}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$. }
+	\caption[The difference $\Delta\epsilon_{ TOF} =\Delta\epsilon_{ TOF}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TOF}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$]{The offset $\Delta\epsilon_{ TOF} =\Delta\epsilon_{ TOF}^{1400\text{ kHz}}-2\cdot\Delta\epsilon_{ TOF}^{700\text{ kHz}}$ for $\pi^\pm$ as a function of $p_T$ and $\eta$ $\left(|V_z|<80\text{ cm}\right)$. Red lines and arrows indicate region accepted in the analysis.}
 	\label{fig:systError2Dtof}
 \end{figure}
 
