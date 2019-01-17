@@ -19,7 +19,7 @@ The TPC track reconstruction inefficiency is caused by:
 
 In the following sections, we describe the systematic uncertainties related to the pile-up effect and amount of dead material in front of the TPC. The systematic uncertainty  related to other sources of TPC inefficiencies  is not considered  since they should be well simulated by the MC.
 \subsection{Pile-up effect}\label{subsec:TpcEffSystPileUp}
-The in-time pile-up does not affect the TPC reconstruction efficiency. In contrast, the off-time pile-up significantly reduces that efficiency due to high density of  pile-up hits. That effect is taken into account by using embedding MC events into Zerobias real data. To calculate the systematic uncertainty related to this procedure we compare relative changes of the track selection efficiencies 
+The in-time pile-up does not affect the TPC reconstruction efficiency. In contrast, the off-time pile-up significantly reduces that efficiency due to high density of  pile-up hits. That effect is taken into account by using embedding of MC events into Zerobias real data. To calculate the systematic uncertainty related to this procedure we compare relative changes of the track selection efficiencies 
 between  data driven tag\&probe method and embedding method caused by different density of pile-up TPC hits. The MC  and data were divided into three samples based on mean BBC coincidence rate: \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz}, \mbox{$\langle\text{BBC\_AND}\rangle=1100$~kHz}, \mbox{$\langle\text{BBC\_AND}\rangle=1400$~kHz}, as shown in Fig.~\ref{fig:events_bbc_and}. The main effect of different pile-up in those samples, shown in Fig.~\ref{fig:NhitsFitPileUp}, is the change of the number of hits used in the helix fit.\vspace{-10pt}
 
 
@@ -124,7 +124,7 @@ Ideally above offset should be compatible with zero. This would mean that embedd
 
 
 
-Only $45\%$ of runs were used in embedded MC production. Therefore, additional systematic uncertainty should be calculated related to the proper representation of whole data sample in embedding. The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $5\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, the effect of different TPC track reconstruction efficiency depending on TPC occupancy (the BBC rate) is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as  $0.5\%$ and $1\%$ for SD and CD, respectively.
+Only small fraction of Zerobias data was available for embedded MC production. Therefore, additional systematic uncertainty should be calculated related to the proper representation of whole data sample in embedding. The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $5\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, the effect of different TPC track reconstruction efficiency depending on TPC occupancy (the BBC rate) is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as  $0.5\%$ and $1\%$ for SD and CD, respectively.
 	
 \begin{figure}[H]
 	\centering
