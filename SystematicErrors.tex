@@ -10,9 +10,9 @@ In this chapter we describe the common systematic uncertainties for two analyses
 \section{TPC track reconstruction efficiency}\label{sec:tpcSystematics}
 The TPC track reconstruction inefficiency is caused by:
 \begin{itemize}
-	\item The  spaces  between  the TPC sectors which are required to mount the wires on the sectors and fiducial cuts applied during  track reconstruction.
+	\item Spaces  between  the TPC sectors which are required to mount the wires and fiducial cuts applied during  track reconstruction.
 	\item Dead channels.
-	\item Presence of off-time pile-up hits in TPC.  This results in lowering the number of hits associated with reconstructed track and track rejection caused by track quality selection.
+	\item Presence of off-time pile-up hits in TPC.  This results in lowering the number of hits associated with reconstructed track (Sti algorithm was used) and track rejection caused by track quality selection.
 	\item Particle interactions with dead material in front of the TPC.
 	\item Particle decays.
 	
@@ -21,7 +21,7 @@ In the following sections, we describe the systematic uncertainties related to t
 \subsection{Pile-up effect}\label{subsec:TpcEffSystPileUp}
 The in-time pile-up does not affect the TPC reconstruction efficiency. In contrast, the off-time pile-up significantly reduces that efficiency due to high density of  pile-up hits. That effect is taken into account by using embedding MC events into Zerobias real data. To calculate the systematic uncertainty related to this procedure we compare relative changes of the track selection efficiencies 
 between  data driven tag\&probe method 
-and embedding method cuased by different density of pile-up TPC hits. The MC  and data were divided into three samples based on mean BBC coincidence rate: \mbox{$<\text{BBC\_AND}>=700$~kHz}, \mbox{$<\text{BBC\_AND}>=1100$~kHz}, \mbox{$<\text{BBC\_AND}>=1400$~kHz}, as shown in Fig.~\ref{fig:events_bbc_and}. The main effect of different pile-up in those samples, shown in Fig.~\ref{fig:NhitsFitPileUp}, is the change of the number of hits used in the helix fit.\vspace{-10pt}
+and embedding method caused by different density of pile-up TPC hits. The MC  and data were divided into three samples based on mean BBC coincidence rate: \mbox{$<\text{BBC\_AND}>=700$~kHz}, \mbox{$<\text{BBC\_AND}>=1100$~kHz}, \mbox{$<\text{BBC\_AND}>=1400$~kHz}, as shown in Fig.~\ref{fig:events_bbc_and}. The main effect of different pile-up in those samples, shown in Fig.~\ref{fig:NhitsFitPileUp}, is the change of the number of hits used in the helix fit.\vspace{-10pt}
 
 
 %---------------------------
@@ -51,7 +51,7 @@ In order to find cut value of $N_{\text{hits}}^{\text{fit}}$ that should provide
 \begin{enumerate}
  \item Data from RP\_CPT2 trigger were used. Events were selected with the cuts from nominal CEP analysis (Ref.~\cite{AnalysisNoteRafal}), except cuts \textbf{C3} and \textbf{C7-C9} which were removed or modified as given below.\\[-20pt]%
  %
- \item For each event passing above selection global TPC tracks matched with TOF hits were selected. Exactly 2 such tracks, one of positive and one of negative charge, were required. Both tracks were required compatible with pion hypothesis based on $dE/dx$ ($|n^{\sigma}_{\text{pion}}|<3$). If any of tracks was found incompatible with pion hypothesis - event was dropped from analysis. Also, the tracks were required to be likely a product of the same primary interaction, therefore cut on longitudinal separation along the beamline $|\Delta z_{0}| < 3~\text{cm}$ was imposed. Also, the $z$-position of the vertex was required to be contained within nominal margins, $\frac{1}{2}|z_{0}^{+}+z_{0}^{-}| < 80~\text{cm}$.\\[-20pt]%
+ \item For each event passing above selection global TPC tracks matched with TOF hits were selected. Exactly 2 such tracks, one of positive and one of negative charge, were required. Both tracks were required to be compatible with pion hypothesis based on $dE/dx$ ($|n^{\sigma}_{\text{pion}}|<3$). If any of tracks was found incompatible with pion hypothesis - event was dropped from analysis. Also, the tracks were required to be likely a product of the same primary interaction, therefore cut on longitudinal separation along the beamline $|\Delta z_{0}| < 3~\text{cm}$ was imposed. Also, the $z$-position of the vertex was required to be contained within nominal margins, $\frac{1}{2}|z_{0}^{+}+z_{0}^{-}| < 80~\text{cm}$.\\[-20pt]%
  %
  \item Global TOF-matched TPC tracks preselected in \#2 were checked if they satisfy track qaulity cuts (\ref{sec:TpcQualityCuts}) with modified cut value of $N_{\text{hits}}^{\text{fit}}$ denoted $\mathbb{N}_{\text{thr}}$ ($N_{\text{hits}}^{\text{fit}} \geq \mathbb{N}_{\text{thr}}$). Tracks which pass the quality cuts were set as a tag candidates. In case only one track was found to be a tag candidate, step \#4 was executed only with this single track being a tag. Otherwise step \#4 was repeated for each of two tracks set as a tag.\\[-20pt]%
  %
@@ -125,7 +125,7 @@ Ideally above offset should be compatible with zero. This would mean that embedd
 
 
 
-Only $1\%$ of runs were used in embedded MC production. Therefore additional systematic uncertainty should be calculated related to the proper representation of whole data sample in embedding.The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $5\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, the effect of different TPC track reconstruction efficiency depending on TPC occupancy (the BBC rate) is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as  $0.5\%$ and $1\%$ for SD and CD, respectively.
+Only $45\%$ of runs were used in embedded MC production. Therefore, additional systematic uncertainty should be calculated related to the proper representation of whole data sample in embedding. The comparison of the BBC\_AND rate for SD and CD in the data and embedded MC is shown in Fig.~\ref{fig:systErrorEmbDataRate}. The mean BBC\_AND rate varies between embedded MC and data by about  $5\%$ and $10\%$ for SD and CD, respectively. As shown in Fig.~\ref{fig:systError1Dtpc}, the effect of different TPC track reconstruction efficiency depending on TPC occupancy (the BBC rate) is about $10\%$.  Thus, the additional systematic error due to different mean BBC\_AND rate in the data and embedded MC was introduced as  $0.5\%$ and $1\%$ for SD and CD, respectively.
 	
 \begin{figure}[H]
 	\centering
