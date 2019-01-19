@@ -100,11 +100,12 @@ Although number of hit points used in helical track fit is an integer, the value
 		\centering
 		\includegraphics[width=\linewidth,page=4]{graphics/systematicsEfficiency/bbc_and/tpcEffi.pdf}\\
 	}\vspace{-6pt}
-	\caption[$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz} and \mbox{$\langle\text{BBC\_AND}\rangle=1400$~kHz}]{$\pi^\pm$ TPC track reconstruction efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz},\mbox{$\langle\text{BBC\_AND}\rangle=1100$~kHz} and \mbox{$\langle\text{BBC\_AND}\rangle=1400$~kHz}. The~efficiences from corresponding MC samples with changed cut on the number of hits used in the helix fit were also shown. Additionally, the offsets  from Eq. \ref{eq:tpcSystDifference} were drawn in the bottom of each plot. Red lines and arrows indicate region accepted in the analysis.}
+	\caption[$\pi^\pm$  TPC track selection efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz} and \mbox{$\langle\text{BBC\_AND}\rangle=1400$~kHz}]{$\pi^\pm$  TPC track selection efficiency as a function of $p_T$ $\left(|\eta|<0.7, |V_z|<80\text{ cm}\right)$ for embedded MC samples with \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz},\mbox{$\langle\text{BBC\_AND}\rangle=1100$~kHz} and \mbox{$\langle\text{BBC\_AND}\rangle=1400$~kHz}. The~efficiences from corresponding MC samples with changed cut on the number of hits used in the helix fit were also shown. Additionally, the offsets  from Eq. \ref{eq:tpcSystDifference} were drawn in the bottom of each plot. Red lines and arrows indicate region accepted in the analysis.}
 	\label{fig:systError1Dtpc}
 \end{figure}
 
-Figure~\ref{fig:systError1Dtpc} shows the TPC track reconstruction efficiency with nominal, for   \mbox{$\langle\text{BBC\_AND}\rangle=1100$~kHz} sample, and modified quality cut on the number of hits used in the helix fit, for \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz} and \mbox{$\langle\text{BBC\_AND}\rangle=1400$~kHz} samples, for two periods of data collection (with dead sector \#19 and with that sector back in operation). 
+In order to find the systematic uncertainty,  the  TPC track selection efficiency was defined here as the~probabilty that global TPC track, passing  $d_0$ (\ref{sec:TpcQualityCuts}) qualty cut and compatibile with pion hypothesis $|n^{\sigma}_{\text{pion}}|<3$,  matched with TOF hits and true-level primary particle satisfies $N_{\text{hits}}^{\text{fit}}$ quality cut.  
+Figure~\ref{fig:systError1Dtpc} shows the  TPC track selection efficiency with nominal, for   \mbox{$\langle\text{BBC\_AND}\rangle=1100$~kHz} sample, and modified quality cut on the~number of hits used in the helix fit, for \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz} and \mbox{$\langle\text{BBC\_AND}\rangle=1400$~kHz} samples, for two periods of data collection (with dead sector \#19 and with that sector back in operation). 
 
 
 
@@ -114,10 +115,10 @@ The offset between medium and low, high pile-up runs was separately calculated a
 \label{eq:tpcSystDifference}
 \end{equation}
 where:\\[5pt]
-$\epsilon_{ TPC}^{1100, \text{nHitsFit}\geq 25}$ - TPC track reconstruction efficiency calculated from sample with \mbox{$\langle\text{BBC\_AND}\rangle=1100$~kHz}\\\hspace*{70pt}with default $N_{\text{hits}}^{\text{fit}}$ quality cut,\\
-$\epsilon_{ TPC}^{i}$ - TPC track reconstruction efficiency calculated from  samples with  \mbox{$\langle\text{BBC\_AND}\rangle$=1400~kHz} and \\\mbox{~~~~~~~~~~$\langle\text{BBC\_AND}\rangle$=700~kHz}  with modified $N_{\text{hits}}^{\text{fit}}$ quality cut.
+$\epsilon_{ TPC}^{1100, \text{nHitsFit}\geq 25}$ -  TPC track selection efficiency calculated from sample with \mbox{$\langle\text{BBC\_AND}\rangle=1100$~kHz}\\\hspace*{70pt}with nominal $N_{\text{hits}}^{\text{fit}}$ quality cut,\\
+$\epsilon_{ TPC}^{i}$ - modified TPC track selection efficiency calculated from  samples with  \mbox{$\langle\text{BBC\_AND}\rangle$=1400~kHz} and \\\mbox{~~~~~~~~~~$\langle\text{BBC\_AND}\rangle$=700~kHz}  with modified $N_{\text{hits}}^{\text{fit}}$ quality cut.
 
-Ideally above offset should be compatible with zero. This would mean that embedding procedure is compatible with data driven tag\&probe method. As shown in  the bottom of each plot in Figure~\ref{fig:systError1Dtpc}  for $\pi^\pm$,  above offset varies between $1-2\%$ and was taken as systematic uncertainty on TPC track reconstruction efficiency related to embedding procedure.
+Ideally above offset should be compatible with zero. This would mean that embedding procedure is compatible with data driven tag\&probe method. As shown in  the bottom of each plot in Figure~\ref{fig:systError1Dtpc}  for $\pi^\pm$,  above offset is aboutn $1\%$ and was taken as systematic uncertainty on TPC track reconstruction efficiency related to embedding procedure.
 %\vspace{10em}  
 
 
