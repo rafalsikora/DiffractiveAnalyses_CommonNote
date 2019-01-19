@@ -7,11 +7,11 @@
 
 \chapter{TPC track pointing resolution adjustment}\label{chap:tpcTrackPointingRes}
 
-It was found during the analysis that distributions of quantities which describe the pointing resolution of the TPC tracks do not agree well between the data and embedded MC. Namely, the resolutions of the global helices associated with the tracks were found to be significantly better in the STAR simulation than in the data, what manifests as narrower DCA and $d_{0}$ distribution in the embedded MC, comparing to corresponding distribution in the data (Fig.~\ref{fig:pointingResComp}). This issue was discussed under ticket \#3332~(Ref.~\cite{dcaTicket}).
+It was found during the analysis that distributions of quantities which describe the pointing resolution of the TPC tracks do not agree well between the data and embedded MC. Namely, the resolutions of the global helices associated with the tracks were found to be significantly better in the STAR simulation than in the data, what manifests as narrower DCA and $d_{0}$ distribution in the embedded MC, comparing to corresponding distribution in the data (Fig.~\ref{fig:pointingResComp_pion}). This issue was discussed under ticket \#3332~(Ref.~\cite{dcaTicket}).
 
 This problem could affect the momentum resolution and thus all other resolutions and reponse matrices used in data unfolding. Therefore the resolution adjustment procedure was performed to find appropriate parameters of the ``artificial'' helix deterioration and finally obtain agreement between DCA and $d_{0}$ distributions (and all related resolutions) in the data and embedded MC.
 
-In order to worsen pointing resolution in the MC a smearing of the helix radius $\sigma(R)$ was introduced. Based on $d_{0}$ comparison in~Fig.~\ref{fig:d0} it was decided to account also for the small systematic bias of the helix radius $\Delta\mu(R)$\footnote{Transverse impact parameter $d_{0}$ takes positive value if the beamline is contained inside the helix (in the $yz$-plane projection), otherwise it is negative. Any asymmetry in the $d_{0}$ distribution in the MC with respect to the data indicates presence of systematic difference in reconstructed $d_{0}$, hence also in reconstructed $R$.}, which may be present e.g. due to differences in the material budget used the simulation and reconstruction. Both smearing and bias of the helix radius were introduced only for MC tracks which were matched with the true-level particles since only simulated tracks require adjustment (tracks from zero-bias event used in embedding already contain all detector effects).
+In order to worsen pointing resolution in the MC a smearing of the helix radius $\sigma(R)$ was introduced. Based on $d_{0}$ comparison in~Fig.~\ref{fig:d0_pion} (before adjustment) it was decided to account also for the small systematic bias of the helix radius $\Delta\mu(R)$\footnote{Transverse impact parameter $d_{0}$ takes positive value if the beamline is contained inside the helix (in the $yz$-plane projection), otherwise it is negative. Any asymmetry in the $d_{0}$ distribution in the MC with respect to the data indicates presence of systematic difference in reconstructed $d_{0}$, hence also in reconstructed $R$.}, which may be present e.g. due to differences in the material budget used the simulation and reconstruction. Both smearing and bias of the helix radius were introduced only for MC tracks which were matched with the true-level particles since only simulated tracks require adjustment (tracks from zero-bias event used in embedding already contain all detector effects).
 
 %---------------------------
 \begin{wrapfigure}{i}{0.365\textwidth}\vspace*{-9pt}
@@ -19,7 +19,7 @@ In order to worsen pointing resolution in the MC a smearing of the helix radius 
   \includegraphics[width=0.365\textwidth]{graphics/tpcHelixAdj/trackSmearing.pdf}
   \caption[Sketch of helix modification procedure and $d_{0}$ calculation.]
    {Sketch of helix modification procedure and $d_{0}$ calculation.}
-   \label{fig:d0sketch}%\vspace*{-29pt}
+   \label{fig:d0sketch}%\vspace*{-29pt} 
 \end{wrapfigure}
 %---------------------------
 
@@ -75,7 +75,7 @@ Extraction of $\Delta\mu(R)$ and $\sigma(R)$ parameter required to achieve agree
    \label{fig:distortionVsPt}%\vspace*{-29pt}
 \end{wrapfigure}
 %---------------------------
-Helices of global TPC tracks were deteriorated according to Eq.~\eqref{eq:radiusRecalc} and the parametrizations of global track $p_{T}$-dependence of $\Delta\mu(R)$ and $\sigma(R)$ from Fig.~\ref{fig:distortionVsPt}, to verify if better agreement between the data and embedded MC is found after the adjustment. Filled histograms in Fig.~\ref{fig:pointingResComp} show $d_{0}$ and DCA distributions after the described adjustment, and filled circles in the bottom pad show their ratio to the data points. Clearly, there is much better agreement between embedded MC and the data after the pointing resolution adjustment. Remaining differences may arise from incomplete theoretical model of the CEP process impleneted in GenEx leading to different $p_{T}$ spectra of the data and the model (e.g. model does not contain resonant $\pi^{+}\pi^{-}$ production).
+Helices of global TPC tracks were deteriorated according to Eq.~\eqref{eq:radiusRecalc} and the parametrizations of global track $p_{T}$-dependence of $\Delta\mu(R)$ and $\sigma(R)$ from Fig.~\ref{fig:distortionVsPt}, to verify if better agreement between the data and embedded MC is found after the adjustment. Filled histograms in Figs.~\ref{fig:pointingResComp_pion}-\ref{fig:pointingResComp_kaon} show $d_{0}$ and DCA distributions after the described adjustment, and filled circles in the bottom pad show their ratio to the data points. Clearly, there is much better agreement between embedded MC and the data after the pointing resolution adjustment. Remaining differences may arise from incomplete theoretical model of the CEP process impleneted in GenEx leading to different $p_{T}$ spectra of the data and the model (e.g. model does not contain resonant $\pi^{+}\pi^{-}$ and $K^{+}K^{-}$ production).
 
 
 
@@ -87,27 +87,62 @@ Helices of global TPC tracks were deteriorated according to Eq.~\eqref{eq:radius
 \parbox{0.4725\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}
-                \subcaptionbox{\label{fig:d0}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/d0_beforeAfterCorrection.pdf}}
+                \subcaptionbox{\label{fig:d0_pion}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/D0_beforeAfterCorrection_pion.pdf}\vspace{-7pt}}
   \end{subfigure}\\
   \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
-                \subcaptionbox{\label{fig:dcaX}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/DcaX_beforeAfterCorrection.pdf}}
+                \subcaptionbox{\label{fig:dcaX_pion}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/DcaX_beforeAfterCorrection_pion.pdf}\vspace{-7pt}}
   \end{subfigure}\\
   \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
-                \subcaptionbox{\label{fig:dcaZ}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/LongitudinalDCA_beforeAfterCorrection.pdf}}
+                \subcaptionbox{\label{fig:dcaZ_pion}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/LongitudinalDCA_beforeAfterCorrection_pion.pdf}\vspace{-7pt}}
+  \end{subfigure}
+}%
+\quad\quad% 
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-4}
+                \subcaptionbox{\label{fig:dcaR_pion}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/RadialDCA_beforeAfterCorrection_pion.pdf}\vspace{-7pt}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
+                \subcaptionbox{\label{fig:dcaY_pion}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/DcaY_beforeAfterCorrection_pion.pdf}\vspace{-7pt}}
+  \end{subfigure}
+  \begin{minipage}[t][1.042\linewidth][t]{\linewidth}\vspace{10pt}
+    \caption[Comparison of distribution of pion $d_{0}$ and components of DCA vector in the data and embedded MC, before and after adjustment of TPC pointing resolution.]
+    {Comparison of distribution of pion transverse impact parameter $d_{0}$~(\ref{fig:d0_pion}) and transverse~(\ref{fig:dcaR_pion}), $x$-~(\ref{fig:dcaX_pion}), $y$-~(\ref{fig:dcaY_pion}) and $z$-component (\ref{fig:dcaZ_pion}) of the DCA vector between the global helix and primary vertex in the data (CEP) and embedded MC (GenEx). Distributions for unadjusted helices are drawn as hashed histograms, while filled histograms are for adjusted helices. Normalizations of the signal and backgrounds were established from the comparison of $p_{T}^{\textrm{miss}}$ distribution after full selection (without cut on the presented quantity and without exclusivity cut), as described in Sec.~XXX of~Ref.~\cite{AnalysisNoteRafal}. Red dashed lines and red arrows indicate the range of each quantity which is accepted in analyses.}\label{fig:pointingResComp_pion}
+  \end{minipage}
+}%
+
+\end{figure}
+%---------------------------
+
+
+
+%---------------------------
+\begin{figure}[ht]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}
+                \subcaptionbox{\label{fig:d0_kaon}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/D0_beforeAfterCorrection_kaon.pdf}\vspace{-7pt}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
+                \subcaptionbox{\label{fig:dcaX_kaon}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/DcaX_beforeAfterCorrection_kaon.pdf}\vspace{-7pt}}
+  \end{subfigure}\\
+  \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
+                \subcaptionbox{\label{fig:dcaZ_kaon}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/LongitudinalDCA_beforeAfterCorrection_kaon.pdf}\vspace{-7pt}}
   \end{subfigure}
 }%
 \quad\quad%
 \parbox{0.4725\textwidth}{
   \centering
   \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{-4}
-                \subcaptionbox{\label{fig:dcaR}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/RadialDCA_beforeAfterCorrection.pdf}}
+                \subcaptionbox{\label{fig:dcaR_kaon}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/RadialDCA_beforeAfterCorrection_kaon.pdf}\vspace{-7pt}}
   \end{subfigure}\\
   \begin{subfigure}[b]{\linewidth}\addtocounter{subfigure}{1}
-                \subcaptionbox{\label{fig:dcaY}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/DcaY_beforeAfterCorrection.pdf}}
+                \subcaptionbox{\label{fig:dcaY_kaon}}{\includegraphics[width=\linewidth]{graphics/tpcHelixAdj/DcaY_beforeAfterCorrection_kaon.pdf}\vspace{-7pt}}
   \end{subfigure}
   \begin{minipage}[t][1.042\linewidth][t]{\linewidth}\vspace{10pt}
-    \caption[Comparison of distribution of pion $d_{0}$ and components of DCA vector in the data and embedded MC, before and after adjustment of TPC pointing resolution.]
-    {Comparison of distribution of pion transverse impact parameter $d_{0}$~(\ref{fig:d0}) and transverse~(\ref{fig:dcaR}), $x$-~(\ref{fig:dcaX}), $y$-~(\ref{fig:dcaY}) and $z$-component (\ref{fig:dcaZ}) of the DCA vector between the global helix and primary vertex in the data (CEP) and embedded MC (GenEx). Distributions for unadjusted helices are drawn as hashed histograms, while filled histograms are for adjusted helices. Normalizations of the signal and backgrounds were established from the comparison of $p_{T}^{\textrm{miss}}$ and $\Delta\theta$ distributions after full selection (without cut on the presented quantity and without exclusivity cut), as described in Sec.~XXX of~Ref.~\cite{AnalysisNoteRafal}. Red dashed lines and red arrows indicate the range of each quantity which is accepted in analyses.}\label{fig:pointingResComp}
+    \caption[Comparison of distribution of kaon $d_{0}$ and components of DCA vector in the data and embedded MC, before and after adjustment of TPC pointing resolution.]
+    {Comparison of distribution of kaon transverse impact parameter $d_{0}$~(\ref{fig:d0_kaon}) and transverse~(\ref{fig:dcaR_kaon}), $x$-~(\ref{fig:dcaX_kaon}), $y$-~(\ref{fig:dcaY_kaon}) and $z$-component (\ref{fig:dcaZ_kaon}) of the DCA vector between the global helix and primary vertex in the data (CEP) and embedded MC (GenEx). Distributions for unadjusted helices are drawn as hashed histograms, while filled histograms are for adjusted helices. Normalizations of the signal and backgrounds were established from the comparison of $p_{T}^{\textrm{miss}}$ distribution after full selection (without cut on the presented quantity and without exclusivity cut), as described in Sec.~XXX of~Ref.~\cite{AnalysisNoteRafal}. Red dashed lines and red arrows indicate the range of each quantity which is accepted in analyses.}\label{fig:pointingResComp_kaon}
   \end{minipage}
 }%
 
