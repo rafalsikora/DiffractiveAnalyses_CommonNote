@@ -132,7 +132,7 @@ definition by taking into the account the difference    between reconstructed tr
 In this method, the definition of true level particle-track matching is modified. In addition to the requirement of the appropriate number of common hit points, the distance between true level particle and track is required to be smaller than $0.15$, $\delta^{2}\left(\eta,\phi\right)<\left(0.15\right)^2$. It is quite an arbitrary value which should be small but not too small  to loose good events. The value of $\delta^2$ cut was chosen by the requirement that only acceptable small amount of CEP events which passed all selection criteria will not satisfy matching criteria. It was verified with the CEP MC embedded into zero-bias triggers that with quoted value of cut on $\delta^{2}\left(\eta,\phi\right)$ less than $0.3\%$ of CEP events have at least one track which is not considered to be matched with true-level pion despite the standard matching (Fig.~\ref{fig:deltaSqCEP}). We consider this an acceptably low effect.
 
 Tracks, which do not satisfy the above criterion, are treated as fake tracks (even if they are matched to the true level particle in the standard way). In $99.97\%$ cases, where the $\delta^{2}\left(\eta,\phi\right)<\left(0.15\right)^2$, there is only one track matched to true level particle (Fig.~\ref{fig:trackSplittingetaPhi}). Additionally, the $dE/dx$ of the track is in $99.94\%$ consistent with the true level PID (Fig.~\ref{fig:trackSplittingEtaPhidEdx}). Figure~\ref{fig:trackTPCefficiencyComparisonEtaPhi} shows the difference between TPC efficiencies obtained with the STAR standard and the modified definition of true particle-track matching. The maximum differences between TPC efficiencies in the analyzed $p_T$ range are about $2\%$ for pions, $3\%$ for kaons, $2\%$ and $4\%$ for protons and antiprotons, respectively.
-
+These diferences are of the order or even higher than systematic uncertainties on TPC efficiency so we consider this modification of matching  as non-negligible problem.
 
 %---------------------------
 \begin{figure}[h!]%\vspace{-10pt}
@@ -214,7 +214,7 @@ Tracks, which do not satisfy the above criterion, are treated as fake tracks (ev
 
 \subsection{Sample of  efficiency plots}\label{subsec:sampleTpcEffPlots}
 
-During Run~$15$ the inner sector $\#19$ in the TPC was dead during some runs~\cite{sector19inner}. In Figure~\ref{fig:PhiVsEtaTpcSyst} we show density map of global TPC track first point $(\eta,\varphi)$ coordinates for runs with dead sector $\#19$  and with that sector back in operation.
+During Run~$15$ the inner sector $\#19$ in the TPC was dead during some runs~\cite{sector19inner}. In Figure~\ref{fig:PhiVsEtaTpcSyst} we show density map of global TPC track first point $(\eta,\varphi)$ coordinates for runs with dead sector $\#19$  and with that sector back in operation. Tracks were required to have at least $32$ hits to good visibility of the regions where $13$ or more pad raws were dead.
 Since that, the TPC track acceptance and reconstruction efficiency was calculated for two periods: runs up to 16073050 and after 16073050.
 
 %---------------------------
