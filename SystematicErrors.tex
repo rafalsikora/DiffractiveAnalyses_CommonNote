@@ -34,10 +34,10 @@ between  data driven tag\&probe method and embedding method caused by different 
 	\end{minipage}%
 	\quad\quad%
 	\begin{minipage}{.4725\textwidth}%
-		\centering\vspace{-1em}%
+		\centering%\vspace{-0.5em}%
 		\hspace*{-20pt}\includegraphics[width=1.1\linewidth,page=4]{graphics/systematicsEfficiency/bbc_and/meanNHits.pdf}\vspace{-10pt}%
 		\caption[$\chi^{2}/\text{NDF}$ obtained in the search for the best $N_{\text{hits}}^{\text{fit}}$ cut value.]
-		{Number of hits used in the helix fit $N_{\text{hits}}^{\text{fit}}$ for embedded MC samples  selected with respect to average rate in BBC. Red line and arrow indicate the region accepted in the analysis for nominal $N_{\text{hits}}^{\text{fit}}$ cut value.}\label{fig:NhitsFitPileUp}%\vspace*{-29pt} 
+		{Number of hits used in the helix fit $N_{\text{hits}}^{\text{fit}}$ for embedded MC samples  selected with respect to average rate in BBC. Distributions were normalized to the number of events in \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz} sample. Red line and arrow indicate the region accepted in the analysis for nominal $N_{\text{hits}}^{\text{fit}}$ cut value.}\label{fig:NhitsFitPileUp}%\vspace*{-29pt} 
 	\end{minipage}%
 \end{figure}\vspace{-10pt}%
 %---------------------------
@@ -104,7 +104,7 @@ Although number of hit points used in helical track fit is an integer, the value
 	\label{fig:systError1Dtpc}
 \end{figure}
 
-In order to find the systematic uncertainty,  the  TPC track selection efficiency was defined here as the~probabilty that global TPC track, passing  $d_0$ (\ref{sec:TpcQualityCuts}) qualty cut and compatibile with pion hypothesis $|n^{\sigma}_{\text{pion}}|<3$,  matched with TOF hits and true-level primary particle satisfies $N_{\text{hits}}^{\text{fit}}$ quality cut.  
+In order to find the systematic uncertainty,  the  TPC track selection efficiency was defined here as the~probabilty that global TPC track, passing  $d_0$ (\ref{sec:TpcQualityCuts}) quality cut and compatibile with pion hypothesis $|n^{\sigma}_{\text{pion}}|<3$,  matched with TOF hits and true-level primary particle satisfies $N_{\text{hits}}^{\text{fit}}$ quality cut.  
 Figure~\ref{fig:systError1Dtpc} shows the  TPC track selection efficiency with nominal, for   \mbox{$\langle\text{BBC\_AND}\rangle=1100$~kHz} sample, and modified quality cut on the~number of hits used in the helix fit, for \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz} and \mbox{$\langle\text{BBC\_AND}\rangle=1400$~kHz} samples, for two periods of data collection (with dead sector \#19 and with that sector back in operation). 
 
 
@@ -183,7 +183,7 @@ In Fig. \ref{fig:dead_materialCDSD1D}  the systematic uncertainty is shown for e
 
 
 \section{TOF matching efficiency}\label{sec:tofSystematics}
-In this section the systematic uncertainties on TOF matching efficiency due to the embedding procedure and the simulation accurancy are described.
+In this section the systematic uncertainties on TOF matching efficiency due to the embedding procedure and the simulation accuracy are described.
 \subsection{Embedding (pile-up) effect}\label{sec:tofSystematicsPileUpEffect}
 The effects of pile-up on TOF efficiency is taken into account by using single particle MC embedded into Zerobias data. To estimate the systematic uncertainty of the TOF efficiency related to the~embedding procedure, the offset from the linearity of TOF efficiency  as a function of the mean BBC\_AND rate, $\langle\text{BBC\_AND}\rangle$, was calculated. The embedded MC was divided into two samples in which $\langle\text{BBC\_AND}\rangle$ rate differs by a factor of two: \mbox{$\langle\text{BBC\_AND}\rangle=700$~kHz} and \mbox{$\langle\text{BBC\_AND}\rangle=1400$~kHz} as shown in Fig.~\ref{fig:events_bbc_and} (Sec.~\ref{subsec:TpcEffSystPileUp}).
 Next, it was checked whether the difference between TOF efficiency in pile-up and no-pile-up MC also changes by a factor of two between these two samples.
