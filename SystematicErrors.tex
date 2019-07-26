@@ -679,6 +679,37 @@ In the area of detector accessible in this study an excellent agreement ($<0.5\%
 
 
 
+
+\section{Roman Pot trigger counters efficiency}\label{sec:rpTriggerEffSystematics}
+
+Systematic uncertainty of the RP trigger counters efficiency has been estimated with a method very similiar to that presented in the study of the RP track point reconstruction efficiency described in Sec.~\ref{subsec:rpTrackPointRecoEffSyst}. In principle, methods differ only in point no. 6, which here has the following form:
+
+\begin{enumerate}\setcounter{enumi}{5}%
+\item The clean trak point was required in the detector under study (the other detector in the same branch as a reference detector). The RP trigger counter efficiency $\varepsilon$ was defined as a probability that there was a trigger signal in studied RP. It was calculated as a ratio of the number of selected elastic scattering events with a clean track point and with a trigger signal in a studied detector, to all number of selected elastic scattering events with a clean track point in the studied detector.
+\end{enumerate}
+
+A sample comparison of the outcome of described analysis can be found in Fig.~\ref{fig:relativeRpRecoEff_E1U} (see also Appendix~\ref{appendix:rpTrigEffSyst}). The same as in case of relative efficiency, the area of detector accessible in this study is limited to overlapping part of silicon. Based on comparisons one can conclude, that within the fiducial area the differences between trigger coutnter efficiency in the data and MC are extremely small ($<0.5\%$) comparing to other uncertainties, except detectors E2U and W2U. In two mentioned detectors efficiency is lower in the data by 1\% comparing to MC. We therefore consider these trigger counters to have efficiency uncertainty of that amount, with all remaining detectors not affected by any uncertainty due to very good agreement beteen data and MC far below  systematic uncertainties from other sources.
+
+%---------------------------
+\begin{figure}[h]%\vspace{-34pt}
+	\centering
+	\parbox{0.4725\textwidth}{
+		\centering
+		\includegraphics[width=\linewidth,page=1]{graphics/systematicsEfficiency/RpSyst/relativeTriggerEff2D_pxpy.pdf}%\vspace{-12pt}
+	}
+	\quad
+	\parbox{0.4725\textwidth}{
+		\centering%\vspace*{-100pt}
+		\caption[Coparison of estimated RP trigger counter efficiency in 2D (detector E1U).]%
+    {Sample comparison of RP trigger counter efficiency (detector E1U) in the data (top panel) and embedded MC (middle panel) estimated with the method described in Sec.~\ref{sec:rpTriggerEffSystematics} as a function of $(p_{x},p_{y})$ of a proton track. Lower pad shows the difference between efficiency extracted from the data and MC. Hatched orange area marks bins without any entries (efficiency incalculable). Similar comparison for the remaining detectors can be found in Appendix~\ref{appendix:rpTrigEffSyst}.%
+    \label{fig:relativeRpRecoEff_E1U}%
+    }
+	}
+\end{figure}
+%---------------------------
+
+
+
 \section{Summary of the systematic uncertainties of efficiences}\label{sec:systErrorSummary}
 
 In Tab.~\ref{tab:systErrors} we summarize all systematic uncertainties of TPC, TOF and RP efficiency which were discussed in this note.
