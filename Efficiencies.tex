@@ -268,73 +268,7 @@ In Figure~\ref{fig:tpcEff_pion_sample} we present sample plots of the TPC track 
 In order to maximize the statistics available for the measurement (possibly wide range of accepted longitudinal vertex position $z_{\text{vtx}}$) with maximized probed phase-space in analyzed physics processes (wide range of track $p_{T}$ and $\eta$) and minimized systematic uncertainties related to the central detector (TPC and TOF), we have studied the efficiency plots like ones shown in Fig.~\ref{fig:tpcEff_pion_sample} and Fig.~\ref{fig:tofEff_pion_sample}. We thus decided to set the cut on $z_{\text{vtx}}$ at $\pm80~\text{cm}$, which corresponds to 89\% of the full integral of normal distribution with mean at 0 and standard deviation of 50~cm. At the same time we set the cuts on track $p_{T}$ and $\eta$ as listed in Sec.~\ref{sec:TpcKinematicCuts}. These cuts are represented with red dashed lines in Fig.~\ref{fig:tpcEff_pion_sample} and Fig.~\ref{fig:tofEff_pion_sample}. Our goal was to operate within cuboid ($z_{\text{vtx}}$, $p_{T}$, $\eta$) region of relatively high TPC and TOF efficiency ($\geq50\%$ of the maximum value). In other words, we required high acceptance and efficiency for a rectangular ($p_{T}$, $\eta$) space with limits independent from $z_{\text{vtx}}$. One can see that the red lines in Fig.~\ref{fig:tpcEff_pion_sample} and Fig.~\ref{fig:tofEff_pion_sample} always contain in their interior the region of relatively high acceptance.
 
 
-\subsection{Variation in the track quality cuts}\label{Sec:TrackCutVariation}
-In order to check the~sensivity of any track based measurement to track selection (described in Sec.~\ref{chap:TpcTrackQualityCuts}), additional four variations of track quality cuts have been implemented
-and correspoding TPC efficiencies are calculated:
-\begin{itemize}
-	\item nHits loose: $N^\textrm{fit}_\textrm{hits}\geq 20$, $N^\textrm{dE/dx}_\textrm{hits}\geq 12$,
-	\item nHits tight: $N^\textrm{fit}_\textrm{hits}\geq 28$, $N^\textrm{dE/dx}_\textrm{hits}\geq 17$,
-	\item $d_0$ loose: $|d_0| < 3.0$~cm,
-	\item $d_0$ tight: $|d_0| < 1.0$~cm.
-\end{itemize}
-Figures~\ref{fig:tpcEff_VarCuts_pt} and \ref{fig:tpcEff_VarCuts_eta} show TPC track reconstruction and acceptance  efficiencies of $\pi^{\pm}$ as a function of $p_T$ and $\eta$, respectively, obtained from embedded MC samples with respect to the~above various track quality cuts.  The~variation of the~$N^\textrm{fit}_\textrm{hits}$ and $N^\textrm{dE/dx}_\textrm{hits}$ cuts leads to a~$5\%$ change in the~efficiences, while the~variation of the~$d_0$ cut produces changes in the~efficiencies of about $1-2\%$ but $5\%$ at low $p_T$.
-\begin{figure}[h!]
-	\centering
-	\parbox{0.49\textwidth}{
-		\centering
-		\begin{subfigure}[b]{\linewidth}\centering
-			\subcaptionbox{\label{fig:eff_varCuts_MinusPt0}}{\centering\includegraphics[width=\linewidth,page=3]{graphics/eff/comparison_TPC.pdf}}
-		\end{subfigure}
-	}%
-	\parbox{0.49\textwidth}{
-		\centering
-		\begin{subfigure}[b]{\linewidth}\centering
-			\subcaptionbox{\label{fig:eff_varCuts_PlusPt0}}{\centering\includegraphics[width=\linewidth,page=15]{graphics/eff/comparison_TPC.pdf}}
-		\end{subfigure}
-	}
-	\parbox{0.49\textwidth}{
-		\centering
-		\begin{subfigure}[b]{\linewidth}\centering
-			\subcaptionbox{\label{fig:eff_varCuts_MinusPt1}}{\centering\includegraphics[width=\linewidth,page=4]{graphics/eff/comparison_TPC.pdf}}
-		\end{subfigure}
-	}%
-	\parbox{0.49\textwidth}{
-		\centering
-		\begin{subfigure}[b]{\linewidth}\centering
-			\subcaptionbox{\label{fig:eff_varCuts_PlusPt1}}{\centering\includegraphics[width=\linewidth,page=16]{graphics/eff/comparison_TPC.pdf}}
-		\end{subfigure}
-	}
-	\caption[TPC acceptance and reconstruction efficiency of $\pi^{-}$ and $\pi^+$ as a function of $p_T$ obtained from embedded MC samples with respect to various track quality cuts.]{TPC acceptance and reconstruction efficiency of $\pi^{-}$ (a, c) and $\pi^+$ (b, d) as a function of $p_T$ ($|\eta| < 0.7$, $|V_z|<80$~cm) obtained from embedded MC samples with respect to various track quality cuts. The~efficiencies are shown for runs with dead sector $\#19$ (up to 16073050, \ref{fig:eff_varCuts_MinusPt0},\ref{fig:eff_varCuts_PlusPt0}) and with that sector back in operation (after run 16073050, \ref{fig:eff_varCuts_MinusPt1},\ref{fig:eff_varCuts_PlusPt1})}\label{fig:tpcEff_VarCuts_pt}
-\end{figure}
 
-\begin{figure}[h!]
-	\centering
-	\parbox{0.49\textwidth}{
-		\centering
-		\begin{subfigure}[b]{\linewidth}\centering
-			\subcaptionbox{\label{fig:eff_varCuts_MinusEta0}}{\centering\includegraphics[width=\linewidth,page=1]{graphics/eff/comparison_TPC.pdf}}
-		\end{subfigure}
-	}%
-	\parbox{0.49\textwidth}{
-		\centering
-		\begin{subfigure}[b]{\linewidth}\centering
-			\subcaptionbox{\label{fig:eff_varCuts_PlusEta0}}{\centering\includegraphics[width=\linewidth,page=13]{graphics/eff/comparison_TPC.pdf}}
-		\end{subfigure}
-	}
-	\parbox{0.49\textwidth}{
-		\centering
-		\begin{subfigure}[b]{\linewidth}\centering
-			\subcaptionbox{\label{fig:eff_varCuts_MinusEta1}}{\centering\includegraphics[width=\linewidth,page=2]{graphics/eff/comparison_TPC.pdf}}
-		\end{subfigure}
-	}%
-	\parbox{0.49\textwidth}{
-		\centering
-		\begin{subfigure}[b]{\linewidth}\centering
-			\subcaptionbox{\label{fig:eff_varCuts_PlusEta1}}{\centering\includegraphics[width=\linewidth,page=14]{graphics/eff/comparison_TPC.pdf}}
-		\end{subfigure}
-	}
-	\caption[TPC acceptance and reconstruction efficiency of $\pi^{-}$ and $\pi^+$ as a function of $\eta$ obtained from embedded MC samples with respect to various track quality cuts.]{TPC acceptance and reconstruction efficiency of $\pi^{-}$ (a, c) and $\pi^+$ (b, d) as a function of $\eta$ ($p_T>0.2$~GeV/c, $|V_z|<80$~cm) obtained from embedded MC samples with respect to various track quality cuts. The~efficiencies are shown for runs with dead sector $\#19$ (up to 16073050, \ref{fig:eff_varCuts_MinusEta0},\ref{fig:eff_varCuts_PlusEta0}) and with that sector back in operation (after run 16073050, \ref{fig:eff_varCuts_MinusEta1},\ref{fig:eff_varCuts_PlusEta1})}\label{fig:tpcEff_VarCuts_eta}
-\end{figure}
 
 \section{TOF acceptance, hit reconstruction and track matching efficiency}\label{sec:tofMatchEff}
 

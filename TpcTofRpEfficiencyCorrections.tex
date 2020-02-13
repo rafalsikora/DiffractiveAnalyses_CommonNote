@@ -241,6 +241,34 @@ $[~0.3;~~ 0.7]$   &\small  $ 0.683 \pm 0.008 $  &\small  $ 0.132 \pm 0.055 $  &\
 
 
 
+\section{Data driven corrections to TPC efficiency}\label{sec:tpcEffCorr}
+
+
+%---------------------------
+\begin{figure}[h]
+\centering
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:DaysBefore75_TpcEffVsEta}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TPC_tagAndProbe/DaysBefore75_TpcEffVsEta.CPT2.pdf}\vspace{-5pt}}}
+  \end{subfigure}
+}
+\quad
+\parbox{0.4725\textwidth}{
+  \centering
+  \begin{subfigure}[b]{\linewidth}{
+                \subcaptionbox{\label{fig:DaysAfter75_TpcEffVsEta}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TPC_tagAndProbe/DaysAfter75_TpcEffVsEta.CPT2.pdf}\vspace{-5pt}}}
+  \end{subfigure}
+}%\vspace{-5pt}%
+\caption[Tag\&Probe TPC track selection efficiency from CEP data compared with the result from embedded CEP MC.]%
+    {Tag\&Probe TPC track selection efficiency from CEP data (black points) compared with the result from embedded CEP MC (red points) as a function of TPC track $\eta$. %Solid lines are fits of function given by Eq.~\eqref{eq:tofEffFunc} to points of corresponding color, whose parameters are tabulated in Tab.~\ref{tab:tofEffCorrParams}. Dashed vertical lines with arrows indicate region of $p_{T}$ and $\eta$ accepted in analyses.
+    }\label{fig:tofEffSyst_etaBins}% 
+\end{figure}%
+%---------------------------
+
+
+
+
 
 \section{Data driven corrections to RP efficiency}\label{sec:rpTrackEffCorr}
 
