@@ -182,6 +182,79 @@ In Fig. \ref{fig:dead_materialCDSD1D}  the systematic uncertainty is shown for e
 
 
 
+\subsection{Variation in the track quality cuts}\label{Sec:TrackCutVariation}
+In order to check the~sensivity of any track based measurement to track selection (described in Sec.~\ref{chap:TpcTrackQualityCuts}), additional four variations of track quality cuts have been implemented
+and correspoding TPC efficiencies are calculated:
+\begin{itemize}
+	\item nHits loose: $N^\textrm{fit}_\textrm{hits}\geq 20$, $N^\textrm{dE/dx}_\textrm{hits}\geq 12$,
+	\item nHits tight: $N^\textrm{fit}_\textrm{hits}\geq 28$, $N^\textrm{dE/dx}_\textrm{hits}\geq 17$,
+	\item $d_0$ loose: $|d_0| < 3.0$~cm,
+	\item $d_0$ tight: $|d_0| < 1.0$~cm.
+\end{itemize}
+Figures~\ref{fig:tpcEff_VarCuts_pt} and \ref{fig:tpcEff_VarCuts_eta} show TPC track reconstruction and acceptance  efficiencies of $\pi^{\pm}$ as a function of $p_T$ and $\eta$, respectively, obtained from embedded MC samples with respect to the~above various track quality cuts.  The~variation of the~$N^\textrm{fit}_\textrm{hits}$ and $N^\textrm{dE/dx}_\textrm{hits}$ cuts leads to a~$5\%$ change in the~efficiences, while the~variation of the~$d_0$ cut produces changes in the~efficiencies of about $1-2\%$ but $5\%$ at low $p_T$.
+\begin{figure}[h!]
+	\centering
+	\parbox{0.49\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}\centering
+			\subcaptionbox{\label{fig:eff_varCuts_MinusPt0}}{\centering\includegraphics[width=\linewidth,page=3]{graphics/eff/comparison_TPC.pdf}}
+		\end{subfigure}
+	}%
+	\parbox{0.49\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}\centering
+			\subcaptionbox{\label{fig:eff_varCuts_PlusPt0}}{\centering\includegraphics[width=\linewidth,page=15]{graphics/eff/comparison_TPC.pdf}}
+		\end{subfigure}
+	}
+	\parbox{0.49\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}\centering
+			\subcaptionbox{\label{fig:eff_varCuts_MinusPt1}}{\centering\includegraphics[width=\linewidth,page=4]{graphics/eff/comparison_TPC.pdf}}
+		\end{subfigure}
+	}%
+	\parbox{0.49\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}\centering
+			\subcaptionbox{\label{fig:eff_varCuts_PlusPt1}}{\centering\includegraphics[width=\linewidth,page=16]{graphics/eff/comparison_TPC.pdf}}
+		\end{subfigure}
+	}
+	\caption[TPC acceptance and reconstruction efficiency of $\pi^{-}$ and $\pi^+$ as a function of $p_T$ obtained from embedded MC samples with respect to various track quality cuts.]{TPC acceptance and reconstruction efficiency of $\pi^{-}$ (a, c) and $\pi^+$ (b, d) as a function of $p_T$ ($|\eta| < 0.7$, $|V_z|<80$~cm) obtained from embedded MC samples with respect to various track quality cuts. The~efficiencies are shown for runs with dead sector $\#19$ (up to 16073050, \ref{fig:eff_varCuts_MinusPt0},\ref{fig:eff_varCuts_PlusPt0}) and with that sector back in operation (after run 16073050, \ref{fig:eff_varCuts_MinusPt1},\ref{fig:eff_varCuts_PlusPt1})}\label{fig:tpcEff_VarCuts_pt}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\parbox{0.49\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}\centering
+			\subcaptionbox{\label{fig:eff_varCuts_MinusEta0}}{\centering\includegraphics[width=\linewidth,page=1]{graphics/eff/comparison_TPC.pdf}}
+		\end{subfigure}
+	}%
+	\parbox{0.49\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}\centering
+			\subcaptionbox{\label{fig:eff_varCuts_PlusEta0}}{\centering\includegraphics[width=\linewidth,page=13]{graphics/eff/comparison_TPC.pdf}}
+		\end{subfigure}
+	}
+	\parbox{0.49\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}\centering
+			\subcaptionbox{\label{fig:eff_varCuts_MinusEta1}}{\centering\includegraphics[width=\linewidth,page=2]{graphics/eff/comparison_TPC.pdf}}
+		\end{subfigure}
+	}%
+	\parbox{0.49\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}\centering
+			\subcaptionbox{\label{fig:eff_varCuts_PlusEta1}}{\centering\includegraphics[width=\linewidth,page=14]{graphics/eff/comparison_TPC.pdf}}
+		\end{subfigure}
+	}
+	\caption[TPC acceptance and reconstruction efficiency of $\pi^{-}$ and $\pi^+$ as a function of $\eta$ obtained from embedded MC samples with respect to various track quality cuts.]{TPC acceptance and reconstruction efficiency of $\pi^{-}$ (a, c) and $\pi^+$ (b, d) as a function of $\eta$ ($p_T>0.2$~GeV/c, $|V_z|<80$~cm) obtained from embedded MC samples with respect to various track quality cuts. The~efficiencies are shown for runs with dead sector $\#19$ (up to 16073050, \ref{fig:eff_varCuts_MinusEta0},\ref{fig:eff_varCuts_PlusEta0}) and with that sector back in operation (after run 16073050, \ref{fig:eff_varCuts_MinusEta1},\ref{fig:eff_varCuts_PlusEta1})}\label{fig:tpcEff_VarCuts_eta}
+\end{figure}
+%
+
+\clearpage
+
+
+
 \section{TOF matching efficiency}\label{sec:tofSystematics}
 In this section the systematic uncertainties on TOF matching efficiency due to the embedding procedure and the simulation accuracy are described.
 \subsection{Embedding (pile-up) effect}\label{sec:tofSystematicsPileUpEffect}
