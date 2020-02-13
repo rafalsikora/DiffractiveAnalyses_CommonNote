@@ -243,9 +243,10 @@ $[~0.3;~~ 0.7]$   &\small  $ 0.683 \pm 0.008 $  &\small  $ 0.132 \pm 0.055 $  &\
 
 \section{Data driven corrections to TPC efficiency}\label{sec:tpcEffCorr}
 
+Tag\&Probe method was also used to extract the TPC track selection efficiency. Comparison of the results determined from the data and embedded MC revealed necessity to introduce correction to the TPC track reconstruction efficiency calculated from the embedded MC (described in Sec.~\ref{sec:tpcAccAndEff}). The details of the Tag\&Probe method, modified comparing to method used to determine TOF efficiency and described in Sec.~\ref{sec:tofAbsEffCorr}, are given in Sec.~\ref{subsec:TpcEffSystPileUp}. Below we focus on the outcome of data and MC comparisons.
 
 %---------------------------
-\begin{figure}[h]
+\begin{figure}[b!]
 \centering
 \parbox{0.4725\textwidth}{
   \centering
@@ -261,13 +262,58 @@ $[~0.3;~~ 0.7]$   &\small  $ 0.683 \pm 0.008 $  &\small  $ 0.132 \pm 0.055 $  &\
   \end{subfigure}
 }%\vspace{-5pt}%
 \caption[Tag\&Probe TPC track selection efficiency from CEP data compared with the result from embedded CEP MC.]%
-    {Tag\&Probe TPC track selection efficiency from CEP data (black points) compared with the result from embedded CEP MC (red points) as a function of TPC track $\eta$. %Solid lines are fits of function given by Eq.~\eqref{eq:tofEffFunc} to points of corresponding color, whose parameters are tabulated in Tab.~\ref{tab:tofEffCorrParams}. Dashed vertical lines with arrows indicate region of $p_{T}$ and $\eta$ accepted in analyses.
-    }\label{fig:tofEffSyst_etaBins}% 
+    {Tag\&Probe TPC track selection efficiency from CEP data (black points) compared with the result from embedded CEP MC (red points) as a function of TPC track $\eta$. Dashed vertical lines with arrows indicate range of $\eta$ accepted in analyses. Figs.~\subref{fig:DaysBefore75_TpcEffVsEta} and~\subref{fig:DaysAfter75_TpcEffVsEta} show comparisons of data and MC for runs without and with the TPC sector 19 in operation, respectively.
+    }\label{fig:tpcEffTagAndProbe}% 
 \end{figure}%
 %---------------------------
 
+Fig.~\ref{fig:tpcEffTagAndProbe} shows the TPC track selection efficiency (using nominal quality cuts from Sec.~\ref{sec:TpcQualityCuts}) in two run ranges: before (\subref{fig:DaysBefore75_TpcEffVsEta}) and after (\subref{fig:DaysAfter75_TpcEffVsEta}) run 16073050. The difference between these two periods is mainly in the state of TPC sector \#19 (see Sec.~\ref{subsec:sampleTpcEffPlots}). As can be noted, there is significant difference at $\eta<0$ in the period with the TPC sector \#19 being out of operation (Fig.~\ref{fig:DaysBefore75_TpcEffVsEta}).. Some effects related to the loss of active TPC volume were presumably not simulated or appropriate corrections were not applied to the data at the time of TPC track reconstruction. We do not observe significant difference between the data and embedded MC for the later data-taking period (Fig.~\ref{fig:DaysAfter75_TpcEffVsEta}).
 
 
+From above observations we conclude that TPC track reconstruction efficiency obtained from the embedded MC for runs before 16073050 needs to be corrected by the factor which results from the ratio of the Tag\&Probe efficiencies from the data and embedded MC in the same data-taking period. Such a ratio with a fit of smooth function describing the trend in $\eta$ is presented in Fig.~\ref{fig:DaysAfter75_DataToMC}.
+
+%---------------------------
+\begin{figure}[h]%\vspace{-34pt}
+	\centering
+	\parbox{0.5\textwidth}{%
+		\centering%
+		\includegraphics[width=\linewidth]{graphics/correctionsToEff/TPC_tagAndProbe/DaysBefore75_DataToMC.pdf}%
+	}
+	\quad
+	\parbox{0.47\textwidth}{ 
+		\centering
+		%\begin{minipage}[t][0.64\linewidth][t]{\linewidth}%\vspace{73pt} 
+		\caption[Ratio of Tag\&Probe TPC track selection efficiencies determined from the data and embedded CEP MC.]%
+		{Ratio of Tag\&Probe TPC track selection efficiencies determined from the data and embedded CEP MC for runs up to 16073050 (black points). Blue solid line represents the function of the form $p_{0}\times\arctan{\left(p_{1}\times\eta\right)}+p_{2}$ fitted to the points. The best fit is achieved for $p_{0}=0.0435$, $p_{1}=3.11$, $p_{2}=0.946$.}\label{fig:DaysAfter75_DataToMC}% 
+		%\end{minipage}
+	}
+\end{figure}
+%---------------------------
+
+Above correction to the TPC track reconstruction efficiency helps to find an agreement between shapes of distributions at positive and negative $\eta$. It is demonstrated in Fig~\ref{fig:etaComparisonSD} where particle densities are presented for SD process as a function of pseudorapidity, before (\subref{fig:eta_beforeCorr}) and after (\subref{fig:eta_afterCorr}) the correction is applied. It is nicely seen that with the applied correction the symmetry between positive and negative $\eta$ is obtained.
+
+
+
+%---------------------------
+\begin{figure}[h]
+	\centering
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}{
+				\subcaptionbox{\label{fig:eta_beforeCorr}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TPC_tagAndProbe/eta_beforeCorr.pdf}\vspace{-15pt}}}
+		\end{subfigure}
+	}
+	\quad
+	\parbox{0.4725\textwidth}{
+		\centering
+		\begin{subfigure}[b]{\linewidth}{
+				\subcaptionbox{\label{fig:eta_afterCorr}}{\includegraphics[width=\linewidth]{graphics/correctionsToEff/TPC_tagAndProbe/eta_afterCorr.pdf}\vspace{-15pt}}}
+		\end{subfigure}
+	}%\vspace{-5pt}%
+	\caption[.]%
+	{.}\label{fig:etaComparisonSD}%
+\end{figure}%
+%---------------------------
 
 
 \section{Data driven corrections to RP efficiency}\label{sec:rpTrackEffCorr}
